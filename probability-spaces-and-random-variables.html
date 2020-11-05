@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Probability Spaces and Random Variables | Probability and Statistics Classes</title>
+  <meta name="description" content="2 Probability Spaces and Random Variables | Probability and Statistics Classes" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Probability Spaces and Random Variables | Probability and Statistics Classes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Probability Spaces and Random Variables | Probability and Statistics Classes" />
+  
+  
+  
+
+<meta name="author" content="Alejandro Hernández Wences" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="distributions.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html"><i class="fa fa-check"></i><b>2</b> Probability Spaces and Random Variables</a><ul>
+<li class="chapter" data-level="2.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#probability-spaces"><i class="fa fa-check"></i><b>2.1</b> Probability Spaces</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#first-examples"><i class="fa fa-check"></i><b>2.1.1</b> First Examples</a></li>
+<li class="chapter" data-level="2.1.2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#important-examples"><i class="fa fa-check"></i><b>2.1.2</b> Important Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#random-variables"><i class="fa fa-check"></i><b>2.2</b> Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>3</b> Distributions</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Probability and Statistics Classes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probability-spaces-and-random-variables" class="section level1">
+<h1><span class="header-section-number">2</span> Probability Spaces and Random Variables</h1>
+
+
+
+
+<div id="probability-spaces" class="section level2">
+<h2><span class="header-section-number">2.1</span> Probability Spaces</h2>
+<p>Let <span class="math inline">\(\Omega\)</span> be a set and let <span class="math inline">\(\mathcal{P}(\Omega)\)</span> be its power set, i.e. the family <span class="math inline">\(\left\{A\colon A\subset \Omega\right\}\)</span>.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-1" class="definition"><strong>Definition 2.1  </strong></span>A family of sets <span class="math inline">\(\mathscr{F}\subset \mathcal{P}\left(\Omega\right)\)</span> is called a <em><span class="math inline">\(\sigma\)</span>-algebra</em> if it has the following properties:</p>
+<ul>
+<li><p><span class="math inline">\(\Omega\in\mathscr{F}\)</span> and <span class="math inline">\(\emptyset\in\mathscr{F}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A\in\mathscr{F}\)</span> then <span class="math inline">\(A^c\in\mathscr{F}\)</span>.</p></li>
+<li><p>If <span class="math inline">\((A_n)_{n\in\mathbb{N}}\subset\mathscr{F}\)</span> is a <em>countable</em> collection of subsets in <span class="math inline">\(\mathscr{F}\)</span>, then <span class="math display">\[\bigcup_{n=1}^\infty A_n\in\mathscr{F}.\]</span> I.e.
+<span class="math inline">\(\mathscr{F}\)</span> is closed under countable unions.</p></li>
+</ul>
+<p>The pair <span class="math inline">\((\Omega,\mathscr{F})\)</span> is called a <em>measurable space</em>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-2" class="definition"><strong>Definition 2.2  </strong></span>Let <span class="math inline">\((\Omega,\mathscr{F})\)</span> be a measurable space. A function <span class="math display">\[\mathbb{P}\colon \mathscr{F}\to \mathbb{R}^+\]</span> is called a <em>probability measure</em> if it satisfies the
+following properties:</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span> and <span class="math inline">\(\mathbb{P}(\emptyset)=0\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(A)\geq 0\)</span> for all <span class="math inline">\(A\in\mathscr{F}\)</span>.</p></li>
+<li>If <span class="math inline">\((A_n)_n\subset \mathscr{F}\)</span> is a countable collection of pairwise disjoint sets, i.e.
+<span class="math display">\[
+A_i \bigcap A_j = \emptyset \quad \forall i,j,
+\]</span>
+then
+<span class="math display">\[
+\mathbb{P}\left(\bigcup_n A_n\right) = \sum_n \mathbb{P}(A_n).
+\]</span>
+</div></li>
+</ul>
+<div id="first-examples" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> First Examples</h3>
+<ol style="list-style-type: decimal">
+<li><ul>
+<li><span class="math inline">\(\Omega=[0,1]\)</span>,</li>
+<li><span class="math inline">\(\mathscr{F}=\mathscr{B}([0,1])\)</span> <strong>(safely ignore)</strong>,</li>
+<li><span class="math inline">\(\mathbb{P}(A)=length(A)\)</span>
+<ul>
+<li>E.g. If <span class="math inline">\(A=[a,b]\)</span> then <span class="math inline">\(\mathbb{P}(A)=b-a\)</span></li>
+</ul></li>
+</ul></li>
+<li><ul>
+<li><span class="math inline">\(\Omega=[0,1]^n\)</span>,</li>
+<li><span class="math inline">\(\mathscr{F}=\mathscr{B}([0,1]^n)\)</span> <strong>(safely ignore)</strong>,</li>
+<li><span class="math inline">\(\mathbb{P}(A)=volume(A)\)</span>,
+<ul>
+<li>E.g. If <span class="math inline">\(n=2\)</span> and <span class="math inline">\(A=[a,b]\times[c,d]\)</span> then <span class="math inline">\(\mathbb{P}(A)=(b-a)(d-c)\)</span>.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+<div id="important-examples" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Important Examples</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Continuous probability measures on <span class="math inline">\(\mathbb{R}\)</span> (or <span class="math inline">\(\mathbb{R}^+\)</span>, etc):</strong></li>
+</ol>
+<p>Let <span class="math inline">\(f\colon \mathbb{R}\to \mathbb{R}^+\)</span> be such that <span class="math inline">\(\int_{-\infty}^\infty f(x)\hspace{3pt}dx = 1\)</span> and set</p>
+<ul>
+<li><span class="math inline">\(\Omega=\mathbb{R}\)</span> (resp. <span class="math inline">\(\mathbb{R}+\)</span>),</li>
+<li><span class="math inline">\(\mathscr{F}=\mathscr{B}(\mathbb{R})\)</span> (resp. <span class="math inline">\(\mathscr{B}(\mathbb{R}^+)\)</span>)<strong>(safely ignore)</strong>,</li>
+<li><span class="math inline">\(\mathbb{P}(A)=\int_A f(x) \hspace{3pt}dx\)</span>
+<ul>
+<li>E.g. If <span class="math inline">\(A=[a,b]\)</span> then <span class="math inline">\(\mathbb{P}(A)=\int_a^b f(x)\hspace{3pt}dx\)</span>.</li>
+</ul></li>
+</ul>
+<p>For example, consider the <em>exponential measure</em> on <span class="math inline">\(\mathbb{R}^+\)</span>: for any <span class="math inline">\(\lambda&gt;0\)</span> set
+<span class="math display">\[f(x)= \lambda e^{-\lambda x},\]</span>
+then <span class="math inline">\(f\)</span> satisfies
+<span class="math display">\[\int_0^\infty f(x) \hspace{3pt}dx=\int_0^\infty \lambda e^{-\lambda x} \hspace{3pt}dx= 1.\]</span>
+Thus we may define a continuous probability measure <span class="math inline">\(\mathbb{P}\)</span> on <span class="math inline">\(\mathbb{R}^+\)</span> which satisfies, for example
+<span class="math display">\[\mathbb{P}([a,\infty])=\int_a^\infty \lambda e^{-\lambda x}\hspace{3pt}dx=e^{-a}.\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Discrete probability measures on <span class="math inline">\(\mathbb{R}\)</span> (or <span class="math inline">\(\mathbb{N}\)</span>, etc):</strong></li>
+</ol>
+<p>Let <span class="math inline">\((a_n)_n\subset\mathbb{R}\)</span> be a countable collection of points in <span class="math inline">\(\mathbb{R}\)</span>,
+and let <span class="math inline">\((p_n)_n\subset [0,1]\)</span> be such that <span class="math display">\[\sum_n p_n = 1.\]</span> Set</p>
+<ul>
+<li><span class="math inline">\(\Omega=\mathbb{R}\)</span>,</li>
+<li><span class="math inline">\(\mathscr{F}=\mathscr{B}(\mathbb{R})\)</span> <strong>(safely ignore)</strong>,</li>
+<li><span class="math display">\[\mathbb{P}(A)=\sum_{n\colon a_n\in A}p_n \]</span>
+<ul>
+<li>E.g. If <span class="math inline">\(a_n=n\)</span> for <span class="math inline">\(1\leq n \leq N\)</span> and <span class="math inline">\(p_n=1/N\)</span>, then <span class="math inline">\(\mathbb{P}(\{1,2\}) = \frac{1}{N} + \frac{1}{N}=\frac{2}{N}\)</span></li>
+</ul></li>
+</ul>
+<p>For example consider the <em>geometric measure</em> on <span class="math inline">\(\mathbb{N}\)</span>: let <span class="math inline">\(a_0=0,a_1=1,\dots\)</span> and fix any <span class="math inline">\(p\in[0,1]\)</span>; define
+<span class="math inline">\(p_n=p^n(1-p)\)</span> for <span class="math inline">\(n\in\{0,1,\dots\}\)</span>, then <span class="math inline">\((p_n)_{n\in}\)</span> satisfies
+<span class="math display">\[
+\begin{aligned}
+\sum_{n=0}^\infty p^n(1-p) &amp;= (1-p)\sum_{n=0}^\infty p^n \\
+&amp;= \frac{1-p}{1-p} \\
+&amp;= 1,
+\end{aligned}
+\]</span>
+so we may define a probability measure <span class="math inline">\(\mathbb{P}\)</span> on <span class="math inline">\(\mathbb{N}\)</span> (or on <span class="math inline">\(\mathbb{R}\)</span>) which satisfies, for example for any <span class="math inline">\(k\in \mathbb{N}\)</span>
+<span class="math display">\[
+\begin{aligned}
+\mathbb{P}([0,k]) &amp;= (1-p)\sum_{n=0}^k p^n \\
+&amp;= (1-p)\frac{1-p^n}{1-p}\\
+&amp;=1-p^n.
+\end{aligned}
+\]</span></p>
+<hr />
+</div>
+</div>
+<div id="random-variables" class="section level2">
+<h2><span class="header-section-number">2.2</span> Random Variables</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
