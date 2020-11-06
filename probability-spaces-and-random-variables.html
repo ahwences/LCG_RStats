@@ -53,6 +53,68 @@
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -99,6 +161,7 @@
 
 
 
+
 <div id="probability-spaces" class="section level2">
 <h2><span class="header-section-number">2.1</span> Probability Spaces</h2>
 <p>Let <span class="math inline">\(\Omega\)</span> be a set and let <span class="math inline">\(\mathcal{P}(\Omega)\)</span> be its power set, i.e. the family <span class="math inline">\(\left\{A\colon A\subset \Omega\right\}\)</span>.</p>
@@ -134,27 +197,37 @@ The triplet <span class="math inline">\((\Omega,\mathscr{F},\mathbb{P})\)</span>
 </ul>
 <div id="first-examples" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> First Examples</h3>
-<ol style="list-style-type: decimal">
-<li><ul>
+
+<div class="example">
+<p><span id="exm:ProbLength" class="example"><strong>Example 2.1  </strong></span>
+Set</p>
+<ul>
 <li><span class="math inline">\(\Omega=[0,1]\)</span>,</li>
-<li><span class="math inline">\(\mathscr{F}=\mathscr{B}([0,1])\)</span> <strong>(safely ignore)</strong>,</li>
+<li><span class="math inline">\(\mathscr{F}=\mathscr{B}([0,1])\)</span> <strong>(safely ignore)</strong>, and</li>
 <li><span class="math inline">\(\mathbb{P}(A)=length(A)\)</span>
 <ul>
 <li>E.g. If <span class="math inline">\(A=[a,b]\)</span> then <span class="math inline">\(\mathbb{P}(A)=b-a\)</span></li>
 </ul></li>
-</ul></li>
-<li><ul>
+</ul>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-4" class="example"><strong>Example 2.2  </strong></span>
+Set</p>
+<ul>
 <li><span class="math inline">\(\Omega=[0,1]^n\)</span>,</li>
-<li><span class="math inline">\(\mathscr{F}=\mathscr{B}([0,1]^n)\)</span> <strong>(safely ignore)</strong>,</li>
+<li><span class="math inline">\(\mathscr{F}=\mathscr{B}([0,1]^n)\)</span> <strong>(safely ignore)</strong>, and</li>
 <li><span class="math inline">\(\mathbb{P}(A)=volume(A)\)</span>,
 <ul>
 <li>E.g. If <span class="math inline">\(n=2\)</span> and <span class="math inline">\(A=[a,b]\times[c,d]\)</span> then <span class="math inline">\(\mathbb{P}(A)=(b-a)(d-c)\)</span>.</li>
-<li>E.g.
-<img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" />
-In this case <span class="math inline">\(\mathbb{P}\left(A\right)=\sum_{n=1}^\infty \left(\frac{1}{2^2}\right)^n = 1/3\)</span>.</li>
+<li>E.g.</li>
 </ul></li>
-</ul></li>
-</ol>
+</ul>
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>In this case <span class="math inline">\(\mathbb{P}\left(A\right)=\sum_{n=1}^\infty \left(\frac{1}{2^2}\right)^n = 1/3\)</span>.</p>
 </div>
 <div id="important-examples" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Important Examples</h3>
@@ -162,15 +235,15 @@ In this case <span class="math inline">\(\mathbb{P}\left(A\right)=\sum_{n=1}^\in
 <h4><span class="header-section-number">2.1.2.1</span> Continuous probability measures on <span class="math inline">\(\mathbb{R}\)</span> (or <span class="math inline">\(\mathbb{R}^+\)</span>, etc)</h4>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-5" class="definition"><strong>Definition 2.3  (Continuous Probability Measure)  </strong></span>
-Let <span class="math inline">\(f\colon \mathbb{R}\to \mathbb{R}^+\)</span> be such that <span class="math inline">\(\int_{-\infty}^\infty f(x)\hspace{3pt}dx = 1\)</span> (such an <span class="math inline">\(f\)</span> is called
-a <em>density function</em>). Set</p>
+<p><span id="def:unnamed-chunk-6" class="definition"><strong>Definition 2.3  (Continuous Probability Measure)  </strong></span>
+Let <span class="math inline">\(f\colon D\subset\mathbb{R}\to \mathbb{R}^+\)</span> be such that <span class="math inline">\(\int_D f(x)\hspace{3pt}dx = 1\)</span> (such an <span class="math inline">\(f\)</span> is called
+a <em>density function</em> on <span class="math inline">\(D\)</span>). Set</p>
 <ul>
-<li><span class="math inline">\(\Omega=\mathbb{R}\)</span> (resp. <span class="math inline">\(\mathbb{R}+\)</span>),</li>
-<li><span class="math inline">\(\mathscr{F}=\mathscr{B}(\mathbb{R})\)</span> (resp. <span class="math inline">\(\mathscr{B}(\mathbb{R}^+)\)</span>)<strong>(safely ignore)</strong>,</li>
-<li><span class="math inline">\(\mathbb{P}(A)=\int_A f(x) \hspace{3pt}dx\)</span>
+<li><span class="math inline">\(\Omega=D\)</span> (resp. <span class="math inline">\(\mathbb{R}+\)</span>),</li>
+<li><span class="math inline">\(\mathscr{F}=\mathscr{B}(D)\)</span> (resp. <span class="math inline">\(\mathscr{B}(\mathbb{R}^+)\)</span>)<strong>(safely ignore)</strong>,</li>
+<li><span class="math inline">\(\mathbb{P}(A)=\int_{A\cap D} f(x) \hspace{3pt}dx\)</span>
 <ul>
-<li>E.g. If <span class="math inline">\(A=[a,b]\)</span> then <span class="math inline">\(\mathbb{P}(A)=\int_a^b f(x)\hspace{3pt}dx\)</span>.</li>
+<li>E.g. If <span class="math inline">\(D=\mathbb{R}\)</span> and <span class="math inline">\(A=[a,b]\)</span> then <span class="math inline">\(\mathbb{P}(A)=\int_a^b f(x)\hspace{3pt}dx\)</span>.</li>
 </ul></li>
 </ul>
 A probability measure constructed in this way is called a <em>continuous probability measure</em>.
@@ -178,10 +251,11 @@ A probability measure constructed in this way is called a <em>continuous probabi
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-6" class="example"><strong>Example 2.1  </strong></span>Consider the <em>exponential measure</em> on <span class="math inline">\(\mathbb{R}^+\)</span>: for any <span class="math inline">\(\lambda&gt;0\)</span> set
+<p><span id="exm:ExpDist" class="example"><strong>Example 2.3  </strong></span>
+Consider the <em>exponential measure</em> on <span class="math inline">\(\mathbb{R}^+\)</span>: for any <span class="math inline">\(\lambda&gt;0\)</span> set
 <span class="math display">\[f(x)= \lambda e^{-\lambda x},\]</span>
 then <span class="math inline">\(f\)</span> satisfies
-<span class="math display">\[\int_0^\infty f(x) \hspace{3pt}dx=\int_0^\infty \lambda e^{-\lambda x} \hspace{3pt}dx= 1.\]</span>
+<span class="math display">\[\int_0^\infty f(x) \hspace{3pt}dx=\int_0^\infty \lambda e^{-\lambda x} \hspace{3pt}dx= 1.\]</span></p>
 </div>
 
 <p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
@@ -209,7 +283,7 @@ A probability measure constructed in this way is called a <em>discrete probabili
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-10" class="example"><strong>Example 2.2  </strong></span>
+<p><span id="exm:GeomDist" class="example"><strong>Example 2.4  </strong></span>
 Consider the <em>geometric measure</em> on <span class="math inline">\(\mathbb{N}\)</span>: let <span class="math inline">\(a_0=0, a_1=1, a_2=2, \dots\)</span> and fix any <span class="math inline">\(p\in[0,1];\)</span> define
 <span class="math inline">\(p_n=p^n(1-p)\)</span> for <span class="math inline">\(n\in\{0,1,\dots\}\)</span> and note that they satisfy
 <span class="math display">\[
@@ -221,24 +295,24 @@ Consider the <em>geometric measure</em> on <span class="math inline">\(\mathbb{N
 \]</span></p>
 </div>
 
-<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Thus we may define a probability measure <span class="math inline">\(\mathbb{P}\)</span> on <span class="math inline">\(\mathbb{N}\)</span> (or on <span class="math inline">\(\mathbb{R}\)</span>). For any <span class="math inline">\(k\in \mathbb{N}\)</span> this probability measure
-evaluated on the set <span class="math inline">\([0,k]\)</span> gives
+evaluated on the set <span class="math inline">\(\{0,\dots,k\}\)</span> gives
 <span class="math display">\[
 \begin{aligned}
-\mathbb{P}([0,k]) &amp;= (1-p)\sum_{n=0}^k p^n \\
-&amp;= (1-p)\frac{1-p^n}{1-p}\\
-&amp;=1-p^n.
+\mathbb{P}(\{0,\dots,k\}) &amp;= (1-p)\sum_{n=0}^k p^n \\
+&amp;= (1-p)\frac{1-p^k}{1-p}\\
+&amp;=1-p^k.
 \end{aligned}
 \]</span></p>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-12" class="exercise"><strong>Exercise 2.1  </strong></span>Invent one continuous probability measure and one discrete probability measure.
+<span id="exr:unnamed-chunk-11" class="exercise"><strong>Exercise 2.1  </strong></span>Invent one continuous probability measure and one discrete probability measure.
 </div>
 
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-13" class="exercise"><strong>Exercise 2.2  </strong></span>If <span class="math inline">\(A,B\in\mathscr{F}\)</span> prove that
+<span id="exr:unnamed-chunk-12" class="exercise"><strong>Exercise 2.2  </strong></span>If <span class="math inline">\(A,B\in\mathscr{F}\)</span> prove that
 <span class="math display">\[
 \mathbb{P}(A) = \mathbb{P}(A\cap B)+ \mathbb{P}(A \cap B^c).
 \]</span>
@@ -246,7 +320,7 @@ If, furtheremore <span class="math inline">\(B\subset A\)</span>, prove that
 <span class="math display">\[
 \mathbb{P}(A) = \mathbb{P}(B) + \mathbb{P}(A\cap B^c)
 \]</span>
-and conclude that <span class="math inline">\(\mathbb{P}(B)\leq\mathbb{P}(A)\)</span>
+and conclude that <span class="math inline">\(\mathbb{P}(B)\leq\mathbb{P}(A).\)</span>
 </div>
 
 <hr />
@@ -257,7 +331,7 @@ and conclude that <span class="math inline">\(\mathbb{P}(B)\leq\mathbb{P}(A)\)</
 <h2><span class="header-section-number">2.2</span> Properties of Probability Measures</h2>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-14" class="theorem"><strong>Theorem 2.1  </strong></span>Let <span class="math inline">\((B_n)_n\subset\mathscr{F}\)</span> be a partition of <span class="math inline">\(\Omega\)</span>, i.e.</p>
+<p><span id="thm:unnamed-chunk-13" class="theorem"><strong>Theorem 2.1  </strong></span>Let <span class="math inline">\((B_n)_n\subset\mathscr{F}\)</span> be a partition of <span class="math inline">\(\Omega\)</span>, i.e.</p>
 <ul>
 <li><span class="math inline">\(\bigcup_n B_n = \Omega\)</span>, and</li>
 <li><span class="math inline">\(B_n \bigcap B_m = \emptyset \quad \forall n\neq m\)</span>,</li>
@@ -268,10 +342,10 @@ Then, for any <span class="math inline">\(A\in\mathscr{F}\)</span> we have the f
 \]</span>
 </div>
 
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-16" class="theorem"><strong>Theorem 2.2  </strong></span>
+<p><span id="thm:unnamed-chunk-15" class="theorem"><strong>Theorem 2.2  </strong></span>
 Let <span class="math inline">\((\Omega,\mathscr{F}, \mathbb{P})\)</span> be a probability space. The following equalities hold.</p>
 <ul>
 <li><p>If <span class="math inline">\((A_n)_{n\in\mathbb{N}}\subset \mathscr{F}\)</span> and
@@ -293,11 +367,127 @@ then
 </ul>
 </div>
 
-<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="random-variables" class="section level2">
 <h2><span class="header-section-number">2.3</span> Random Variables</h2>
+
+<div class="definition">
+<span id="def:unnamed-chunk-17" class="definition"><strong>Definition 2.5  (Random Variable)  </strong></span>Let <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span> be a probability space. A function
+<span class="math display">\[
+X\colon \Omega \to \mathbb{R}
+\]</span>
+is called a <em>random variable</em>.
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-18" class="definition"><strong>Definition 2.6  (Distribution)  </strong></span>Let <span class="math inline">\(X\)</span> be a random varaible defined on a probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span>. The probability measure
+on <span class="math inline">\(\mathbb{R}\)</span> induced by <span class="math inline">\(X\)</span>, which is given by
+<span class="math display">\[
+\mathbb{P}(X\in A) :=\mathbb{P}\left(\left\{\omega\in\Omega\colon X(\omega)\in A \right\}\right), \quad A\in\mathscr{B}(\mathbb{R}),
+\]</span>
+is called its <em>distribution function</em> or its <em>law</em>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-19" class="example"><strong>Example 2.5  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:ProbLength">2.1</a> where <span class="math inline">\(\Omega = [0,1]\)</span> and <span class="math inline">\(\mathbb{P}(A)=length(A)\)</span>. Let <span class="math inline">\(N\in\mathbb{N}\)</span> and define the function
+<span class="math inline">\(X\colon [0,1]\to\mathbb{N}\)</span> given by</p>
+<p><span class="math display">\[
+X(\omega):=n \quad \text{ if }\quad \frac{n-1}{N} \leq \omega \leq \frac{n}{N}, \quad n\in\{1,\dots,N\}. 
+\]</span></p>
+In this case <span class="math inline">\(X\)</span> induces the <em>uniform distribution</em> on the set <span class="math inline">\(\{1,\dots, N\}\)</span> since all the points have
+the same probability measure, that is
+<span class="math display">\[
+\forall i,j\in\{1, \dots, N\},\quad\mathbb{P}(X=i)=\frac{1}{N}=\mathbb{P}(X=j).
+\]</span>
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-20" class="definition"><strong>Definition 2.7  (Cumulative Distribution Function)  </strong></span>Let be a random varaible defined on a probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span>. The function <span class="math inline">\(F_X\colon \mathbb{R}\to [0,1]\)</span>
+given by
+<span class="math display">\[
+F_X(x) :=\mathbb{P}\left(X\leq x\right)
+\]</span>
+is called the <em>cumulative distribution function (CDF)</em> of <span class="math inline">\(X\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-21" class="example"><strong>Example 2.6  </strong></span>Let <span class="math inline">\(X\)</span> be a random variable with distribution function
+<span class="math display">\[
+\mathbb{P}(X\in A) = \frac{1}{b-a}\int_{A}1 \hspace{3pt}dx = length(A) / (b-a), \quad A\subset [a,b],
+\]</span>
+i.e. the <em>uniform distribution</em> on the interval <span class="math inline">\([a,b]\)</span> where <span class="math inline">\(a&lt;b\)</span>.
+The cumulative distribution function <span class="math inline">\(F_X\)</span> of <span class="math inline">\(X\)</span> is given by
+<span class="math display">\[
+F_X(x) = \begin{cases}
+0 &amp;\text{ if } x &lt; a,\\
+\frac{x-a}{b-a} &amp;\text{ if }x \in [a,b],\\
+1 &amp;\text{ if } x \geq b.
+\end{cases}
+\]</span>
+</div>
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">a &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-2" title="2">b &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb1-3" title="3">x &lt;-<span class="st"> </span><span class="kw">seq</span>(a<span class="dv">-2</span>, b<span class="op">+</span><span class="dv">2</span>, <span class="dt">length.out =</span> )</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">par</span>(<span class="st">&#39;plt&#39;</span>=<span class="kw">c</span>(<span class="fl">0.08</span>,<span class="dv">1</span><span class="fl">-0.05</span>,<span class="fl">0.08</span>,<span class="dv">1</span><span class="fl">-0.05</span>), <span class="st">&#39;xaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>, <span class="st">&#39;yaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">plot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">punif</span>(x, <span class="dt">min =</span> a, <span class="dt">max =</span> b), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;skyblue3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-23" class="exercise"><strong>Exercise 2.3  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:GeomDist">2.4</a>. Compute the CDF of the geometric distribution of parameter <span class="math inline">\(p\)</span>.</p>
+<!---
+we can easily derive the CDF of the geometric distribution with
+parameter $p$. We obtain
+$$
+F_X(x) = \begin{cases}
+0 &\text{ if } x <0\\
+1-p^{\lfloor x \rfloor} &\text{ if } x\geq 0.
+\end{cases}
+$$
+-->
+</div>
+
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-24" class="exercise"><strong>Exercise 2.4  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:ExpDist">2.3</a>. Compute the CDF of the exponential distribution of parameter <span class="math inline">\(\lambda\)</span>.</p>
+<!---
+Consider the exponential distribution given by
+$$
+\P(X\in A) = \int_A \lambda e^{-\lambda x} \dif{x},\quad A\subset \R^+.
+$$
+Find $F_X$.
+-->
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-25" class="example"><strong>Example 2.7  (Plot Geometric CDF)  </strong></span>
+</div>
+
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">p &lt;-<span class="st"> </span><span class="fl">0.75</span></a>
+<a class="sourceLine" id="cb2-2" title="2">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">6</span>, <span class="dt">length.out =</span> <span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">par</span>(<span class="st">&#39;plt&#39;</span>=<span class="kw">c</span>(<span class="fl">0.08</span>,<span class="dv">1</span><span class="fl">-0.05</span>,<span class="fl">0.08</span>,<span class="dv">1</span><span class="fl">-0.05</span>), <span class="st">&#39;xaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>, <span class="st">&#39;yaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">plot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">pgeom</span>(x, <span class="dt">p =</span> p), <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;skyblue3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">points</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">y =</span> <span class="kw">pgeom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">p =</span> p), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+```</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-27" class="example"><strong>Example 2.8  (Plot Exponential CDF)  </strong></span>
+</div>
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">lambda &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb3-2" title="2">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dt">length.out =</span> <span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">par</span>(<span class="st">&#39;plt&#39;</span>=<span class="kw">c</span>(<span class="fl">0.08</span>,<span class="dv">1</span><span class="fl">-0.05</span>,<span class="fl">0.08</span>,<span class="dv">1</span><span class="fl">-0.05</span>), <span class="st">&#39;xaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>, <span class="st">&#39;yaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw">plot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">pexp</span>(x, <span class="dt">rate =</span> lambda), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;skyblue3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>```</p>
 
 </div>
 </div>
