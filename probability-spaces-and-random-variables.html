@@ -246,15 +246,15 @@ a <em>density function</em> on <span class="math inline">\(D\)</span>). Set</p>
 <li>E.g. If <span class="math inline">\(D=\mathbb{R}\)</span> and <span class="math inline">\(A=[a,b]\)</span> then <span class="math inline">\(\mathbb{P}(A)=\int_a^b f(x)\hspace{3pt}dx\)</span>.</li>
 </ul></li>
 </ul>
-A probability measure constructed in this way is called a <em>continuous probability measure</em>.
+A probability measure that can be represented in this way is called a <em>continuous probability measure</em>.
 </div>
 
 
 <div class="example">
-<p><span id="exm:ExpDist" class="example"><strong>Example 2.3  </strong></span>
-Consider the <em>exponential measure</em> on <span class="math inline">\(\mathbb{R}^+\)</span>: for any <span class="math inline">\(\lambda&gt;0\)</span> set
+<p><span id="exm:ExpDist" class="example"><strong>Example 2.3  (Exponential Measure)  </strong></span>
+Let <span class="math inline">\(D=\mathbb{R}^+\)</span>. For any <span class="math inline">\(\lambda&gt;0\)</span> set
 <span class="math display">\[f(x)= \lambda e^{-\lambda x},\]</span>
-then <span class="math inline">\(f\)</span> satisfies
+<span class="math inline">\(f\)</span> satisfies
 <span class="math display">\[\int_0^\infty f(x) \hspace{3pt}dx=\int_0^\infty \lambda e^{-\lambda x} \hspace{3pt}dx= 1.\]</span></p>
 </div>
 
@@ -278,13 +278,13 @@ and let <span class="math inline">\((p_n)_n\subset [0,1]\)</span> be such that <
 <li>E.g. If <span class="math inline">\(a_n=n\)</span> for <span class="math inline">\(1\leq n \leq N\)</span> and <span class="math inline">\(p_n=1/N\)</span>, then <span class="math inline">\(\mathbb{P}(\{1,2\}) = \frac{1}{N} + \frac{1}{N}=\frac{2}{N}\)</span></li>
 </ul></li>
 </ul>
-A probability measure constructed in this way is called a <em>discrete probability measure</em>.
+A probability measure that can be written in this way is called a <em>discrete probability measure</em>.
 </div>
 
 
 <div class="example">
-<p><span id="exm:GeomDist" class="example"><strong>Example 2.4  </strong></span>
-Consider the <em>geometric measure</em> on <span class="math inline">\(\mathbb{N}\)</span>: let <span class="math inline">\(a_0=0, a_1=1, a_2=2, \dots\)</span> and fix any <span class="math inline">\(p\in[0,1];\)</span> define
+<p><span id="exm:GeomDist" class="example"><strong>Example 2.4  (Geometric Measure)  </strong></span>
+Let <span class="math inline">\(a_0=0, a_1=1, a_2=2, \dots\)</span> and fix any <span class="math inline">\(p\in[0,1];\)</span> define
 <span class="math inline">\(p_n=p^n(1-p)\)</span> for <span class="math inline">\(n\in\{0,1,\dots\}\)</span> and note that they satisfy
 <span class="math display">\[
 \begin{aligned}
@@ -301,8 +301,8 @@ evaluated on the set <span class="math inline">\(\{0,\dots,k\}\)</span> gives
 <span class="math display">\[
 \begin{aligned}
 \mathbb{P}(\{0,\dots,k\}) &amp;= (1-p)\sum_{n=0}^k p^n \\
-&amp;= (1-p)\frac{1-p^k}{1-p}\\
-&amp;=1-p^k.
+&amp;= (1-p)\frac{1-p^{k+1}}{1-p}\\
+&amp;=1-p^{k+1}.
 \end{aligned}
 \]</span></p>
 
@@ -447,7 +447,7 @@ parameter $p$. We obtain
 $$
 F_X(x) = \begin{cases}
 0 &\text{ if } x <0\\
-1-p^{\lfloor x \rfloor} &\text{ if } x\geq 0.
+1-p^{\lfloor x+1 \rfloor} &\text{ if } x\geq 0.
 \end{cases}
 $$
 -->
