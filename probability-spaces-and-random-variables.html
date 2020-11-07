@@ -242,7 +242,7 @@ a <em>density function</em> on <span class="math inline">\(D\)</span>. Set</p>
 <ul>
 <li><span class="math inline">\(\Omega=D\)</span>,</li>
 <li><span class="math inline">\(\mathscr{F}=\mathscr{B}(D)\)</span> <strong>(safely ignore)</strong>, and</li>
-<li><span class="math inline">\(\mathbb{P}(A)=\int_{A\cap D} f(x) \hspace{3pt}dx\)</span>
+<li><span class="math inline">\(\mathbb{P}(A)=\int_{A\cap D} f(x) \hspace{3pt}dx\)</span> <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
 <ul>
 <li>E.g. If <span class="math inline">\(D=\mathbb{R}\)</span> and <span class="math inline">\(A=[a,b]\)</span> then <span class="math inline">\(\mathbb{P}(A)=\int_a^b f(x)\hspace{3pt}dx\)</span>.</li>
 </ul></li>
@@ -500,7 +500,29 @@ Find $F_X$.
 
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-29" class="theorem"><strong>Theorem 2.4  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have the same distribution if and only if <span class="math inline">\(F_X=F_Y\)</span>.
+<span id="thm:CDFequality" class="theorem"><strong>Theorem 2.4  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have the same distribution if and only if <span class="math inline">\(F_X=F_Y\)</span>.
+</div>
+
+<p>Theorem <a href="probability-spaces-and-random-variables.html#thm:CDFequality">2.4</a> is often useful in determining the distribution of a function of a random variable,
+say <span class="math inline">\(h(X)\)</span>, by attempting to compute
+<span class="math display">\[
+\mathbb{P}(h(X) \leq x)
+\]</span>
+for all <span class="math inline">\(x\)</span>.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-29" class="example"><strong>Example 2.9  </strong></span>Let <span class="math inline">\(X\)</span> be exponentially distributed of parameter <span class="math inline">\(\lambda = 1\)</span>. Then, for any <span class="math inline">\(\lambda&gt;0\)</span> the random variable
+<span class="math inline">\(X/\lambda\)</span> is exponentially distributed of parameter <span class="math inline">\(\lambda\)</span>. Indeed, note that
+<span class="math display">\[
+\begin{aligned}
+\mathbb{P}\left(\frac{X}{\lambda} \leq x\right) 
+&amp; = \mathbb{P}\left(X\leq \lambda x\right)\\
+&amp; = \int_0^{\lambda x} e^{-y} \hspace{3pt}dy\\
+&amp; = 1 -  e^{-\lambda x},
+\end{aligned}
+\]</span>
+it remains to note that the function <span class="math inline">\(x\mapsto 1 - e^{-\lambda x}\)</span> is the CDF of an exponentially distributed random
+variable of parameter <span class="math inline">\(\lambda\)</span>.
 </div>
 
 <p><br />
@@ -516,7 +538,8 @@ Find $F_X$.
 
 
 <div class="remark">
- <span class="remark"><em>Remark. </em></span> It is possible that a random variable <span class="math inline">\(X\)</span> is not continuous nor discrete.
+ <span class="remark"><em>Remark. </em></span> It is possible that a random variable <span class="math inline">\(X\)</span> is not continuous nor discrete, although in this course we will usually
+deal with random variables that fall in one of these categories.
 </div>
 
 <p><br />
@@ -532,26 +555,179 @@ F_X(x) = \int_{-\infty}^x f_X(s) \hspace{3pt}ds.
 <h2><span class="header-section-number">2.4</span> Expectations and Moments</h2>
 
 <div class="definition">
-<span id="def:unnamed-chunk-32" class="definition"><strong>Definition 2.9  (Expectation)  </strong></span>
+<p><span id="def:unnamed-chunk-32" class="definition"><strong>Definition 2.9  (Expectation)  </strong></span>
+Let <span class="math inline">\(X\)</span> be a random variable, <span class="math inline">\(h\colon \mathbb{R}\to\mathbb{R}\)</span> be a function, and consider the random variable <span class="math inline">\(h(X)\)</span>.</p>
 </div>
 
-<p>Let <span class="math inline">\(X\)</span> be a random variable and <span class="math inline">\(h\colon \mathbb{R}\to\mathbb{R}\)</span> be a function.</p>
-<div style="display: flex;">
-<div>
-<p>If <span class="math inline">\(X\)</span> is continuous with density <span class="math inline">\(f_X\)</span>
+<ul>
+<li><p>If <span class="math inline">\(X\)</span> is continuous with density <span class="math inline">\(f_X\)</span>, we define the <em>expected value of h(X)</em> as
+the integral
 <span class="math display">\[
 \mathbb{E}\left[h(X)\right] :=\int_{-\infty}^\infty h(x)f_X(x)\hspace{3pt}dx.
-\]</span></p>
-</div>
-<div>
-<p>If <span class="math inline">\(X\)</span> is discrete and takes values <span class="math inline">\((a_n)_n\)</span> with probabilities <span class="math inline">\((p_n)_n\)</span>
+\]</span></p></li>
+<li><p>If <span class="math inline">\(X\)</span> is discrete and takes values <span class="math inline">\((a_n)_n\)</span> with probabilities <span class="math inline">\((p_n)_n\)</span>
+we define the expected value of <span class="math inline">\(h(X)\)</span> as the sum
 <span class="math display">\[
-\mathbb{E}\left[h(X)\right] = \sum_{n} p_n h(a:n).
+\mathbb{E}\left[h(X)\right] :=\sum_{n} p_n h(a_n).
+\]</span></p></li>
+</ul>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-33" class="example"><strong>Example 2.10  (Mean of Normal Distribution)  </strong></span>
+In this example we will assume the known fact that
+<span class="math display">\[
+\int_{-\infty}^\infty e^{-x^2} \hspace{3pt}dx = \sqrt{\pi}.
 \]</span></p>
-</div>
 </div>
 
+<p>Let <span class="math inline">\(X\)</span> be a random variable with density function
+<span class="math display">\[
+f(x) = \frac{e^{-\frac{(x-\mu)^2}{2\sigma^2}}}{\sigma\sqrt{2\pi}}.
+\]</span></p>
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-34" class="exercise"><strong>Exercise 2.5  </strong></span>Prove that <span class="math inline">\(f\)</span> is a density function.
 </div>
+
+<p>The distribution associated to this density function is called the <em>normal distribution</em> (with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>). Then the expected value (mean) of <span class="math inline">\(X\)</span> is given by</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\left[X\right] 
+&amp;= \int_{-\infty}^\infty x \frac{e^{-\frac{(x-\mu)^2}{2\sigma^2}}}{\sigma\sqrt2\pi} \hspace{3pt}dx\\
+&amp;= \int_{-\infty}^\infty (\sigma\sqrt{2}y+\mu)  \frac{e^{-y^2}}{\sigma\sqrt{2\pi}}  \sigma\sqrt{2}\hspace{3pt}dy\\
+&amp;= \int_{-\infty}^\infty \sigma\sqrt2 y \frac{e^{-y^2}}{\sqrt{\pi}}\hspace{3pt}dx + \frac{\mu}{\sqrt\pi} \int_{-\infty}^\infty e^{-y^2}\hspace{3pt}dy.
+\end{aligned}
+\]</span></p>
+<p>where we have used the change of variable y=. Now observe that the function <span class="math inline">\(e^{-y^2}\)</span> is symmetric
+around 0, therefore</p>
+<p><span class="math display">\[
+\int_{-\infty}^0 \sigma\sqrt2 y \frac{e^{-y^2}}{\sqrt{\pi}}\hspace{3pt}dx = - \int_0^\infty \sigma\sqrt2 y \frac{e^{-y^2}}{\sqrt{\pi}}\hspace{3pt}dx,
+\]</span></p>
+<p>which implies</p>
+<p><span class="math display">\[
+\int_{-\infty}^\infty \sigma\sqrt2 y \frac{e^{-y^2}}{\sqrt{\pi}}\hspace{3pt}dx = 0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\mathbb{E}\left[X\right] = \mu.
+\]</span></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-35" class="example"><strong>Example 2.11  (Mean of Poisson Distribution)  </strong></span>
+</div>
+
+<p>Let <span class="math inline">\(\lambda &gt; 0\)</span>. Let <span class="math inline">\(X\)</span> be the discrete random variable with distribution given by
+<span class="math display">\[
+\mathbb{P}(X = n) = e^{-\lambda} \frac{\lambda^n}{n!},\quad  \forall n\in\mathbb{Z}^+=\{0,1,2,\dots\}
+\]</span></p>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-36" class="exercise"><strong>Exercise 2.6  </strong></span>
+Argue why this is a valid definition of a discrete random variable.</p>
+</div>
+
+<p>A random variable with the above distribution is called a <em>Poisson random variable of parameter <span class="math inline">\(\lambda\)</span></em>. The expected
+value of <span class="math inline">\(X\)</span> is given by
+<span class="math display">\[
+\begin{aligned}
+\mathbb{E}[X] &amp;= e^{-\lambda}\sum_{n=0}^\infty n \frac{\lambda^n}{n!} \\
+      &amp;= e^{-\lambda}\sum_{n=1}^\infty n \frac{\lambda^n}{n!} \\
+      &amp;= \lambda e^{-\lambda}\sum_{n=0}^\infty \frac{\lambda^{n-1}}{(n-1)!}\\
+      &amp;= \lambda
+\end{aligned}
+\]</span></p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-37" class="definition"><strong>Definition 2.10  (Moments)  </strong></span>Let <span class="math inline">\(n\in\mathbb{N}\)</span>. The nth moment of a random variable <span class="math inline">\(X\)</span> is the expected value <span class="math display">\[\mathbb{E}\left[X^n\right].\]</span>.
+</div>
+
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-38" class="exercise"><strong>Exercise 2.7  </strong></span>Compute the first and second moments of an exponentially distributed random variable of parameter <span class="math inline">\(\lambda\)</span>.
+Hint: use the integration by parts formula.
+</div>
+
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-39" class="exercise"><strong>Exercise 2.8  </strong></span>Compute the first and second moments of a geometrically distributed random variable of parameter <span class="math inline">\(p\)</span>.
+Hint: You may assume that
+<span class="math display">\[
+\frac{d}{dp} \left(\frac{1}{1-p}\right) = \frac{d}{dp} \sum_{n=0}^\infty p^n = \sum_{n=0}^\infty \frac{d}{dp} p^n.
+\]</span>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-40" class="theorem"><strong>Theorem 2.5  (Linearity of Expected Values)  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. Then</p>
+<p><span class="math display">\[\mathbb{E}[X + bY] = \mathbb{E}[X] + b\mathbb{E}[Y].\]</span></p>
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-41" class="definition"><strong>Definition 2.11  (Variance)  </strong></span>The variance <span class="math inline">\(\mathbb{Var}\)</span> of a random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> is defined as
+<span class="math display">\[
+\mathbb{Var}(X) :=\mathbb{E}\left[(X - \mu)^2\right].
+\]</span>
+</div>
+
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-42" class="theorem"><strong>Theorem 2.6  </strong></span>Let <span class="math inline">\(X\)</span> be a random variable, then the following equality holds
+<span class="math display">\[
+\mathbb{Var}(X) = \mathbb{E}\left[X^2\right] - \mathbb{E}[X]^2.
+\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-43" class="example"><strong>Example 2.12  (Mean Intuition)  </strong></span>
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-45" class="example"><strong>Example 2.13  (Variance Intuition)  </strong></span>
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-47" class="exercise"><strong>Exercise 2.9  (Variance of Exponential Distribution)  </strong></span>Prove that if <span class="math inline">\(X\)</span> is exponentially distributed with parameter <span class="math inline">\(\lambda&gt;0\)</span>, then
+<span class="math display">\[
+\mathbb{Var}(X) = \frac{1}{\lambda^2}.
+\]</span></p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-48" class="example"><strong>Example 2.14  (Mean and Variance of Exponential (plot))  </strong></span>
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Let <span class="math inline">\(f\colon \mathbb{R}\to\mathbb{R}\)</span> be a function and <span class="math inline">\(A\subset \mathbb{R}\)</span>. Let <span class="math inline">\(\mathbb{1}_A\)</span> be the
+<em>indicator function</em> of <span class="math inline">\(A\)</span>, i.e. the function
+<span class="math display">\[
+\mathbb{1}_A(x) \begin{cases}
+1 &amp; \text{ if } x\in A\\
+0 &amp; \text{ otherwise},
+\end{cases}
+\]</span>
+then the integral of <span class="math inline">\(f\)</span> on the set <span class="math inline">\(A\)</span> is defined as
+<span class="math display">\[
+\int_A f(x)\hspace{3pt}dx = \int_{-\infty}^\infty \mathbb{1}_A(x)f(x) \hspace{3pt}dx.
+\]</span>
+For example, if <span class="math inline">\(A=[a,b]\cup [c,d]\)</span>, then
+<span class="math display">\[
+\int_A f(x)\hspace{3pt}dx = \int_a^b f(x) \hspace{3pt}dx + \int_c^d f(x) \hspace{3pt}dx.
+\]</span>
+<a href="probability-spaces-and-random-variables.html#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 
