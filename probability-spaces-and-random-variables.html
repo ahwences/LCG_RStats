@@ -132,11 +132,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html"><i class="fa fa-check"></i><b>2</b> Probability Spaces and Random Variables</a><ul>
 <li class="chapter" data-level="2.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#probability-spaces"><i class="fa fa-check"></i><b>2.1</b> Probability Spaces</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#first-examples"><i class="fa fa-check"></i><b>2.1.1</b> First Examples</a></li>
-<li class="chapter" data-level="2.1.2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#important-examples"><i class="fa fa-check"></i><b>2.1.2</b> Important Examples</a></li>
+<li class="chapter" data-level="2.1.2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#continuousDiscreteDists"><i class="fa fa-check"></i><b>2.1.2</b> Important Examples</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#properties-of-probability-measures"><i class="fa fa-check"></i><b>2.2</b> Properties of Probability Measures</a></li>
-<li class="chapter" data-level="2.3" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#random-variables-and-cdfs"><i class="fa fa-check"></i><b>2.3</b> Random Variables and CDFs</a></li>
-<li class="chapter" data-level="2.4" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#expectations-and-moments"><i class="fa fa-check"></i><b>2.4</b> Expectations and Moments</a></li>
+<li class="chapter" data-level="2.3" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#random-variables"><i class="fa fa-check"></i><b>2.3</b> Random Variables</a></li>
+<li class="chapter" data-level="2.4" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#cumulative-distribution-functions-cdfs"><i class="fa fa-check"></i><b>2.4</b> Cumulative Distribution Functions (CDFs)</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#random-vectors-and-independence"><i class="fa fa-check"></i><b>2.5</b> Random Vectors and Independence</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#independence"><i class="fa fa-check"></i><b>2.5.1</b> Independence</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#expectations-and-moments"><i class="fa fa-check"></i><b>2.6</b> Expectations and Moments</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="common-distributions.html"><a href="common-distributions.html"><i class="fa fa-check"></i><b>3</b> Common Distributions</a></li>
 </ul>
@@ -230,7 +234,7 @@ Set</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>In this case <span class="math inline">\(\mathbb{P}\left(A\right)=\sum_{n=1}^\infty \left(\frac{1}{2^2}\right)^n = 1/3\)</span>.</p>
 </div>
-<div id="important-examples" class="section level3">
+<div id="continuousDiscreteDists" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Important Examples</h3>
 <div id="probability-measures-with-density-on-mathbbr-or-mathbbr-etc" class="section level4">
 <h4><span class="header-section-number">2.1.2.1</span> Probability Measures with Density on <span class="math inline">\(\mathbb{R}\)</span> (or <span class="math inline">\(\mathbb{R}^+\)</span>, etc)</h4>
@@ -296,7 +300,7 @@ Let <span class="math inline">\(a_0=0, a_1=1, a_2=2, \dots\)</span> and fix any 
 \]</span></p>
 </div>
 
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
 <p>Thus we may define a probability measure <span class="math inline">\(\mathbb{P}\)</span> on <span class="math inline">\(\mathbb{N}\)</span> (or on <span class="math inline">\(\mathbb{R}\)</span>). For any <span class="math inline">\(k\in \mathbb{N}\)</span> this probability measure
 evaluated on the set <span class="math inline">\(\{0,\dots,k\}\)</span> gives
 <span class="math display">\[
@@ -371,8 +375,8 @@ then
 <p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <hr />
 </div>
-<div id="random-variables-and-cdfs" class="section level2">
-<h2><span class="header-section-number">2.3</span> Random Variables and CDFs</h2>
+<div id="random-variables" class="section level2">
+<h2><span class="header-section-number">2.3</span> Random Variables</h2>
 
 <div class="definition">
 <span id="def:unnamed-chunk-16" class="definition"><strong>Definition 2.5  (Random Variable)  </strong></span>Let <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span> be a probability space. A function
@@ -383,8 +387,13 @@ is called a <em>random variable</em>.
 </div>
 
 
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> Observe that a function of random variable, say <span class="math inline">\(h(X)\)</span>, is again a random variable.
+</div>
+
+
 <div class="definition">
-<span id="def:unnamed-chunk-17" class="definition"><strong>Definition 2.6  (Distribution)  </strong></span>Let <span class="math inline">\(X\)</span> be a random varaible defined on a probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span>. The probability measure
+<span id="def:unnamed-chunk-18" class="definition"><strong>Definition 2.6  (Distribution)  </strong></span>Let <span class="math inline">\(X\)</span> be a random varaible defined on a probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span>. The probability measure
 on <span class="math inline">\(\mathbb{R}\)</span> induced by <span class="math inline">\(X\)</span>, which is given by
 <span class="math display">\[
 \mathbb{P}(X\in A) :=\mathbb{P}\left(\left\{\omega\in\Omega\colon X(\omega)\in A \right\}\right), \quad A\in\mathscr{B}(\mathbb{R}),
@@ -394,7 +403,7 @@ is called its <em>distribution</em> or its <em>law</em>.
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-18" class="example"><strong>Example 2.5  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:ProbLength">2.1</a> where <span class="math inline">\(\Omega = [0,1]\)</span> and <span class="math inline">\(\mathbb{P}(A)=length(A)\)</span>. Let <span class="math inline">\(N\in\mathbb{N}\)</span> and define the function
+<p><span id="exm:unnamed-chunk-19" class="example"><strong>Example 2.5  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:ProbLength">2.1</a> where <span class="math inline">\(\Omega = [0,1]\)</span> and <span class="math inline">\(\mathbb{P}(A)=length(A)\)</span>. Let <span class="math inline">\(N\in\mathbb{N}\)</span> and define the function
 <span class="math inline">\(X\colon [0,1]\to\mathbb{N}\)</span> given by</p>
 <p><span class="math display">\[
 X(\omega):=n \quad \text{ if }\quad \frac{n-1}{N} \leq \omega \leq \frac{n}{N}, \quad n\in\{1,\dots,N\}. 
@@ -406,9 +415,40 @@ the same probability measure, that is
 \]</span>
 </div>
 
+<p>In this course we will only deal with distributions of the forms presented in Subsection <a href="probability-spaces-and-random-variables.html#continuousDiscreteDists">2.1.2</a>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-19" class="definition"><strong>Definition 2.7  (Cumulative Distribution Function)  </strong></span>Let be a random varaible defined on a probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span>. The function <span class="math inline">\(F_X\colon \mathbb{R}\to [0,1]\)</span>
+<p><span id="def:unnamed-chunk-20" class="definition"><strong>Definition 2.7  (Continuous and Discrete Random Variables.)  </strong></span>Let <span class="math inline">\(X\)</span> be a random variable.</p>
+<ul>
+<li><p><span class="math inline">\(X\)</span> is a continuous random variable, or its distribution is said to be continuous, if
+<span class="math display">\[
+\mathbb{P}(X\in A) = \int_A f_X(x) \hspace{3pt}dx
+\]</span>
+for some density function <span class="math inline">\(f_X\)</span>.</p></li>
+<li><span class="math inline">\(X\)</span> is a discrete random variable, or its distribution is said to be discrete, if
+<span class="math display">\[
+\mathbb{P}(X\in A) = \sum_{a_n\in A} p_n
+\]</span>
+where <span class="math inline">\((a_n)_n\)</span> is a countable collection of points in <span class="math inline">\(\mathbb{R}\)</span> and <span class="math inline">\((p_n)_n\)</span> is a collection of probabilities
+that sum to 1.</li>
+</ul>
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> Continuous distributions are in fact more general than defined above; however, in applications (in
+statistical analysis and even in probabilistic modelling) we almost exclusively deal with distributions
+having a density <span class="math inline">\(f\)</span>, so for all practical purposes there is no loss in considering only this type
+of continuous random variables.
+</div>
+
+<hr />
+</div>
+<div id="cumulative-distribution-functions-cdfs" class="section level2">
+<h2><span class="header-section-number">2.4</span> Cumulative Distribution Functions (CDFs)</h2>
+
+<div class="definition">
+<span id="def:unnamed-chunk-22" class="definition"><strong>Definition 2.8  (Cumulative Distribution Function)  </strong></span>Let be a random varaible defined on a probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span>. The function <span class="math inline">\(F_X\colon \mathbb{R}\to [0,1]\)</span>
 given by
 <span class="math display">\[
 F_X(x) :=\mathbb{P}\left(X\leq x\right)
@@ -418,7 +458,7 @@ is called the <em>cumulative distribution function (CDF)</em> of <span class="ma
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-20" class="example"><strong>Example 2.6  </strong></span>Let <span class="math inline">\(X\)</span> be a random variable with distribution function
+<span id="exm:unnamed-chunk-23" class="example"><strong>Example 2.6  </strong></span>Let <span class="math inline">\(X\)</span> be a random variable with distribution function
 <span class="math display">\[
 \mathbb{P}(X\in A) = \frac{1}{b-a}\int_{A}1 \hspace{3pt}dx = length(A) / (b-a), \quad A\subset [a,b],
 \]</span>
@@ -438,10 +478,10 @@ F_X(x) = \begin{cases}
 <a class="sourceLine" id="cb1-3" title="3">x &lt;-<span class="st"> </span><span class="kw">seq</span>(a<span class="dv">-2</span>, b<span class="op">+</span><span class="dv">2</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb1-4" title="4"><span class="kw">par</span>(<span class="st">&#39;plt&#39;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.08</span>, <span class="dv">1</span><span class="fl">-0.05</span>, <span class="fl">0.08</span>, <span class="dv">1</span><span class="fl">-0.05</span>), <span class="st">&#39;xaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>, <span class="st">&#39;yaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>)</a>
 <a class="sourceLine" id="cb1-5" title="5"><span class="kw">plot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">punif</span>(x, <span class="dt">min =</span> a, <span class="dt">max =</span> b), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;skyblue3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-22" class="exercise"><strong>Exercise 2.3  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:GeomDist">2.4</a>. Compute the CDF of the geometric distribution of parameter <span class="math inline">\(p\)</span>.</p>
+<p><span id="exr:unnamed-chunk-25" class="exercise"><strong>Exercise 2.3  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:GeomDist">2.4</a>. Compute the CDF of the geometric distribution of parameter <span class="math inline">\(p\)</span>.</p>
 <!---
 we can easily derive the CDF of the geometric distribution with
 parameter $p$. We obtain
@@ -456,7 +496,7 @@ $$
 
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-23" class="exercise"><strong>Exercise 2.4  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:ExpDist">2.3</a>. Compute the CDF of the exponential distribution of parameter <span class="math inline">\(\lambda\)</span>.</p>
+<p><span id="exr:unnamed-chunk-26" class="exercise"><strong>Exercise 2.4  </strong></span>Recall Example <a href="probability-spaces-and-random-variables.html#exm:ExpDist">2.3</a>. Compute the CDF of the exponential distribution of parameter <span class="math inline">\(\lambda\)</span>.</p>
 <!---
 Consider the exponential distribution given by
 $$
@@ -468,7 +508,7 @@ Find $F_X$.
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-24" class="example"><strong>Example 2.7  (Plot Geometric CDF)  </strong></span>
+<span id="exm:unnamed-chunk-27" class="example"><strong>Example 2.7  (Plot Geometric CDF)  </strong></span>
 </div>
 
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">p &lt;-<span class="st"> </span><span class="fl">0.75</span></a>
@@ -476,21 +516,21 @@ Find $F_X$.
 <a class="sourceLine" id="cb2-3" title="3"><span class="kw">par</span>(<span class="st">&#39;plt&#39;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.08</span>, <span class="dv">1</span><span class="fl">-0.05</span>, <span class="fl">0.08</span>, <span class="dv">1</span><span class="fl">-0.05</span>), <span class="st">&#39;xaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>, <span class="st">&#39;yaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>)</a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="kw">plot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">pgeom</span>(x, <span class="dt">p =</span> p), <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;skyblue3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb2-5" title="5"><span class="kw">points</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">y =</span> <span class="kw">pgeom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">p =</span> p), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 ```</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-26" class="example"><strong>Example 2.8  (Plot Exponential CDF)  </strong></span>
+<span id="exm:unnamed-chunk-29" class="example"><strong>Example 2.8  (Plot Exponential CDF)  </strong></span>
 </div>
 
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">lambda &lt;-<span class="st"> </span><span class="dv">5</span></a>
 <a class="sourceLine" id="cb3-2" title="2">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dt">length.out =</span> <span class="dv">1000</span>)</a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="kw">par</span>(<span class="st">&#39;plt&#39;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.08</span>, <span class="dv">1</span><span class="fl">-0.05</span>, <span class="fl">0.08</span>, <span class="dv">1</span><span class="fl">-0.05</span>), <span class="st">&#39;xaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>, <span class="st">&#39;yaxs&#39;</span> =<span class="st"> &quot;r&quot;</span>)</a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="kw">plot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">pexp</span>(x, <span class="dt">rate =</span> lambda), <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;skyblue3&quot;</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-28" class="theorem"><strong>Theorem 2.3  (Properties of CDFs)  </strong></span>A function <span class="math inline">\(F\)</span> is a cumulative distribution function if and only if</p>
+<p><span id="thm:unnamed-chunk-31" class="theorem"><strong>Theorem 2.3  (Properties of CDFs)  </strong></span>A function <span class="math inline">\(F\)</span> is a cumulative distribution function if and only if</p>
 <ul>
 <li><span class="math inline">\(F(-\infty):=\lim_{x\to-\infty}F(x)=0\)</span> and <span class="math inline">\(F(\infty):=\lim_{x\to\infty}F(x)=1\)</span>.</li>
 <li><span class="math inline">\(F\)</span> is right continuous, i.e. for all <span class="math inline">\(y\in\mathbb{R}\)</span>, <span class="math inline">\(\lim_{x\downarrow y} F(x) = F(y)\)</span>.</li>
@@ -511,7 +551,7 @@ say <span class="math inline">\(h(X)\)</span>, by attempting to compute
 for all <span class="math inline">\(x\)</span>.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-29" class="example"><strong>Example 2.9  </strong></span>Let <span class="math inline">\(X\)</span> be exponentially distributed of parameter <span class="math inline">\(\lambda = 1\)</span>. Then, for any <span class="math inline">\(\lambda&gt;0\)</span> the random variable
+<span id="exm:unnamed-chunk-32" class="example"><strong>Example 2.9  </strong></span>Let <span class="math inline">\(X\)</span> be exponentially distributed of parameter <span class="math inline">\(\lambda = 1\)</span>. Then, for any <span class="math inline">\(\lambda&gt;0\)</span> the random variable
 <span class="math inline">\(X/\lambda\)</span> is exponentially distributed of parameter <span class="math inline">\(\lambda\)</span>. Indeed, note that
 <span class="math display">\[
 \begin{aligned}
@@ -529,7 +569,7 @@ variable of parameter <span class="math inline">\(\lambda\)</span>.
 </p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-30" class="definition"><strong>Definition 2.8  (Continuous and Discrete Random Variables)  </strong></span>Let <span class="math inline">\(X\)</span> be random variable.</p>
+<p><span id="def:unnamed-chunk-33" class="definition"><strong>Definition 2.9  (Continuous and Discrete Random Variables)  </strong></span>Let <span class="math inline">\(X\)</span> be random variable.</p>
 <ul>
 <li><span class="math inline">\(X\)</span> is a continuous <em>continuous random varible</em> if <span class="math inline">\(F_X\)</span> is continuous.</li>
 <li><span class="math inline">\(X\)</span> is a <em>discrete random variable</em> if <span class="math inline">\(F_X\)</span> is piecewise constant.</li>
@@ -551,11 +591,161 @@ F_X(x) = \int_{-\infty}^x f_X(s) \hspace{3pt}ds.
 \]</span></p>
 <hr />
 </div>
-<div id="expectations-and-moments" class="section level2">
-<h2><span class="header-section-number">2.4</span> Expectations and Moments</h2>
+<div id="random-vectors-and-independence" class="section level2">
+<h2><span class="header-section-number">2.5</span> Random Vectors and Independence</h2>
+<p>In general we often want to be able to deal with multiple random variables at once, this is why at this point
+it is useful to think of an abstract probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span> and simply assume that it is rich enough
+so that we can define/asssure the existence of different random variables with any properties that might interest us.
+In fact we often make no mention at all of the underlying probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span> and simply talk about
+random variables, random vectors, etc, and their distributions.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-32" class="definition"><strong>Definition 2.9  (Expectation)  </strong></span>
+<p><span id="def:unnamed-chunk-35" class="definition"><strong>Definition 2.10  (Random Vectors)  </strong></span>A function of the form
+<span class="math display">\[
+\begin{aligned}
+\bar{X}\colon \Omega &amp;\to \mathbb{R}^n \\
+\omega &amp;\mapsto \bar{X}(\omega)=(X_1(\omega),\cdots,X_n(\omega))
+\end{aligned}
+\]</span>
+is called a <em>random vector</em>.</p>
+Random vectors induce a probability measure on <span class="math inline">\(\mathbb{R}^n\)</span> by considering, for any <span class="math inline">\(A\in\mathscr{B}(\mathbb{R}^n)\)</span>
+<span class="math display">\[
+A\mapsto \mathbb{P}(\bar{X}\in A) = \mathbb{P}\left(\left\{\omega\in\Omega\colon \bar{X}(\omega)\in A \right\}\right).
+\]</span>
+The probability measure induced by a random vector is called its distribution.
+</div>
+
+<p>Similarly as in the case of single random varibles, we may consider continuous random vectors, whose distribution
+is given by a density function <span class="math inline">\(f_{\bar{X}}\colon \mathbb{R}^N \to \mathbb{R}^+\)</span>, and discrete random vectors, whose distribution
+is given a countable collection of points and probabilities <span class="math inline">\((a_n)_n\)</span> and <span class="math inline">\((p_n)_n\)</span>.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-36" class="definition"><strong>Definition 2.11  (n-dimensional density)  </strong></span>A function <span class="math inline">\(f\colon \mathbb{R}^n\to\mathbb{R}^+\)</span> is a density function on <span class="math inline">\(\mathbb{R}^n\)</span> if
+<span class="math display">\[
+\int_{-\infty}^\infty f(x_1,\dots,x_n) \hspace{3pt}dx_i=1 \quad\text{ for all }1\leq i\leq n,
+\]</span>
+which implies
+<span class="math display">\[
+\int_{\mathbb{R}^n} f(x_1,\dots,x_n) \hspace{3pt}dx_1,\dots,x_n = 1.
+\]</span>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-37" class="example"><strong>Example 2.10  (Continuous Random Vector Density)  </strong></span>Let <span class="math inline">\(f_1,\dots,f_n\)</span> be <span class="math inline">\(n\)</span> density functions on <span class="math inline">\(\mathbb{R}\)</span>. Define a density function <span class="math inline">\(f\)</span> on <span class="math inline">\(\mathbb{R}^n\)</span> as
+<span class="math display">\[
+f(x_1,\dots,x_n) = \prod_{k=1}^n f_k(x_k),
+\]</span>
+and consider a random vector <span class="math inline">\(\bar{X}\)</span> with density function <span class="math inline">\(f\)</span>.</p>
+</div>
+
+<p>In particular, for any <span class="math inline">\(A_1,\dots,A_n\in\mathscr{B}(\mathbb{R})\)</span> and <span class="math inline">\(A=A_1\times\dots\times A_n\)</span> note that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{P}(\bar{X}\in A) &amp;= \mathbb{P}\left(X_1\in A_1,\dots, X_n\in A_n\right) \\
+&amp;=\int_{A_1}\dots \int_{A_n} f(x_1, \dots, x_n) \hspace{3pt}dx_n \dots \hspace{3pt}dx_1 \\
+&amp;=\int_{A_1}\dots \int_{A_n} \prod_{k=1}^n f_k(x_k) \hspace{3pt}dx_n \dots \hspace{3pt}dx_1 \\
+&amp;=\prod_{k=1}^n \int_{A_k} f_k(x) \hspace{3pt}dx \\
+&amp;=\prod_{k=1}^n \mathbb{P}(X_k\in A).
+\end{aligned}
+\]</span></p>
+<p>```</p>
+
+<div class="example">
+<p><span id="exm:randomizedExponential" class="example"><strong>Example 2.11  (Random Parameter - Exponential Case)  </strong></span>Recall the exponential distribution introduced in Example <a href="probability-spaces-and-random-variables.html#exm:ExpDist">2.3</a>.
+Let <span class="math inline">\(f\)</span> be a density function on <span class="math inline">\(\mathbb{R}^+\)</span>. Define the density <span class="math inline">\(g\colon (\mathbb{R}^+)^2\to\mathbb{R}\)</span> as
+<span class="math display">\[
+g(\lambda, X) = \lambda e^{-\lambda x}f(\lambda).
+\]</span></p>
+Let <span class="math inline">\((\Lambda, X)\)</span> be a random vector with density <span class="math inline">\(g\)</span>. The distribution of <span class="math inline">\(X\)</span> can be interpreted
+algorithmically: 1) first choose a random parameter <span class="math inline">\(\Lambda\)</span> according to the density <span class="math inline">\(f\)</span>, 2) then generate
+a random variable <span class="math inline">\(X\)</span> that is exponentially distributed of parameter <span class="math inline">\(\Lambda\)</span>.
+</div>
+
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-38" class="exercise"><strong>Exercise 2.5  </strong></span>Argue why the function <span class="math inline">\(g\)</span> defined in Example <a href="probability-spaces-and-random-variables.html#exm:randomizedExponential">2.11</a> above is a density function on <span class="math inline">\(\mathbb{R}^2\)</span>.
+</div>
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-39" class="definition"><strong>Definition 2.12  (Bernoulli Distribution)  </strong></span>The Bernoulli distribution of parameter <span class="math inline">\(p\in[0,1]\)</span> (the probability of success)
+is the discrete distribution that takes the value <span class="math inline">\(0\)</span> with
+probability <span class="math inline">\(1-p\)</span> and <span class="math inline">\(1\)</span> with probability <span class="math inline">\(p\)</span>. I.e. if <span class="math inline">\(X\)</span> is Bernoulli distributed with parameter <span class="math inline">\(p\)</span> then
+<span class="math display">\[
+\mathbb{P}(X = x) = \begin{cases}
+ p &amp;\text{ if } x = 1,\\
+1-p &amp;\text{ if } x = 0,\\
+0 &amp;\text{ otherwise}.
+\end{cases}
+\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:randomizedBrenoulli" class="example"><strong>Example 2.12  (Random Parameter - Bernoulli Case)  </strong></span>Let <span class="math inline">\(f\)</span> be a density function on <span class="math inline">\([0,1]\)</span> and let <span class="math inline">\(\mathbb{P}\)</span> be a probability measure on <span class="math inline">\([0,1]\times {0,1}\)</span> such that for any
+<span class="math inline">\(A\in\mathscr{B}([0,1])\)</span> we have
+<span class="math display">\[
+\mathbb{P}(A\times \{1\}) = \int_A pf(p) \hspace{3pt}dp
+\]</span>
+and
+<span class="math display">\[
+\mathbb{P}(A\times \{0\}) = \int_A (1-p)f(p) \hspace{3pt}dp.
+\]</span>
+Let <span class="math inline">\((\rho, X)\)</span> be a random vector with distirbutioni <span class="math inline">\(\mathbb{P}\)</span>. The distribution of <span class="math inline">\(X\)</span> can be interpreted
+algorithmically: 1) first choose a random parameter <span class="math inline">\(\rho\)</span> according to the density <span class="math inline">\(f\)</span>, 2) then generate
+a random variable <span class="math inline">\(X\)</span> that is Bernoulli distributed of parameter <span class="math inline">\(p\)</span>.
+</div>
+
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-40" class="exercise"><strong>Exercise 2.6  </strong></span>Argue why the probability measure <span class="math inline">\(\mathbb{P}\)</span> defined in Example <a href="probability-spaces-and-random-variables.html#exm:randomizedBrenoulli">2.12</a> is a valid probability measure
+on <span class="math inline">\([0,1]\times\{0,1\}\)</span>.
+</div>
+
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-41" class="exercise"><strong>Exercise 2.7  </strong></span>Recall the geometric distribution introduced in <a href="probability-spaces-and-random-variables.html#exm:GeomDist">2.4</a>. Invent a probabilty measure <span class="math inline">\(\mathbb{P}\)</span> on <span class="math inline">\([0,1]\times \mathbb{Z}^+\)</span> such that if <span class="math inline">\((\rho, X)\)</span> has distribution <span class="math inline">\(\mathbb{P}\)</span>, then
+<span class="math inline">\(\rho\)</span> is a continuous random variable on <span class="math inline">\([0,1]\)</span> and such that the distribution of <span class="math inline">\(X\)</span> be interpreted
+algorithmically as: 1) first choose a random parameter <span class="math inline">\(\rho\)</span> according to the density <span class="math inline">\(f\)</span>, 2) then generate
+a random variable <span class="math inline">\(X\)</span> that is geometrically distributed of parameter <span class="math inline">\(p\)</span>.
+</div>
+
+<div id="independence" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Independence</h3>
+
+<div class="definition">
+<span id="def:unnamed-chunk-42" class="definition"><strong>Definition 2.13  (Independence)  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables defined on a common probability space <span class="math inline">\((\Omega, \mathscr{F}, \mathbb{P})\)</span>. <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>
+are said to be <em>independent</em> if for any <span class="math inline">\(A,B\in\mathscr{B}(\mathbb{R})\)</span>,
+<span class="math display">\[
+\mathbb{P}\left(X\in A \bigcap Y\in B\right) = \mathbb{P}(X\in A) \mathbb{P}(Y\in B).
+\]</span>
+The statement that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent is ofte writeen as
+<span class="math display">\[
+X \perp Y
+\]</span>
+</div>
+
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-43" class="theorem"><strong>Theorem 2.5  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables with densities <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span> on <span class="math inline">\(\mathbb{R}\)</span>. Consider also the random vector <span class="math inline">\((X,Y)\)</span> and its
+density <span class="math inline">\(f_{X,Y}\)</span> on <span class="math inline">\(\mathbb{R}^2\)</span>. Then
+<span class="math display">\[
+X \perp Y \quad\text{ iff }\quad f_{X,Y} = f_Xf_Y.
+\]</span>
+</div>
+
+<p>The property in the definition of independence, i.e. that <span class="math inline">\(\mathbb{P}\left(X\in A \bigcap Y\in B\right) = \mathbb{P}(X\in A) \mathbb{P}(Y\in B)\)</span>, can be
+strengthen to <span class="math inline">\(\mathbb{P}\left(h(X)\in A \bigcap g(Y)\in B\right) = \mathbb{P}(h(X)\in A) \mathbb{P}(g(Y)\in B)\)</span> for any pair of functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>,
+and, furthermore, can be extended to a stronger property about expectations (see Theorem <a href="#thm:independenceProductE"><strong>??</strong></a> below).</p>
+<hr />
+</div>
+</div>
+<div id="expectations-and-moments" class="section level2">
+<h2><span class="header-section-number">2.6</span> Expectations and Moments</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-44" class="definition"><strong>Definition 2.14  (Expectation (Single Random Variables))  </strong></span>
 Let <span class="math inline">\(X\)</span> be a random variable, <span class="math inline">\(h\colon \mathbb{R}\to\mathbb{R}\)</span> be a function, and consider the random variable <span class="math inline">\(h(X)\)</span>.</p>
 </div>
 
@@ -573,7 +763,7 @@ we define the expected value of <span class="math inline">\(h(X)\)</span> as the
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-33" class="example"><strong>Example 2.10  (Mean of Normal Distribution)  </strong></span>
+<p><span id="exm:unnamed-chunk-45" class="example"><strong>Example 2.13  (Mean of Normal Distribution)  </strong></span>
 In this example we will assume the known fact that
 <span class="math display">\[
 \int_{-\infty}^\infty e^{-x^2} \hspace{3pt}dx = \sqrt{\pi}.
@@ -584,9 +774,10 @@ In this example we will assume the known fact that
 <span class="math display">\[
 f(x) = \frac{e^{-\frac{(x-\mu)^2}{2\sigma^2}}}{\sigma\sqrt{2\pi}}.
 \]</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-34" class="exercise"><strong>Exercise 2.5  </strong></span>Prove that <span class="math inline">\(f\)</span> is a density function.
+<span id="exr:unnamed-chunk-47" class="exercise"><strong>Exercise 2.8  </strong></span>Prove that <span class="math inline">\(f\)</span> is a density function.
 </div>
 
 <p>The distribution associated to this density function is called the <em>normal distribution</em> (with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>). Then the expected value (mean) of <span class="math inline">\(X\)</span> is given by</p>
@@ -598,7 +789,8 @@ f(x) = \frac{e^{-\frac{(x-\mu)^2}{2\sigma^2}}}{\sigma\sqrt{2\pi}}.
 &amp;= \int_{-\infty}^\infty \sigma\sqrt2 y \frac{e^{-y^2}}{\sqrt{\pi}}\hspace{3pt}dx + \frac{\mu}{\sqrt\pi} \int_{-\infty}^\infty e^{-y^2}\hspace{3pt}dy.
 \end{aligned}
 \]</span></p>
-<p>where we have used the change of variable y=. Now observe that the function <span class="math inline">\(e^{-y^2}\)</span> is symmetric
+<p>where we have used the change of variable <span class="math inline">\(y=\frac{x-\mu}{\sigma\sqrt{2}}\)</span>.
+Now observe that the function <span class="math inline">\(e^{-y^2}\)</span> is symmetric
 around 0, therefore</p>
 <p><span class="math display">\[
 \int_{-\infty}^0 \sigma\sqrt2 y \frac{e^{-y^2}}{\sqrt{\pi}}\hspace{3pt}dx = - \int_0^\infty \sigma\sqrt2 y \frac{e^{-y^2}}{\sqrt{\pi}}\hspace{3pt}dx,
@@ -613,16 +805,17 @@ around 0, therefore</p>
 \]</span></p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-35" class="example"><strong>Example 2.11  (Mean of Poisson Distribution)  </strong></span>
+<span id="exm:unnamed-chunk-48" class="example"><strong>Example 2.14  (Mean of Poisson Distribution)  </strong></span>
 </div>
 
 <p>Let <span class="math inline">\(\lambda &gt; 0\)</span>. Let <span class="math inline">\(X\)</span> be the discrete random variable with distribution given by
 <span class="math display">\[
 \mathbb{P}(X = n) = e^{-\lambda} \frac{\lambda^n}{n!},\quad  \forall n\in\mathbb{Z}^+=\{0,1,2,\dots\}
 \]</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-49-2.png" width="672" /></p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-36" class="exercise"><strong>Exercise 2.6  </strong></span>
+<p><span id="exr:unnamed-chunk-50" class="exercise"><strong>Exercise 2.9  </strong></span>
 Argue why this is a valid definition of a discrete random variable.</p>
 </div>
 
@@ -638,18 +831,18 @@ value of <span class="math inline">\(X\)</span> is given by
 \]</span></p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-37" class="definition"><strong>Definition 2.10  (Moments)  </strong></span>Let <span class="math inline">\(n\in\mathbb{N}\)</span>. The nth moment of a random variable <span class="math inline">\(X\)</span> is the expected value <span class="math display">\[\mathbb{E}\left[X^n\right].\]</span>.
+<span id="def:unnamed-chunk-51" class="definition"><strong>Definition 2.15  (Moments)  </strong></span>Let <span class="math inline">\(n\in\mathbb{N}\)</span>. The nth moment of a random variable <span class="math inline">\(X\)</span> is the expected value <span class="math display">\[\mathbb{E}\left[X^n\right].\]</span>.
 </div>
 
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-38" class="exercise"><strong>Exercise 2.7  </strong></span>Compute the first and second moments of an exponentially distributed random variable of parameter <span class="math inline">\(\lambda\)</span>.
+<span id="exr:unnamed-chunk-52" class="exercise"><strong>Exercise 2.10  </strong></span>Compute the first and second moments of an exponentially distributed random variable of parameter <span class="math inline">\(\lambda\)</span>.
 Hint: use the integration by parts formula.
 </div>
 
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-39" class="exercise"><strong>Exercise 2.8  </strong></span>Compute the first and second moments of a geometrically distributed random variable of parameter <span class="math inline">\(p\)</span>.
+<span id="exr:unnamed-chunk-53" class="exercise"><strong>Exercise 2.11  </strong></span>Compute the first and second moments of a geometrically distributed random variable of parameter <span class="math inline">\(p\)</span>.
 Hint: You may assume that
 <span class="math display">\[
 \frac{d}{dp} \left(\frac{1}{1-p}\right) = \frac{d}{dp} \sum_{n=0}^\infty p^n = \sum_{n=0}^\infty \frac{d}{dp} p^n.
@@ -658,13 +851,13 @@ Hint: You may assume that
 
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-40" class="theorem"><strong>Theorem 2.5  (Linearity of Expected Values)  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. Then</p>
+<p><span id="thm:unnamed-chunk-54" class="theorem"><strong>Theorem 2.6  (Linearity of Expected Values)  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. Then</p>
 <p><span class="math display">\[\mathbb{E}[X + bY] = \mathbb{E}[X] + b\mathbb{E}[Y].\]</span></p>
 </div>
 
 
 <div class="definition">
-<span id="def:unnamed-chunk-41" class="definition"><strong>Definition 2.11  (Variance)  </strong></span>The variance <span class="math inline">\(\mathbb{Var}\)</span> of a random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> is defined as
+<span id="def:unnamed-chunk-55" class="definition"><strong>Definition 2.16  (Variance)  </strong></span>The variance <span class="math inline">\(\mathbb{Var}\)</span> of a random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> is defined as
 <span class="math display">\[
 \mathbb{Var}(X) :=\mathbb{E}\left[(X - \mu)^2\right].
 \]</span>
@@ -672,27 +865,37 @@ Hint: You may assume that
 
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-42" class="theorem"><strong>Theorem 2.6  </strong></span>Let <span class="math inline">\(X\)</span> be a random variable, then the following equality holds
+<span id="thm:VarFormula" class="theorem"><strong>Theorem 2.7  </strong></span>Let <span class="math inline">\(X\)</span> be a random variable, then the following equality holds
 <span class="math display">\[
 \mathbb{Var}(X) = \mathbb{E}\left[X^2\right] - \mathbb{E}[X]^2.
 \]</span>
 </div>
 
 
-<div class="example">
-<span id="exm:unnamed-chunk-43" class="example"><strong>Example 2.12  (Mean Intuition)  </strong></span>
+<div class="exercise">
+<span id="exr:unnamed-chunk-56" class="exercise"><strong>Exercise 2.12  </strong></span>Use the linearity of the expetation to prove theorem <a href="probability-spaces-and-random-variables.html#thm:VarFormula">2.7</a>.
 </div>
 
-<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
-
-<div class="example">
-<span id="exm:unnamed-chunk-45" class="example"><strong>Example 2.13  (Variance Intuition)  </strong></span>
-</div>
-
-<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-47" class="exercise"><strong>Exercise 2.9  (Variance of Exponential Distribution)  </strong></span>Prove that if <span class="math inline">\(X\)</span> is exponentially distributed with parameter <span class="math inline">\(\lambda&gt;0\)</span>, then
+<span id="exr:unnamed-chunk-57" class="exercise"><strong>Exercise 2.13  </strong></span>Compute the variance of a Poisson random variable of parameter <span class="math inline">\(\lambda\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-58" class="example"><strong>Example 2.15  (Mean Intuition)  </strong></span>
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-60" class="example"><strong>Example 2.16  (Variance Intuition)  </strong></span>
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-62" class="exercise"><strong>Exercise 2.14  (Variance of Exponential Distribution)  </strong></span>Prove that if <span class="math inline">\(X\)</span> is exponentially distributed with parameter <span class="math inline">\(\lambda&gt;0\)</span>, then
 <span class="math display">\[
 \mathbb{Var}(X) = \frac{1}{\lambda^2}.
 \]</span></p>
@@ -700,10 +903,10 @@ Hint: You may assume that
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-48" class="example"><strong>Example 2.14  (Mean and Variance of Exponential (plot))  </strong></span>
+<span id="exm:unnamed-chunk-63" class="example"><strong>Example 2.17  (Mean and Variance of Exponential (plot))  </strong></span>
 </div>
 
-<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 
 </div>
 </div>
