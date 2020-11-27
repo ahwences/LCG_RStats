@@ -77,10 +77,15 @@ single-random-variables-2
 random-vectors-1
 common-distributions
 geometric-distribution
+definition-1
+number-of-failures
 number-of-trials
 model
-number-of-failures
+number-of-failures-1
 number-of-trials-1
 exponential-distribution
-definition-1
+definition-2
 model-1
+poisson-distribution
+defintion
+model-2
