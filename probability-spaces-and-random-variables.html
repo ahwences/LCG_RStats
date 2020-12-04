@@ -150,17 +150,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="common-distributions.html"><a href="common-distributions.html"><i class="fa fa-check"></i><b>3</b> Common Distributions</a><ul>
-<li class="chapter" data-level="3.1" data-path="common-distributions.html"><a href="common-distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>3.1</b> Geometric Distribution</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-1"><i class="fa fa-check"></i><b>3.1.1</b> Definition</a></li>
-<li class="chapter" data-level="3.1.2" data-path="common-distributions.html"><a href="common-distributions.html#model"><i class="fa fa-check"></i><b>3.1.2</b> Model</a></li>
+<li class="chapter" data-level="3.1" data-path="common-distributions.html"><a href="common-distributions.html#bernoulli"><i class="fa fa-check"></i><b>3.1</b> Bernoulli</a></li>
+<li class="chapter" data-level="3.2" data-path="common-distributions.html"><a href="common-distributions.html#definition-1"><i class="fa fa-check"></i><b>3.2</b> Definition</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="common-distributions.html"><a href="common-distributions.html#model"><i class="fa fa-check"></i><b>3.2.1</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="common-distributions.html"><a href="common-distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.2</b> Exponential Distribution</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-2"><i class="fa fa-check"></i><b>3.2.1</b> Definition</a></li>
-<li class="chapter" data-level="3.2.2" data-path="common-distributions.html"><a href="common-distributions.html#model-1"><i class="fa fa-check"></i><b>3.2.2</b> Model</a></li>
+<li class="chapter" data-level="3.3" data-path="common-distributions.html"><a href="common-distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>3.3</b> Geometric Distribution</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-2"><i class="fa fa-check"></i><b>3.3.1</b> Definition</a></li>
+<li class="chapter" data-level="3.3.2" data-path="common-distributions.html"><a href="common-distributions.html#model-1"><i class="fa fa-check"></i><b>3.3.2</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="common-distributions.html"><a href="common-distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>3.3</b> Poisson Distribution</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="common-distributions.html"><a href="common-distributions.html#defintion"><i class="fa fa-check"></i><b>3.3.1</b> Defintion</a></li>
-<li class="chapter" data-level="3.3.2" data-path="common-distributions.html"><a href="common-distributions.html#model-2"><i class="fa fa-check"></i><b>3.3.2</b> Model</a></li>
+<li class="chapter" data-level="3.4" data-path="common-distributions.html"><a href="common-distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.4</b> Exponential Distribution</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-3"><i class="fa fa-check"></i><b>3.4.1</b> Definition</a></li>
+<li class="chapter" data-level="3.4.2" data-path="common-distributions.html"><a href="common-distributions.html#model-2"><i class="fa fa-check"></i><b>3.4.2</b> Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="common-distributions.html"><a href="common-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>3.5</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="3.6" data-path="common-distributions.html"><a href="common-distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>3.6</b> Poisson Distribution</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-4"><i class="fa fa-check"></i><b>3.6.1</b> Definition</a></li>
+<li class="chapter" data-level="3.6.2" data-path="common-distributions.html"><a href="common-distributions.html#model-3"><i class="fa fa-check"></i><b>3.6.2</b> Model</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -499,10 +504,6 @@ is given by a countable collection of points and probabilities <span class="math
 
 <div class="definition">
 <span id="def:unnamed-chunk-23" class="definition"><strong>Definition 2.9  (n-dimensional density)  </strong></span>A function <span class="math inline">\(f\colon \mathbb{R}^n\to\mathbb{R}^+\)</span> is a density function on <span class="math inline">\(\mathbb{R}^n\)</span> if
-<span class="math display">\[
-\int_{-\infty}^\infty f(x_1,\dots,x_n) \hspace{3pt}dx_i=1 \quad\text{ for all }1\leq i\leq n,
-\]</span>
-which implies
 <span class="math display">\[
 \int_{\mathbb{R}^n} f(x_1,\dots,x_n) \hspace{3pt}dx_1,\dots,x_n = 1.
 \]</span>

@@ -150,17 +150,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="common-distributions.html"><a href="common-distributions.html"><i class="fa fa-check"></i><b>3</b> Common Distributions</a><ul>
-<li class="chapter" data-level="3.1" data-path="common-distributions.html"><a href="common-distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>3.1</b> Geometric Distribution</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-1"><i class="fa fa-check"></i><b>3.1.1</b> Definition</a></li>
-<li class="chapter" data-level="3.1.2" data-path="common-distributions.html"><a href="common-distributions.html#model"><i class="fa fa-check"></i><b>3.1.2</b> Model</a></li>
+<li class="chapter" data-level="3.1" data-path="common-distributions.html"><a href="common-distributions.html#bernoulli"><i class="fa fa-check"></i><b>3.1</b> Bernoulli</a></li>
+<li class="chapter" data-level="3.2" data-path="common-distributions.html"><a href="common-distributions.html#definition-1"><i class="fa fa-check"></i><b>3.2</b> Definition</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="common-distributions.html"><a href="common-distributions.html#model"><i class="fa fa-check"></i><b>3.2.1</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="common-distributions.html"><a href="common-distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.2</b> Exponential Distribution</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-2"><i class="fa fa-check"></i><b>3.2.1</b> Definition</a></li>
-<li class="chapter" data-level="3.2.2" data-path="common-distributions.html"><a href="common-distributions.html#model-1"><i class="fa fa-check"></i><b>3.2.2</b> Model</a></li>
+<li class="chapter" data-level="3.3" data-path="common-distributions.html"><a href="common-distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>3.3</b> Geometric Distribution</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-2"><i class="fa fa-check"></i><b>3.3.1</b> Definition</a></li>
+<li class="chapter" data-level="3.3.2" data-path="common-distributions.html"><a href="common-distributions.html#model-1"><i class="fa fa-check"></i><b>3.3.2</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="common-distributions.html"><a href="common-distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>3.3</b> Poisson Distribution</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="common-distributions.html"><a href="common-distributions.html#defintion"><i class="fa fa-check"></i><b>3.3.1</b> Defintion</a></li>
-<li class="chapter" data-level="3.3.2" data-path="common-distributions.html"><a href="common-distributions.html#model-2"><i class="fa fa-check"></i><b>3.3.2</b> Model</a></li>
+<li class="chapter" data-level="3.4" data-path="common-distributions.html"><a href="common-distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.4</b> Exponential Distribution</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-3"><i class="fa fa-check"></i><b>3.4.1</b> Definition</a></li>
+<li class="chapter" data-level="3.4.2" data-path="common-distributions.html"><a href="common-distributions.html#model-2"><i class="fa fa-check"></i><b>3.4.2</b> Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="common-distributions.html"><a href="common-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>3.5</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="3.6" data-path="common-distributions.html"><a href="common-distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>3.6</b> Poisson Distribution</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-4"><i class="fa fa-check"></i><b>3.6.1</b> Definition</a></li>
+<li class="chapter" data-level="3.6.2" data-path="common-distributions.html"><a href="common-distributions.html#model-3"><i class="fa fa-check"></i><b>3.6.2</b> Model</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -182,14 +187,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="common-distributions" class="section level1">
 <h1><span class="header-section-number">3</span> Common Distributions</h1>
+<div id="bernoulli" class="section level2">
+<h2><span class="header-section-number">3.1</span> Bernoulli</h2>
+</div>
+<div id="definition-1" class="section level2">
+<h2><span class="header-section-number">3.2</span> Definition</h2>
+<p>Let <span class="math inline">\(p\in(0,1)\)</span> be a parameter. The <em>bernoulli distribution</em> is the discrete probability distribution
+that assigns a mass of <span class="math inline">\(p\)</span> to <span class="math inline">\(1\)</span>, and a mass of <span class="math inline">\(1-p\)</span> to <span class="math inline">\(0\)</span>; i.e. <span class="math inline">\(\mathbb{P}(\{1\})=p\)</span> and <span class="math inline">\(\mathbb{P}(\{0\})=1-p\)</span>.</p>
+<div id="model" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Model</h3>
+<p>The Bernoulli distribution is one of the most widely used distributions both in applied probability as well as
+theoretical probability. For example the Bernoulli distribution can be seen as a building block of other
+distributions such as the geometric distribution and the binomial distribution.</p>
+</div>
+</div>
 <div id="geometric-distribution" class="section level2">
-<h2><span class="header-section-number">3.1</span> Geometric Distribution</h2>
+<h2><span class="header-section-number">3.3</span> Geometric Distribution</h2>
 <p>There are two distributions which share the common name of <em>geometric</em> distribution. For reasons that
 will be clear later we call these two versions the <em>number of failures</em> version and <em>number of trials</em> version.</p>
-<div id="definition-1" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Definition</h3>
+<div id="definition-2" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Definition</h3>
 <div id="number-of-failures" class="section level4">
-<h4><span class="header-section-number">3.1.1.1</span> Number of failures</h4>
+<h4><span class="header-section-number">3.3.1.1</span> Number of failures</h4>
 <p>Let <span class="math inline">\(p\in (0,1)\)</span>. The geometric distribution (number of failures version)
 is the discrete distribution in <span class="math inline">\(\{0, 1, \dots\}\)</span> such that
 <span class="math display">\[
@@ -201,7 +220,7 @@ is the discrete distribution in <span class="math inline">\(\{0, 1, \dots\}\)</s
 \]</span></p>
 </div>
 <div id="number-of-trials" class="section level4">
-<h4><span class="header-section-number">3.1.1.2</span> Number of trials</h4>
+<h4><span class="header-section-number">3.3.1.2</span> Number of trials</h4>
 <p>Let <span class="math inline">\(p\in (0,1)\)</span>. The geometric distribution (number of failures version)
 is the discrete distribution in <span class="math inline">\(\{1, \dots\}\)</span> such that
 <span class="math display">\[
@@ -213,17 +232,17 @@ is the discrete distribution in <span class="math inline">\(\{1, \dots\}\)</span
 \]</span></p>
 </div>
 </div>
-<div id="model" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Model</h3>
-<p>The geometric distribution is used to model discrete waiting times until the ocurrence of the first succes in a series
+<div id="model-1" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Model</h3>
+<p>The geometric distribution is used to model discrete waiting times until the occurrence of the first success in a series
 of consecutive and <strong>independent</strong> trials (e.g. coin tosses).
 It is easily proved that the waiting times modeled by the geometric distribution
 have the <em>memorylessness</em> property, i.e. at any given time during the experiment the results of the past do not
-afect at all the outcomes of the future, in particular the distribution of the number of trials until the
-first sucess after <span class="math inline">\(k\)</span> failures have ben encountered is exactly the same as if no failures had been encountered so far,
+affect at all the outcomes of the future, in particular the distribution of the number of trials until the
+first success after <span class="math inline">\(k\)</span> failures have been encountered is exactly the same as if no failures had been encountered so far,
 or, to use other words, as if the experiment were to be started all over again.</p>
 <div id="number-of-failures-1" class="section level4">
-<h4><span class="header-section-number">3.1.2.1</span> Number of failures</h4>
+<h4><span class="header-section-number">3.3.2.1</span> Number of failures</h4>
 <p>The canonical model for this distribution is the following: let <span class="math inline">\(p\in(0,1)\)</span> be a failure probability of some event.
 For example you can think of <span class="math inline">\(p\)</span> as the probability that a coin toss is 'agila while <span class="math inline">\(1-p\)</span> is the probability
 that it is sol. Let <span class="math inline">\(X\)</span> be the (random) number of 'agilas until the first sol appears. Then
@@ -232,7 +251,7 @@ that it is sol. Let <span class="math inline">\(X\)</span> be the (random) numbe
 \]</span></p>
 </div>
 <div id="number-of-trials-1" class="section level4">
-<h4><span class="header-section-number">3.1.2.2</span> Number of trials</h4>
+<h4><span class="header-section-number">3.3.2.2</span> Number of trials</h4>
 <p>The canonical model for this distribution is the following: let <span class="math inline">\(p\in(0,1)\)</span> be a failure probability of some event.
 For example you can think of <span class="math inline">\(p\)</span> as the probability that a coin toss is 'agila while <span class="math inline">\(1-p\)</span> is the probability
 that it is sol. Let <span class="math inline">\(X\)</span> be the (random) number of trials until the first sol appears. Then
@@ -247,17 +266,17 @@ compare their canonical models. They both model a probabilistic dynamic in which
 </div>
 </div>
 <div id="exponential-distribution" class="section level2">
-<h2><span class="header-section-number">3.2</span> Exponential Distribution</h2>
-<div id="definition-2" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Definition</h3>
+<h2><span class="header-section-number">3.4</span> Exponential Distribution</h2>
+<div id="definition-3" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Definition</h3>
 <p>The exponential distribution of parameter <span class="math inline">\(\lambda&gt;0\)</span> is the continuous distribution with density
 <span class="math display">\[
 \lambda e^{-\lambda x}.
 \]</span></p>
 <p><img src="_main_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 </div>
-<div id="model-1" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Model</h3>
+<div id="model-2" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Model</h3>
 <p>The exponential distribution is used to model continuous waiting times until the first ocurrence of some event, where
 intuitively such event is thought to occurr with some small probability in any given ``infinitesimal’’ period of time
 and <strong>independently</strong> of all other times. Thus, the waiting times modeled by the exponential distribution have the <em>memorylessness</em> property, i.e. at any given time during the experiment the results of the past do not
@@ -267,18 +286,21 @@ is exactly the same as if we hadn’t waited <span class="math inline">\(t\)</sp
 as if we had started the experiment all over again.</p>
 </div>
 </div>
+<div id="binomial-distribution" class="section level2">
+<h2><span class="header-section-number">3.5</span> Binomial Distribution</h2>
+</div>
 <div id="poisson-distribution" class="section level2">
-<h2><span class="header-section-number">3.3</span> Poisson Distribution</h2>
-<div id="defintion" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Defintion</h3>
+<h2><span class="header-section-number">3.6</span> Poisson Distribution</h2>
+<div id="definition-4" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Definition</h3>
 <p>Let <span class="math inline">\(\lambda &gt; 0\)</span>. The Poisson distribution is the the discrete distribution given by
 <span class="math display">\[
 \mathbb{P}({n}) = e^{-\lambda} \frac{\lambda^n}{n!},\quad  \forall n\in\mathbb{Z}^+=\{0,1,2,\dots\}
 \]</span></p>
 <p><img src="_main_files/figure-html/unnamed-chunk-73-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-73-2.png" width="672" /></p>
 </div>
-<div id="model-2" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Model</h3>
+<div id="model-3" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Model</h3>
 <p>The Poisson distribution appears in two intuitively equivalent situations:</p>
 <ul>
 <li>As the limit of a bionmial random variable of parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, as <span class="math inline">\(n\to\infty\)</span> and <span class="math inline">\(np\to\lambda\)</span>. I.e. as
