@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Probability and Statistics Classes</title>
-  <meta name="description" content="Probability and Statistics Classes" />
+  <title>5 Student’s t-distribution | Probability and Statistics Classes</title>
+  <meta name="description" content="5 Student’s t-distribution | Probability and Statistics Classes" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Probability and Statistics Classes" />
+  <meta property="og:title" content="5 Student’s t-distribution | Probability and Statistics Classes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Probability and Statistics Classes" />
+  <meta name="twitter:title" content="5 Student’s t-distribution | Probability and Statistics Classes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="normal-distribution.html"/>
 
-<link rel="next" href="probability-spaces-and-random-variables.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -172,20 +172,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="common-distributions.html"><a href="common-distributions.html#gamma-distribution"><i class="fa fa-check"></i><b>3.6</b> Gamma Distribution</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-6"><i class="fa fa-check"></i><b>3.6.1</b> Definition</a></li>
-<li class="chapter" data-level="3.6.2" data-path="common-distributions.html"><a href="common-distributions.html#model-5"><i class="fa fa-check"></i><b>3.6.2</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="common-distributions.html"><a href="common-distributions.html#beta-distribution"><i class="fa fa-check"></i><b>3.7</b> Beta Distribution</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="common-distributions.html"><a href="common-distributions.html#model-6"><i class="fa fa-check"></i><b>3.7.1</b> Model</a></li>
+<li class="chapter" data-level="3.7" data-path="common-distributions.html"><a href="common-distributions.html#model-5"><i class="fa fa-check"></i><b>3.7</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="common-distributions.html"><a href="common-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>3.8</b> Normal Distribution</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-7"><i class="fa fa-check"></i><b>3.8.1</b> Definition</a></li>
-<li class="chapter" data-level="3.8.2" data-path="common-distributions.html"><a href="common-distributions.html#model-7"><i class="fa fa-check"></i><b>3.8.2</b> Model</a></li>
+<li class="chapter" data-level="4" data-path="normal-distribution.html"><a href="normal-distribution.html"><i class="fa fa-check"></i><b>4</b> Normal Distribution</a><ul>
+<li class="chapter" data-level="4.1" data-path="normal-distribution.html"><a href="normal-distribution.html#definition-7"><i class="fa fa-check"></i><b>4.1</b> Definition</a></li>
+<li class="chapter" data-level="4.2" data-path="normal-distribution.html"><a href="normal-distribution.html#model-6"><i class="fa fa-check"></i><b>4.2</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="common-distributions.html"><a href="common-distributions.html#students-t-distribution"><i class="fa fa-check"></i><b>3.9</b> Student’s t-distribution</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-8"><i class="fa fa-check"></i><b>3.9.1</b> Definition</a></li>
-<li class="chapter" data-level="3.9.2" data-path="common-distributions.html"><a href="common-distributions.html#model-8"><i class="fa fa-check"></i><b>3.9.2</b> Model</a></li>
-<li class="chapter" data-level="3.9.3" data-path="common-distributions.html"><a href="common-distributions.html#cauchy-vs-normal"><i class="fa fa-check"></i><b>3.9.3</b> Cauchy VS Normal</a></li>
-</ul></li>
+<li class="chapter" data-level="5" data-path="students-t-distribution.html"><a href="students-t-distribution.html"><i class="fa fa-check"></i><b>5</b> Student’s t-distribution</a><ul>
+<li class="chapter" data-level="5.1" data-path="students-t-distribution.html"><a href="students-t-distribution.html#definition-8"><i class="fa fa-check"></i><b>5.1</b> Definition</a></li>
+<li class="chapter" data-level="5.2" data-path="students-t-distribution.html"><a href="students-t-distribution.html#model-7"><i class="fa fa-check"></i><b>5.2</b> Model</a></li>
+<li class="chapter" data-level="5.3" data-path="students-t-distribution.html"><a href="students-t-distribution.html#comparison-with-normal"><i class="fa fa-check"></i><b>5.3</b> Comparison with Normal</a></li>
 </ul></li>
 </ul>
 
@@ -204,27 +201,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Probability and Statistics Classes</h1>
-<h2 class="subtitle"><em>Statistics and R Course, LCG</em></h2>
-<p class="author"><em>Alejandro Hernández Wences</em></p>
+<div id="students-t-distribution" class="section level1">
+<h1><span class="header-section-number">5</span> Student’s t-distribution</h1>
+<div id="definition-8" class="section level2">
+<h2><span class="header-section-number">5.1</span> Definition</h2>
+<p>The students t-distribution of parameter <span class="math inline">\(\nu&gt;0\)</span> (degrees of freedom) is the continuous probability distribution with
+density
+<span class="math display">\[
+f(x\vert \nu) = \frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\Gamma(\nu/2)} \left(1+ \frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}
+\]</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 </div>
-<div id="preface" class="section level1">
-<h1><span class="header-section-number">1</span> Preface</h1>
-<p>This notes are intended to guide and summarize the probability and statistics classes in the “Statistics and R” course
-of the Genomic Sciences program at the UNAM. Their intention is not to provide a formal and complete exposition of
-the subjects but rather just to serve as guidelines and visual aids during the classes. They may be useful for students
-taking notes by providing them with a general organization of the topics seen during the class, however they
-are no replacement for the notes that students are encouraged to take on their own.</p>
+<div id="model-7" class="section level2">
+<h2><span class="header-section-number">5.2</span> Model</h2>
+<p>The students t-disribution typically only appears in the statistical test comparing the sample means of two populations
+which are assumed to have the normal distribution.</p>
+<p>On the other hand, the students t-distribution can be used to model random quantities which show a similar overall
+behaviour as a normally distributed random variable, but that at the same time allow for the ocurrence of extreme
+(catastorphic) events, i.e. events where the value of the random quantity is realy large, which occur with low probability
+but that still are not ‘impossible’ to see as is the case with normally distributed random variables whose
+tails decay rather fast. In this regard, a typical
+choice is the Cauchy distribution (the case when <span class="math inline">\(\nu=1\)</span> ) which has infinite variance.</p>
+</div>
+<div id="comparison-with-normal" class="section level2">
+<h2><span class="header-section-number">5.3</span> Comparison with Normal</h2>
+<p><img src="_main_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<pre><code>## 
+## Call:
+## line(x = x, y = dt(x, df = 1))
+## 
+## Coefficients:
+## [1]  4.366e-02  1.037e-18</code></pre>
+<pre><code>## 
+## Call:
+## line(x = x, y = dnorm(x))
+## 
+## Coefficients:
+## [1]  1.718e-02  3.566e-19</code></pre>
 
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="normal-distribution.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="probability-spaces-and-random-variables.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
