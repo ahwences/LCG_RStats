@@ -140,7 +140,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#single-random-variables"><i class="fa fa-check"></i><b>2.2.1</b> Single Random Variables</a></li>
 <li class="chapter" data-level="2.2.2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#random-vectors"><i class="fa fa-check"></i><b>2.2.2</b> Random Vectors</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#independence"><i class="fa fa-check"></i><b>2.3</b> Independence</a></li>
+<li class="chapter" data-level="2.3" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#conditional-probability-and-independence"><i class="fa fa-check"></i><b>2.3</b> Conditional Probability and Independence</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#intuition"><i class="fa fa-check"></i><b>2.3.1</b> Intuition</a></li>
+<li class="chapter" data-level="2.3.2" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#discrete-case"><i class="fa fa-check"></i><b>2.3.2</b> Discrete case</a></li>
+<li class="chapter" data-level="2.3.3" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#continuous-case"><i class="fa fa-check"></i><b>2.3.3</b> Continuous Case</a></li>
+<li class="chapter" data-level="2.3.4" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#independence"><i class="fa fa-check"></i><b>2.3.4</b> Independence</a></li>
+</ul></li>
 <li class="chapter" data-level="2.4" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#cumulative-distribution-functions-cdfs"><i class="fa fa-check"></i><b>2.4</b> Cumulative Distribution Functions (CDFs)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="probability-spaces-and-random-variables.html"><a href="probability-spaces-and-random-variables.html#single-random-variables-1"><i class="fa fa-check"></i><b>2.4.1</b> Single Random Variables</a></li>
 </ul></li>
@@ -631,8 +636,79 @@ a random variable <span class="math inline">\(X\)</span> that is geometrically d
 
 </div>
 </div>
-<div id="independence" class="section level2">
-<h2><span class="header-section-number">2.3</span> Independence</h2>
+<div id="conditional-probability-and-independence" class="section level2">
+<h2><span class="header-section-number">2.3</span> Conditional Probability and Independence</h2>
+<div id="intuition" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Intuition</h3>
+<p>Let <span class="math inline">\((\Omega,\mathscr{F},\mathbb{P})\)</span> be a probability space and let <span class="math inline">\(A\in\mathscr{F}\)</span> be a set with positive measure, i.e.
+<span class="math display">\[
+\mathbb{P}\left(A\right)&gt;0.
+\]</span>
+Let <span class="math inline">\(B\in\mathscr{F}\)</span> be another set. We would like to know what is the probability that <span class="math inline">\(B\)</span> occurs <strong>given</strong> that we already know that
+<span class="math inline">\(A\)</span> occurs. That is, we would like to know the <strong>updated</strong> probability of the event <span class="math inline">\(B\)</span> after we weigh in the extra information
+that we know that <span class="math inline">\(A\)</span> occurs. For example, if <span class="math inline">\(B\cap A=\emptyset\)</span> then knowing that <span class="math inline">\(A\)</span> occurs tells us that <span class="math inline">\(B\)</span> does not occur,
+so, under this assumption, <span class="math inline">\(\mathbb{P}(B\vert A) = 0\)</span>. In general we have the formula
+<span class="math display">\[
+\mathbb{P}\left(B\vert A\right) = \frac{\mathbb{P}(B \vert A)}{\mathbb{P}(A)}
+\]</span>
+which follows from the reasoning that knowing that <span class="math inline">\(A\)</span> occurs reduces our initial probability space <span class="math inline">\(\Omega\)</span> to the set <span class="math inline">\(A\)</span> which then
+becomes the new ‘total’ or ‘universe’ set, and in order to equip this new probability space on <span class="math inline">\(A\)</span> with a probability measure we simply
+normalize our initial probability measure <span class="math inline">\(\mathbb{P}\)</span> by the measure of the set <span class="math inline">\(A\)</span>, i.e. by <span class="math inline">\(\mathbb{P}(A)\)</span>.</p>
+<p>Particularly, for random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> we usually find the conditional that <span class="math inline">\(X\in B\)</span> given that we already know
+that <span class="math inline">\(Y\in A\)</span> as
+<span class="math display">\[
+\mathbb{P}(X\in B \vert A\in A) = \frac{\mathbb{P}(X\in B, Y\in A)}{\mathbb{P}(Y\in A)}.
+\]</span></p>
+</div>
+<div id="discrete-case" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Discrete case</h3>
+<p>Let <span class="math inline">\(Y\)</span> be a discrete random variable, and suppose that <span class="math inline">\(\mathbb{P}(Y = a)&gt;0\)</span>. Then, for any <span class="math inline">\(B\in \mathscr{F}\)</span> we have
+<span class="math display">\[
+\mathbb{P}(X\in B \vert Y=a) = \frac{\mathbb{P}(X\in B, Y = a)}{\mathbb{P}(Y=a)}.
+\]</span>
+Compare this with the continuous case scenario. The following formula is often used when computing probabilities by
+first assuming that we know the value of the random variable <span class="math inline">\(Y\)</span>, thus computing <span class="math inline">\(\mathbb{P}(X\in B\vert Y = a)\)</span>, and then summing
+over the possible values for <span class="math inline">\(Y\)</span>. Indeed, let <span class="math inline">\((a_n)_{n}\)</span> be the set of values for <span class="math inline">\(Y\)</span>, then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{P}\left(X \in B\right) &amp;= \sum_{n}\mathbb{P}(X \in B, Y = a_n)\\
+              &amp;= \sum_{n} \mathbb{P}(X\in B \vert Y = a_n) \mathbb{P}(Y = a_n).
+\end{aligned}
+\]</span></p>
+<p>More generally we have</p>
+<p><span class="math display">\[
+\mathbb{P}\left(X \in B, Y\in A\right) =
+              = \sum_{n\colon a_n\in A} \mathbb{P}(X\in B \vert Y = a_n) \mathbb{P}(Y = a_n).
+\]</span></p>
+</div>
+<div id="continuous-case" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Continuous Case</h3>
+<p>Let <span class="math inline">\(Y\)</span> be a continuous random variable, in which case we always have that, for any <span class="math inline">\(a\in\mathbb{R}\)</span>, <span class="math inline">\(\mathbb{P}(Y=a)=0\)</span>. In this
+case we cannot define a conditional probability given that <span class="math inline">\(Y=a\)</span> as we did before (by simply normalizing with <span class="math inline">\(\mathbb{P}(Y=a)\)</span>, but
+we can in fact define a conditional density function. So let <span class="math inline">\(X\)</span> be another random variable and consider the random vector
+<span class="math inline">\((X,Y)\)</span> with density function <span class="math inline">\(f_{X,Y}(x,y)\)</span>. For each fixed value of <span class="math inline">\(y\)</span> define the conditional density function <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span> as
+<span class="math display">\[
+f_{X\vert Y}(x\vert y) = \frac{f(x,y)}{\int_{-\infty}^\infty f(x,y) dx } = \frac{f(x,y)}{f_Y(y)},
+\]</span>
+thus, the conditional probability of <span class="math inline">\(X\in B\)</span> given <span class="math inline">\(Y=y\)</span> is given by the integral of the conditional density function:</p>
+<p><span class="math display">\[
+\mathbb{P}(X\in B\vert Y=y) = \int_B f_{X\vert Y}(x\vert y) dx.
+\]</span></p>
+<p>Furthermore, observe that</p>
+<p><span class="math display">\[
+f_{X,Y}(x,y) = f_{X\vert Y}(x\vert y)f_Y(y),
+\]</span></p>
+<p>so that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{P}(X\in B, Y\in A) &amp;= \int_A \int_B f_{X,Y}(x,y) dx dy \\
+&amp;=\int_A \int_B f_{X\vert Y}(x\vert y)f_Y(y) dx dy\\
+&amp;= \int_A \mathbb{P}(X\in B \vert Y = y)f_Y(y) dy.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="independence" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> Independence</h3>
 
 <div class="definition">
 <span id="def:unnamed-chunk-32" class="definition"><strong>Definition 2.12  (Independence - Events)  </strong></span>Let <span class="math inline">\((\Omega,\mathscr{F},\mathbb{P})\)</span> be a probability space. Two events (sets) <span class="math inline">\(A,B\in\mathscr{F}\)</span> are said to be independent if
@@ -668,6 +744,7 @@ X \perp Y \quad\text{ iff }\quad f_{X,Y} = f_Xf_Y.
 strengthen to <span class="math inline">\(\mathbb{P}\left(h(X)\in A \bigcap g(Y)\in B\right) = \mathbb{P}(h(X)\in A) \mathbb{P}(g(Y)\in B)\)</span> for any pair of functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>,
 and, furthermore, can be extended to a stronger property about expectations (see Theorem <a href="#thm:independenceProductE"><strong>??</strong></a> below).</p>
 <hr />
+</div>
 </div>
 <div id="cumulative-distribution-functions-cdfs" class="section level2">
 <h2><span class="header-section-number">2.4</span> Cumulative Distribution Functions (CDFs)</h2>
