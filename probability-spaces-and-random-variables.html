@@ -166,6 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="common-distributions.html"><a href="common-distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.3</b> Exponential Distribution</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-3"><i class="fa fa-check"></i><b>3.3.1</b> Definition</a></li>
 <li class="chapter" data-level="3.3.2" data-path="common-distributions.html"><a href="common-distributions.html#model-2"><i class="fa fa-check"></i><b>3.3.2</b> Model</a></li>
+<li class="chapter" data-level="3.3.3" data-path="common-distributions.html"><a href="common-distributions.html#important-properties"><i class="fa fa-check"></i><b>3.3.3</b> Important properties</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="common-distributions.html"><a href="common-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>3.4</b> Binomial Distribution</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-4"><i class="fa fa-check"></i><b>3.4.1</b> Definition</a></li>
@@ -185,6 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.8" data-path="common-distributions.html"><a href="common-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>3.8</b> Normal Distribution</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-7"><i class="fa fa-check"></i><b>3.8.1</b> Definition</a></li>
 <li class="chapter" data-level="3.8.2" data-path="common-distributions.html"><a href="common-distributions.html#model-7"><i class="fa fa-check"></i><b>3.8.2</b> Model</a></li>
+<li class="chapter" data-level="3.8.3" data-path="common-distributions.html"><a href="common-distributions.html#important-properties-1"><i class="fa fa-check"></i><b>3.8.3</b> Important properties</a></li>
 </ul></li>
 <li class="chapter" data-level="3.9" data-path="common-distributions.html"><a href="common-distributions.html#students-t-distribution"><i class="fa fa-check"></i><b>3.9</b> Student’s t-distribution</a><ul>
 <li class="chapter" data-level="3.9.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-8"><i class="fa fa-check"></i><b>3.9.1</b> Definition</a></li>
@@ -652,9 +654,9 @@ so, under this assumption, <span class="math inline">\(\mathbb{P}(B\vert A) = 0\
 \mathbb{P}\left(B\vert A\right) = \frac{\mathbb{P}(B \vert A)}{\mathbb{P}(A)}
 \]</span>
 which follows from the reasoning that knowing that <span class="math inline">\(A\)</span> occurs reduces our initial probability space <span class="math inline">\(\Omega\)</span> to the set <span class="math inline">\(A\)</span> which then
-becomes the new ‘total’ or ‘universe’ set, and in order to equip this new probability space on <span class="math inline">\(A\)</span> with a probability measure we simply
+becomes the new ‘total’ or ‘universe’ set, and in order to equip the space <span class="math inline">\(A\)</span> with a probability measure we simply
 normalize our initial probability measure <span class="math inline">\(\mathbb{P}\)</span> by the measure of the set <span class="math inline">\(A\)</span>, i.e. by <span class="math inline">\(\mathbb{P}(A)\)</span>.</p>
-<p>Particularly, for random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> we usually find the conditional that <span class="math inline">\(X\in B\)</span> given that we already know
+<p>Particularly, for random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> we find the conditional probability that <span class="math inline">\(X\in B\)</span> given that we already know
 that <span class="math inline">\(Y\in A\)</span> as
 <span class="math display">\[
 \mathbb{P}(X\in B \vert A\in A) = \frac{\mathbb{P}(X\in B, Y\in A)}{\mathbb{P}(Y\in A)}.

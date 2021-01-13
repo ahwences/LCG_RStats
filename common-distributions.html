@@ -166,6 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="common-distributions.html"><a href="common-distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.3</b> Exponential Distribution</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-3"><i class="fa fa-check"></i><b>3.3.1</b> Definition</a></li>
 <li class="chapter" data-level="3.3.2" data-path="common-distributions.html"><a href="common-distributions.html#model-2"><i class="fa fa-check"></i><b>3.3.2</b> Model</a></li>
+<li class="chapter" data-level="3.3.3" data-path="common-distributions.html"><a href="common-distributions.html#important-properties"><i class="fa fa-check"></i><b>3.3.3</b> Important properties</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="common-distributions.html"><a href="common-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>3.4</b> Binomial Distribution</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-4"><i class="fa fa-check"></i><b>3.4.1</b> Definition</a></li>
@@ -185,6 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.8" data-path="common-distributions.html"><a href="common-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>3.8</b> Normal Distribution</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-7"><i class="fa fa-check"></i><b>3.8.1</b> Definition</a></li>
 <li class="chapter" data-level="3.8.2" data-path="common-distributions.html"><a href="common-distributions.html#model-7"><i class="fa fa-check"></i><b>3.8.2</b> Model</a></li>
+<li class="chapter" data-level="3.8.3" data-path="common-distributions.html"><a href="common-distributions.html#important-properties-1"><i class="fa fa-check"></i><b>3.8.3</b> Important properties</a></li>
 </ul></li>
 <li class="chapter" data-level="3.9" data-path="common-distributions.html"><a href="common-distributions.html#students-t-distribution"><i class="fa fa-check"></i><b>3.9</b> Student’s t-distribution</a><ul>
 <li class="chapter" data-level="3.9.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-8"><i class="fa fa-check"></i><b>3.9.1</b> Definition</a></li>
@@ -313,7 +315,35 @@ we had already waited <span class="math inline">\(t\)</span> units of time.</p>
 <p>In genomics this distribution is widely used in different modelling scenarios. For example exponential random variables
 are used to model degradation and/or production times of molecules in biochemical models, they are also used in Population
 Genetics to model birth/death times of individuals, or the occurrence of new mutations over time and/or along the genome.</p>
+</div>
+<div id="important-properties" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Important properties</h3>
+<div id="sum-of-exponentials" class="section level4">
+<h4><span class="header-section-number">3.3.3.1</span> Sum of exponentials</h4>
+<p>Let <span class="math inline">\(Y_1,\dots,Y_n\)</span> be exponentially distributed of parameter <span class="math inline">\(\lambda\)</span>. Then their sum
+<span class="math display">\[
+\sum_{k=1}^n Y_k
+\]</span>
+has Gamma distribution of parameters <span class="math inline">\(\alpha = n-1\)</span> and <span class="math inline">\(\beta = \lambda\)</span>.</p>
+</div>
+<div id="minimum-of-exponentials" class="section level4">
+<h4><span class="header-section-number">3.3.3.2</span> Minimum of exponentials</h4>
+<p>Let <span class="math inline">\(Y_1,\dots,Y_n\)</span> be exponentially distributed of parameters <span class="math inline">\(\lambda_1,\dots,\lambda_n\)</span>, and let
+<span class="math display">\[
+M = \min_{1\leq k\leq n} Y_k
+\]</span>
+be their minimum value,
+and
+<span class="math display">\[
+I = \arg\min_{1\leq k\leq n} Y_k
+\]</span>
+be the index on <span class="math inline">\(\{1,\dots,n\}\)</span> that achieves the minimum. Then <span class="math inline">\(M\)</span> and <span class="math inline">\(I\)</span> are <strong>independent</strong> and <span class="math inline">\(M\)</span> is
+exopnentially distributed of parameter <span class="math inline">\(\lambda_1+\dots +\lambda_n\)</span> while the distribution of <span class="math inline">\(I\)</span> is given by
+<span class="math display">\[
+\mathbb{P}(I=k) = \frac{\lambda_k}{\lambda_1+\dots +\lambda_n} \text{ for }1\leq k\leq n.
+\]</span></p>
 <hr />
+</div>
 </div>
 </div>
 <div id="binomial-distribution" class="section level2">
@@ -423,7 +453,55 @@ f(x \vert \mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^
 appears everywhere, specially when the variables that we are modelling can be interpreted as averages over many copies of
 subyacent independent random variables. This also explains why a lot of work in statistics is specialized to the study
 of this distribution.</p>
+</div>
+<div id="important-properties-1" class="section level3">
+<h3><span class="header-section-number">3.8.3</span> Important properties</h3>
+<div id="locationscale-family" class="section level4">
+<h4><span class="header-section-number">3.8.3.1</span> Location/scale family</h4>
+<p>Let <span class="math inline">\(X\)</span> be a normall distributed random variable with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Then, for any <span class="math inline">\(a\in\mathbb{R}\)</span> and <span class="math inline">\(b&gt;0\)</span> the
+random variable <span class="math inline">\(b(X+a)\)</span> is normally distibuted with mean <span class="math inline">\(b(\mu+a)\)</span> and variance <span class="math inline">\(b^2\sigma^2\)</span>.</p>
+</div>
+<div id="independence-of-normal-distributions" class="section level4">
+<h4><span class="header-section-number">3.8.3.2</span> Independence of normal distributions</h4>
+<p>Let <span class="math inline">\((X,Y)\)</span> be a random vector with (joint) normal distribution, then
+<span class="math display">\[
+X\perp Y \text{ iff } \mathbb{Cov}(X,Y) = 0.
+\]</span></p>
+</div>
+<div id="sum-of-indpendent-normal-distributions" class="section level4">
+<h4><span class="header-section-number">3.8.3.3</span> Sum of indpendent normal distributions</h4>
+<p>Let <span class="math inline">\(Y_1,\dots,Y_n\)</span> be <span class="math inline">\(n\)</span> independent random variables with normal distribution of parameters <span class="math inline">\((\mu_1,\sigma_1), \dots, (\mu_n, \sigma_n)\)</span>.
+Then the random variable <span class="math inline">\(\sum_{k=1}^n Y_k\)</span> is Normally distributed of parameters <span class="math inline">\(\mu = \sum_{k=1}^n \mu_k\)</span> and
+<span class="math inline">\(\sigma^2 = \sum_{k=1}^n \sigma_k^2\)</span>.
+Of course from this property we obtain that the sample mean of a sample of i.i.d normal distributions <span class="math inline">\((\mu,\sigma)\)</span>
+<span class="math display">\[
+\tilde{X}=\frac{1}{n}\sum_{k=1}^n X_k
+\]</span>
+is normally distributed with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(n\sigma^2\)</span>.</p>
+</div>
+<div id="sum-of-squares" class="section level4">
+<h4><span class="header-section-number">3.8.3.4</span> Sum of squares</h4>
+<p>Let <span class="math inline">\(Y_1,\dots,Y_n\)</span> be <span class="math inline">\(n\)</span> independent normally distributed radom variables with mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(1\)</span>. Then
+the random varible <span class="math inline">\(\sum_{k=1}^n X_k^2\)</span> has Chi-squared distribution with <span class="math inline">\(n\)</span> degrees of freedom.</p>
+</div>
+<div id="sample-mean-and-sample-standard-deviation" class="section level4">
+<h4><span class="header-section-number">3.8.3.5</span> Sample mean and sample standard deviation</h4>
+<p>Let <span class="math inline">\(Y_1,\dots,Y_n\)</span> be <span class="math inline">\(n\)</span> independent normally distributed radom variables with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma\)</span>. Then
+the sample mean
+<span class="math display">\[
+\tilde{X}
+\]</span>
+and the sample standard deviation
+<span class="math display">\[
+S = \frac{1}{n-1}\sum_{k=1}^n (X_k-\tilde{X})^2
+\]</span>
+are <strong>independent</strong> and the ratio
+<span class="math display">\[
+T = \frac{\tilde{X}- \mu}{S/\sqrt{n}}
+\]</span>
+has the t-student distribution of <span class="math inline">\(n-1\)</span> degrees of freedom.</p>
 <hr />
+</div>
 </div>
 </div>
 <div id="students-t-distribution" class="section level2">

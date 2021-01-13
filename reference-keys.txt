@@ -94,6 +94,9 @@ number-of-trials-1
 exponential-distribution
 definition-3
 model-2
+important-properties
+sum-of-exponentials
+minimum-of-exponentials
 binomial-distribution
 definition-4
 model-3
@@ -108,6 +111,12 @@ model-6
 normal-distribution
 definition-7
 model-7
+important-properties-1
+locationscale-family
+independence-of-normal-distributions
+sum-of-indpendent-normal-distributions
+sum-of-squares
+sample-mean-and-sample-standard-deviation
 students-t-distribution
 definition-8
 model-8
