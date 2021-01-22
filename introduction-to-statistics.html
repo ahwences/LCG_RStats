@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Probability and Statistics Classes</title>
-  <meta name="description" content="Probability and Statistics Classes" />
+  <title>4 Introduction to Statistics | Probability and Statistics Classes</title>
+  <meta name="description" content="4 Introduction to Statistics | Probability and Statistics Classes" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Probability and Statistics Classes" />
+  <meta property="og:title" content="4 Introduction to Statistics | Probability and Statistics Classes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Probability and Statistics Classes" />
+  <meta name="twitter:title" content="4 Introduction to Statistics | Probability and Statistics Classes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="common-distributions.html"/>
 
-<link rel="next" href="probability-spaces-and-random-variables.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -223,27 +223,246 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Probability and Statistics Classes</h1>
-<h2 class="subtitle"><em>Statistics and R Course, LCG</em></h2>
-<p class="author"><em>Alejandro Hernández Wences</em></p>
+<div id="introduction-to-statistics" class="section level1">
+<h1><span class="header-section-number">4</span> Introduction to Statistics</h1>
+<div id="big-picture" class="section level2">
+<h2><span class="header-section-number">4.1</span> Big Picture</h2>
+<div id="data" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Data</h3>
+<ul>
+<li>Random variables live in the theoretical (mathematical) world</li>
+<li>We <strong>assume</strong> that the variability of the data is adequately consistent
+with the variability that <strong>would</strong> occur in a random sample from a given
+distribution/random process.
+<ul>
+<li>Data itself is assumed to be random variables so that we can focus
+on the best way to <strong>reason from random variables to inferences
+about (theoretical) parameters</strong>.</li>
+</ul></li>
+<li>Beware, often the language of statistics takes a convenient shortcut by blurring the distinction between data and random variables.</li>
+</ul>
 </div>
-<div id="preface" class="section level1">
-<h1><span class="header-section-number">1</span> Preface</h1>
-<p>This notes are intended to guide and summarize the probability and statistics classes in the “Statistics and R” course
-of the Genomic Sciences program at the UNAM. Their intention is not to provide a formal and complete exposition of
-the subjects but rather just to serve as guidelines and visual aids during the classes. They may be useful for students
-taking notes by providing them with a general organization of the topics seen during the class, however they
-are no replacement for the notes that students are encouraged to take on their own.</p>
+<div id="models" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Models</h3>
+<ul>
+<li>Incorporate theoretical assumptions and subjunctive statements (of the form if … then …).</li>
+<li>Inference is based on what <strong>would</strong> happen if the data <strong>were</strong> to be random
+variables distributed according to the statistical model.</li>
+<li>The modelling assumption would be reasonable if the model were to <strong>describe accurately</strong> the variation in the data.</li>
+</ul>
+</div>
+<div id="probability" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Probability</h3>
+<ul>
+<li><strong>Aleatoric Probability:</strong> The use of probability to describe <strong>variation</strong>. E.g.
+“The probability of rolling a 3 in a fair dice is 1/6”.</li>
+<li><strong>Epistemic Probability:</strong> The use of probability to express <strong>knowledge</strong> (or beliefs). E.g. “I’m 90% sure that the capital of México is CDMX”.</li>
+</ul>
+</div>
+</div>
+<div id="likelihood-function" class="section level2">
+<h2><span class="header-section-number">4.2</span> Likelihood Function</h2>
+<div id="definition-9" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Definition</h3>
+
+<div class="definition">
+<span id="def:unnamed-chunk-82" class="definition"><strong>Definition 4.1  </strong></span>
+Let <span class="math inline">\(\{\mathcal{P}_\theta\}_{\theta\in\Theta}\)</span>
+be a set of probability models (e.g. distributions)
+indexed by a (possibly a vector) parameter <span class="math inline">\(\theta\)</span> that lives
+in some space <span class="math inline">\(\Theta\)</span> (e.g. <span class="math inline">\(\mathbb{R}^n\)</span>).
+</div>
+
+<ul>
+<li><p>Assume that, for each
+<span class="math inline">\(\theta\)</span>, if <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> is a random vector whose
+distribution is given by <span class="math inline">\(\mathcal{P}_{\theta}\)</span>, then <span class="math inline">\(\bar{X}\)</span> has density
+<span class="math inline">\(f(x\vert \theta)\)</span>.</p></li>
+<li><p>Consider a fixed set of values <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span>. \</p></li>
+</ul>
+<p>Then the <strong>likelihood function</strong> <span class="math inline">\(L(\bar{x}\vert \theta)\)</span> is the function
+of <span class="math inline">\(\theta\)</span> given by <span class="math inline">\(L(\bar{x} \vert \theta) = f(\bar{x}}\vert \theta)\)</span>.</p>
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> Note that if, instead we regard
+<span class="math display">\[
+L(\bar{x} \vert \theta) = f(\bar{x}\vert \theta)
+\]</span>
+as a function of <span class="math inline">\(\bar{x}\)</span> (with <span class="math inline">\(\theta\)</span> fixed) then what we have is simply
+the density function of <span class="math inline">\(\bar{x}\)</span> under the model <span class="math inline">\(\mathcal{P}_\theta\)</span>.
+</div>
+
+<p>\</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-84" class="example"><strong>Example 4.1  </strong></span>Consider the family of probability models for a random vector <span class="math inline">\(\bar{X}\)</span>
+of size <span class="math inline">\(n\)</span> whose entries are all independent and identically distributed
+<span class="math inline">\(Gamma(\alpha,\beta)\)</span>. Then for any vector <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span>, and
+using the independence assumption for the first equality, we have
+<span class="math display">\[
+\begin{aligned}
+L(\bar{x}\vert \alpha,\beta) &amp;= \prod_{k=1}^n L(x_i\vert \alpha,\beta) \\
+&amp;= \left(\frac{\beta^\alpha}{\Gamma(\alpha)}\right)^n \prod_{k=1}^n x_i^{\alpha-1}e^{-\beta x_i}\\
+&amp;=  \left(\frac{\beta^\alpha}{\Gamma(\alpha)}\right)^n \left(\prod_{k=1}^n x_i\right)^{\alpha-1}
+e^{-\beta\sum_{k=1}^n x_i}.
+\\
+\end{aligned}.
+\]</span>
+If we now change the family of models <span class="math inline">\(\{\mathcal{P_\theta}\}_{\theta\in\Theta}\)</span>
+and assume that the entries of <span class="math inline">\(\bar{X}\)</span> are still independent but not
+identically distributed, for example if we assume that <span class="math inline">\(X_i\)</span> has distribution
+<span class="math inline">\(Gamma(\alpha_i, \beta)\)</span> (they share the parameter <span class="math inline">\(\beta\)</span> but not necessarily
+the parameter <span class="math inline">\(\alpha\)</span>), then we obtain
+<span class="math display">\[
+\begin{aligned}
+L(\bar{x}\vert \alpha,\beta) &amp;= \prod_{k=1}^n L(x_i\vert \alpha,\beta) \\
+&amp;= \frac{\beta^{\sum_{k=1}^n \alpha}}{\prod_{k=1}^n\Gamma(\alpha_i)} 
+    \left(\prod_{k=1}^n x_i^{\alpha_i-1}\right) e^{-\beta \sum_{k=1}^n x_i}
+\\
+\end{aligned}.
+\]</span>
+</div>
 
 </div>
+<div id="maximum-likelihood-estimator-mle-point-estimate" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Maximum Likelihood Estimator MLE (Point Estimate)</h3>
+<p>The likelihood functions can be used to obtain a <strong>point estimate</strong> that
+typically has very desirable properties.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-85" class="definition"><strong>Definition 4.2  </strong></span>Let <span class="math inline">\(\{\mathcal{P}_\theta\}_{\theta\in\Theta}\)</span> be a family of probabilistic
+models. Let <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span> be a sample (a set of values). The
+<strong>maximum likelihood</strong> estimator for <span class="math inline">\(\theta\)</span> based on the sample <span class="math inline">\(\bar{x}\)</span>
+is given by
+<span class="math display">\[
+\hat{\theta} = arg\max_{\theta\in\Theta} L(\bar{x}\vert \theta),
+\]</span>
+it can be interpreted as the paramter <span class="math inline">\(\hat{\theta}\)</span> under which
+the data <span class="math inline">\(\bar{x}\)</span> is better explained
+by <span class="math inline">\(\mathcal{P}_{\theta}\)</span>, where the
+<strong>criterion</strong> to say that a model <span class="math inline">\(\mathcal{P}_{\theta}\)</span>
+‘explains the data better’
+is simply that of saying that it is more likely to observe the
+data <span class="math inline">\(\bar{x}\)</span> under the model <span class="math inline">\(\mathcal{P}_\theta\)</span>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-86" class="example"><strong>Example 4.2  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be i.i.d <span class="math inline">\(normal(\mu,1)\)</span>. Then</p>
+<span class="math display">\[
+L(\bar{X}\vert \theta) = \frac{1}{(2\pi)^{n/2}} 
+e^{-\frac{1}{2}\sum_{k=1}^n(x_k-\mu)^2}.
+\]</span>
+The equation
+<span class="math display">\[
+\frac{d}{dd\mu}dL(\bar{X} \vert \theta) = 0
+\]</span>
+reduces to
+<span class="math display">\[
+\sum_{k=1}^n(x_k-\mu) = 0
+\]</span>
+which has solution
+<span class="math display">\[
+\hat{\mu} = \frac{1}{n} \sum_{k=1}^N X_k = \tilde{X}.
+\]</span>
+</div>
+
+</div>
+</div>
+<div id="hypothesis-testing" class="section level2">
+<h2><span class="header-section-number">4.3</span> Hypothesis testing</h2>
+
+<div class="definition">
+<span id="def:unnamed-chunk-87" class="definition"><strong>Definition 4.3  </strong></span>A <strong>hypothesis</strong> is a statement about a population/model parameter.
+</div>
+
+<p>The goal of a hypothesis test is to decide, based on a sample from the population, which of two complementary hypothesis is true.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-88" class="definition"><strong>Definition 4.4  </strong></span>The two complementary hypothesis in a hypothesis testing problem are called
+the <strong>null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong> and the <strong>alternative hypothesis (<span class="math inline">\(H_1\)</span>)</strong>.
+</div>
+
+<p>\</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-89" class="definition"><strong>Definition 4.5  </strong></span>A <strong>hypothesis testing procedure</strong> as rule that sepecifies:</p>
+<ol style="list-style-type: decimal">
+<li>For which sample values the decision is made to accept <span class="math inline">\(H_0\)</span> as true.</li>
+<li>For which sample values <span class="math inline">\(H_0\)</span> is rejected (in ``acceptance’’ of <span class="math inline">\(H_1\)</span>).</li>
+</ol>
+The region of the sample space on which <span class="math inline">\(H_0\)</span> is rejected is called the <strong>rejection region</strong>, while the region in which <span class="math inline">\(H_0\)</span> is accepted is called the
+<strong>acceptance region</strong>.
+</div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="common-distributions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="probability-spaces-and-random-variables.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

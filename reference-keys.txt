@@ -58,6 +58,13 @@ exm:unnamed-chunk-66
 def:unnamed-chunk-68
 exm:unnamed-chunk-69
 exm:unnamed-chunk-70
+def:unnamed-chunk-82
+exm:unnamed-chunk-84
+def:unnamed-chunk-85
+exm:unnamed-chunk-86
+def:unnamed-chunk-87
+def:unnamed-chunk-88
+def:unnamed-chunk-89
 preface
 probability-spaces-and-random-variables
 probability-spaces
@@ -121,3 +128,12 @@ students-t-distribution
 definition-8
 model-8
 cauchy-vs-normal
+introduction-to-statistics
+big-picture
+data
+models
+probability
+likelihood-function
+definition-9
+maximum-likelihood-estimator-mle-point-estimate
+hypothesis-testing
