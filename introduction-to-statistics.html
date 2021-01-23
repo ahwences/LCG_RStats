@@ -183,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="common-distributions.html"><a href="common-distributions.html#beta-distribution"><i class="fa fa-check"></i><b>3.7</b> Beta Distribution</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="common-distributions.html"><a href="common-distributions.html#model-6"><i class="fa fa-check"></i><b>3.7.1</b> Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="common-distributions.html"><a href="common-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>3.8</b> Normal Distribution</a><ul>
+<li class="chapter" data-level="3.8" data-path="common-distributions.html"><a href="common-distributions.html#normalDistribution"><i class="fa fa-check"></i><b>3.8</b> Normal Distribution</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="common-distributions.html"><a href="common-distributions.html#definition-7"><i class="fa fa-check"></i><b>3.8.1</b> Definition</a></li>
 <li class="chapter" data-level="3.8.2" data-path="common-distributions.html"><a href="common-distributions.html#model-7"><i class="fa fa-check"></i><b>3.8.2</b> Model</a></li>
 <li class="chapter" data-level="3.8.3" data-path="common-distributions.html"><a href="common-distributions.html#important-properties-1"><i class="fa fa-check"></i><b>3.8.3</b> Important properties</a></li>
@@ -195,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html"><i class="fa fa-check"></i><b>4</b> Introduction to Statistics</a><ul>
-<li class="chapter" data-level="4.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#big-picture"><i class="fa fa-check"></i><b>4.1</b> Big Picture</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#bigpicture"><i class="fa fa-check"></i><b>4.1</b> Big Picture</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#data"><i class="fa fa-check"></i><b>4.1.1</b> Data</a></li>
 <li class="chapter" data-level="4.1.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#models"><i class="fa fa-check"></i><b>4.1.2</b> Models</a></li>
 <li class="chapter" data-level="4.1.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#probability"><i class="fa fa-check"></i><b>4.1.3</b> Probability</a></li>
@@ -225,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introduction-to-statistics" class="section level1">
 <h1><span class="header-section-number">4</span> Introduction to Statistics</h1>
-<div id="big-picture" class="section level2">
+<div id="bigpicture" class="section level2">
 <h2><span class="header-section-number">4.1</span> Big Picture</h2>
 <div id="data" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Data</h3>
@@ -249,6 +249,11 @@ about (theoretical) parameters</strong>.</li>
 <li>Inference is based on what <strong>would</strong> happen if the data <strong>were</strong> to be random
 variables distributed according to the statistical model.</li>
 <li>The modelling assumption would be reasonable if the model were to <strong>describe accurately</strong> the variation in the data.</li>
+<li>Typically one considers real observed data <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span> on the one hand, and random vectors
+<span class="math inline">\((X_1,\dots,X_n)\)</span> whose distribution depends on a parameter <span class="math inline">\(\theta\)</span> on the other. Then one assumes that the observed
+data <span class="math inline">\(\bar{x}\)</span> is actually a realization of the random vector <span class="math inline">\(\bar{X}\)</span>, i.e one assumes that we have observed
+the event
+<span class="math inline">\(X_1=x_1,\dots,X_n=x_n\)</span> thus effectively considering the observed data <span class="math inline">\(\bar{x}\)</span> as random variables.</li>
 </ul>
 </div>
 <div id="probability" class="section level3">
@@ -277,50 +282,71 @@ in some space <span class="math inline">\(\Theta\)</span> (e.g. <span class="ma
 <li><p>Assume that, for each
 <span class="math inline">\(\theta\)</span>, if <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> is a random vector whose
 distribution is given by <span class="math inline">\(\mathcal{P}_{\theta}\)</span>, then <span class="math inline">\(\bar{X}\)</span> has density
-<span class="math inline">\(f(x\vert \theta)\)</span>.</p></li>
-<li><p>Consider a fixed set of values <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span>.</p></li>
+<span class="math inline">\(f(\bar{x}\vert \theta)\)</span>.</p></li>
+<li><p>Fix <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span>.</p></li>
 </ul>
-<p>Then the <strong>likelihood function</strong> <span class="math inline">\(L(\bar{x}\vert \theta)\)</span> is the function
+<p>The <strong>likelihood function</strong> <span class="math inline">\(L(\bar{x}\vert \theta)\)</span> based on <span class="math inline">\(\bar{x}\)</span> is the function
 of <span class="math inline">\(\theta\)</span> given by
 <span class="math display">\[L(\bar{x} \vert \theta) = f(\bar{x}\vert \theta).\]</span></p>
 
 <div class="remark">
- <span class="remark"><em>Remark. </em></span> Note that if, instead we regard
+ <span class="remark"><em>Remark. </em></span> Note that if we regard
 <span class="math display">\[
 L(\bar{x} \vert \theta) = f(\bar{x}\vert \theta)
 \]</span>
-as a function of <span class="math inline">\(\bar{x}\)</span> (with <span class="math inline">\(\theta\)</span> fixed) then what we have is simply
+as a function of <span class="math inline">\(\bar{x}\)</span> (with <span class="math inline">\(\theta\)</span> fixed) instead, then what we have is simply
 the density function of <span class="math inline">\(\bar{x}\)</span> under the model <span class="math inline">\(\mathcal{P}_\theta\)</span>.
 </div>
 
 <p>\</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-84" class="example"><strong>Example 4.1  </strong></span>Consider the family of probability models for a random vector <span class="math inline">\(\bar{X}\)</span>
+<p><span id="exm:unnamed-chunk-84" class="example"><strong>Example 4.1  (I.i.d Gamma)  </strong></span>Consider the family of probability models for a random vector <span class="math inline">\(\bar{X}\)</span>
 of size <span class="math inline">\(n\)</span> whose entries are all independent and identically distributed
 <span class="math inline">\(Gamma(\alpha,\beta)\)</span>. Then for any vector <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span>, and
 using the independence assumption for the first equality, we have
 <span class="math display">\[
 \begin{aligned}
-L(\bar{x}\vert \alpha,\beta) &amp;= \prod_{k=1}^n L(x_i\vert \alpha,\beta) \\
-&amp;= \left(\frac{\beta^\alpha}{\Gamma(\alpha)}\right)^n \prod_{k=1}^n x_i^{\alpha-1}e^{-\beta x_i}\\
-&amp;=  \left(\frac{\beta^\alpha}{\Gamma(\alpha)}\right)^n \left(\prod_{k=1}^n x_i\right)^{\alpha-1}
+L(\bar{x}\vert \alpha,\beta) &amp;= \prod_{i=1}^n L(x_i\vert \alpha,\beta) \\
+&amp;= \left(\frac{\beta^\alpha}{\Gamma(\alpha)}\right)^n \prod_{i=1}^n x_i^{\alpha-1}e^{-\beta x_i}\\
+&amp;=  \left(\frac{\beta^\alpha}{\Gamma(\alpha)}\right)^n \left(\prod_{i=1}^n x_i\right)^{\alpha-1}
 e^{-\beta\sum_{k=1}^n x_i}.
 \\
 \end{aligned}.
-\]</span>
-If we now change the family of models <span class="math inline">\(\{\mathcal{P_\theta}\}_{\theta\in\Theta}\)</span>
-and assume that the entries of <span class="math inline">\(\bar{X}\)</span> are still independent but not
+\]</span></p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-85" class="example"><strong>Example 4.2  (Independent but not identically distributed Gamma)  </strong></span>If we now change the family of models <span class="math inline">\(\{\mathcal{P_\theta}\}_{\theta\in\Theta}\)</span> of the previous example
+and assume that the entries of <span class="math inline">\(\bar{X}\)</span> are still independent but ***
 identically distributed, for example if we assume that <span class="math inline">\(X_i\)</span> has distribution
 <span class="math inline">\(Gamma(\alpha_i, \beta)\)</span> (they share the parameter <span class="math inline">\(\beta\)</span> but not necessarily
 the parameter <span class="math inline">\(\alpha\)</span>), then we obtain
 <span class="math display">\[
 \begin{aligned}
-L(\bar{x}\vert \alpha,\beta) &amp;= \prod_{k=1}^n L(x_i\vert \alpha,\beta) \\
-&amp;= \frac{\beta^{\sum_{k=1}^n \alpha}}{\prod_{k=1}^n\Gamma(\alpha_i)} 
-    \left(\prod_{k=1}^n x_i^{\alpha_i-1}\right) e^{-\beta \sum_{k=1}^n x_i}
+L(\bar{x}\vert \alpha,\beta) &amp;= \prod_{i=1}^n L(x_i\vert \alpha_i,\beta) \\
+&amp;= \frac{\beta^{\sum_{i=1}^n \alpha_i}}{\prod_{i=1}^n\Gamma(\alpha_i)} 
+    \left(\prod_{i=1}^n x_i^{\alpha_i-1}\right) e^{-\beta \sum_{i=1}^n x_i}
 \\
 \end{aligned}.
+\]</span>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-86" class="example"><strong>Example 4.3  (Not independent nor indentically distributed Gamma )  </strong></span>Let <span class="math inline">\(Y_1,Y_2\)</span> be independent and exponentially distributed random variables of parameter <span class="math inline">\(\lambda&gt;0\)</span>. Define
+the vector
+<span class="math display">\[
+(X_1,X_2) = (Y_1, Y_1+Y_2).
+\]</span>
+Then <span class="math inline">\(X_1\)</span> is <span class="math inline">\(Gamma(1,\lambda)\)</span>-distributed, <span class="math inline">\(X_2\)</span> is <span class="math inline">\(Gamma(2,\lambda)\)</span>-distributed, and clearly <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are not
+independent. It can be seen that the density function <span class="math inline">\(f_{(X_1,X_2)}\)</span> is given by
+<span class="math display">\[
+f_{(X_1,X_2)}(x_1,x_2) = \begin{cases}
+ \left(\lambda e^{-\lambda x_1}\right) \left(\lambda e^{-\lambda(x_2-x_1)}\right) &amp; \text{ if } x_2\geq x_1\\
+  0 &amp; \text{ otherwise}.
+\end{cases}
 \]</span>
 </div>
 
@@ -331,32 +357,33 @@ L(\bar{x}\vert \alpha,\beta) &amp;= \prod_{k=1}^n L(x_i\vert \alpha,\beta) \\
 typically has very desirable properties.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-85" class="definition"><strong>Definition 4.2  </strong></span>Let <span class="math inline">\(\{\mathcal{P}_\theta\}_{\theta\in\Theta}\)</span> be a family of probabilistic
+<span id="def:unnamed-chunk-87" class="definition"><strong>Definition 4.2  </strong></span>Let <span class="math inline">\(\{\mathcal{P}_\theta\}_{\theta\in\Theta}\)</span> be a family of probabilistic
 models. Let <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span> be a sample (a set of values). The
 <strong>maximum likelihood</strong> estimator for <span class="math inline">\(\theta\)</span> based on the sample <span class="math inline">\(\bar{x}\)</span>
 is given by
 <span class="math display">\[
-\hat{\theta} = arg\max_{\theta\in\Theta} L(\bar{x}\vert \theta),
+\hat{\theta}(\bar{x}) = arg\max_{\theta\in\Theta} L(\bar{x}\vert \theta),
 \]</span>
-it can be interpreted as the paramter <span class="math inline">\(\hat{\theta}\)</span> under which
+it can be interpreted as the choice of <span class="math inline">\(\theta\)</span> under which
 the data <span class="math inline">\(\bar{x}\)</span> is better explained
 by <span class="math inline">\(\mathcal{P}_{\theta}\)</span>, where the
-<strong>criterion</strong> to say that a model <span class="math inline">\(\mathcal{P}_{\theta}\)</span>
-‘explains the data better’
+<strong>criterion</strong> used to compare models, i.e. to say that a model <span class="math inline">\(\mathcal{P}_{\theta_1}\)</span>
+‘explains the data better’ than the model <span class="math inline">\(\mathcal{P}_{\theta_2}\)</span>,
 is simply that of saying that it is more likely to observe the
-data <span class="math inline">\(\bar{x}\)</span> under the model <span class="math inline">\(\mathcal{P}_\theta\)</span>.
+data <span class="math inline">\(\bar{x}\)</span> under the model <span class="math inline">\(\mathcal{P}_{\theta_1}\)</span> than under the model <span class="math inline">\(\mathcal{P}_{\theta_2}\)</span>.
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-86" class="example"><strong>Example 4.2  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be i.i.d <span class="math inline">\(normal(\mu,1)\)</span>. Then</p>
-<span class="math display">\[
-L(\bar{X}\vert \theta) = \frac{1}{(2\pi)^{n/2}} 
-e^{-\frac{1}{2}\sum_{k=1}^n(x_k-\mu)^2}.
-\]</span>
+<p><span id="exm:normalMuMLE" class="example"><strong>Example 4.4  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be i.i.d <span class="math inline">\(normal(\mu,1)\)</span>. Then,
+for any sample point <span class="math inline">\(\bar{x}\)</span>, the likelihood function based on <span class="math inline">\(\bar{x}\)</span> is given by</p>
+<p><span class="math display">\[
+L(\bar{x}\vert \theta) = \frac{1}{(2\pi)^{n/2}} 
+e^{-\frac{1}{2}\sum_{i=1}^n(x_i-\mu)^2}.
+\]</span></p>
 The equation
 <span class="math display">\[
-\frac{d}{d\mu}L(\bar{X} \vert \theta) = 0
+\frac{d}{d\mu}L(\bar{x} \vert \mu) = 0
 \]</span>
 reduces to
 <span class="math display">\[
@@ -364,30 +391,118 @@ reduces to
 \]</span>
 which has solution
 <span class="math display">\[
-\hat{\mu} = \frac{1}{n} \sum_{k=1}^N X_k = \tilde{X}.
+\hat{\mu}(\bar{x}) = \frac{1}{n} \sum_{k=1}^N x_k = \tilde{x}.
 \]</span>
 </div>
 
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co">## Create (vectorized) likelihood function</span></a>
+<a class="sourceLine" id="cb4-2" title="2">lnorm &lt;-<span class="st"> </span><span class="kw">Vectorize</span>( <span class="dt">FUN =</span> <span class="cf">function</span>(data, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb4-3" title="3">                            <span class="kw">return</span>(<span class="kw">prod</span>(<span class="kw">dnorm</span>(data, <span class="dt">mean =</span> mean, <span class="dt">sd =</span> sd)))</a>
+<a class="sourceLine" id="cb4-4" title="4">                          },</a>
+<a class="sourceLine" id="cb4-5" title="5">                    <span class="dt">vectorize.args =</span> <span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>))</a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co"># Generate random sample </span></a>
+<a class="sourceLine" id="cb4-8" title="8">data &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">1</span>) <span class="co"># mu = 1 is the `real&#39; parameter</span></a>
+<a class="sourceLine" id="cb4-9" title="9">mle &lt;-<span class="st"> </span><span class="kw">mean</span>(data)</a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co"># Visualize likelihoods under different mus</span></a>
+<a class="sourceLine" id="cb4-12" title="12">mus &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb4-13" title="13">lmus &lt;-<span class="st"> </span><span class="kw">lnorm</span>(data, <span class="dt">mean =</span> mus)</a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="kw">plot</span>(<span class="dt">x =</span> mus, <span class="dt">y =</span> lmus, <span class="dt">xlab =</span> <span class="kw">TeX</span>(<span class="st">&quot;$</span><span class="ch">\\</span><span class="st">mu$&quot;</span>), <span class="dt">ylab =</span> <span class="st">&quot;Likelihood&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>)</a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="kw">abline</span>(<span class="dt">v =</span> mle, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span> )</a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;MLE&quot;</span>, <span class="st">&quot;Truth&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># Visualize estimated density VS normal densities under different mus</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">plot</span>(<span class="kw">density</span>(data), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.5</span>), <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;density&quot;</span>, <span class="dt">main =</span> <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb5-3" title="3">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length.out =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb5-4" title="4">mus &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dt">length.out =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb5-5" title="5">ignore &lt;-<span class="st"> </span><span class="kw">mapply</span>(lines, <span class="dt">y =</span> <span class="kw">lapply</span>(mus, dnorm, <span class="dt">x =</span> x, <span class="dt">sd =</span> <span class="dv">1</span>), </a>
+<a class="sourceLine" id="cb5-6" title="6">       <span class="dt">MoreArgs =</span> <span class="kw">list</span>(<span class="st">&#39;x&#39;</span> =<span class="st"> </span>x, <span class="st">&#39;col&#39;</span> =<span class="st"> &quot;gray&quot;</span>, <span class="st">&#39;lwd&#39;</span> =<span class="st"> </span><span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="kw">abline</span>(<span class="dt">v =</span> mus, <span class="dt">lwd =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;gray&quot;</span>)</a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="kw">lines</span>(x, <span class="kw">dnorm</span>(x, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="kw">lines</span>(x, <span class="kw">dnorm</span>(x, <span class="dt">mean =</span> mle, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="kw">abline</span>(<span class="dt">v =</span> mle, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">box.col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;mle&quot;</span>, <span class="st">&quot;truth&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-88-2.png" width="672" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Visualize estimated cdf VS normal cdfs under different mus</span></a>
+<a class="sourceLine" id="cb6-2" title="2">datacdf &lt;-<span class="st"> </span><span class="kw">ecdf</span>(data)</a>
+<a class="sourceLine" id="cb6-3" title="3">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length.out =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="kw">plot</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">datacdf</span>(x), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;CDF&quot;</span>, <span class="dt">main =</span> <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb6-5" title="5">mus &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dt">length.out =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6">ignore &lt;-<span class="st"> </span><span class="kw">mapply</span>(lines, <span class="dt">y =</span> <span class="kw">lapply</span>(mus, pnorm, <span class="dt">q =</span> x, <span class="dt">sd =</span> <span class="dv">1</span>), </a>
+<a class="sourceLine" id="cb6-7" title="7">       <span class="dt">MoreArgs =</span> <span class="kw">list</span>(<span class="st">&#39;x&#39;</span> =<span class="st"> </span>x, <span class="st">&#39;col&#39;</span> =<span class="st"> &quot;gray&quot;</span>, <span class="st">&#39;lwd&#39;</span> =<span class="st"> </span><span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="kw">lines</span>(x, <span class="kw">pnorm</span>(x, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="kw">lines</span>(x, <span class="kw">pnorm</span>(x, <span class="dt">mean =</span> mle, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">box.col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;mle&quot;</span>, <span class="st">&quot;truth&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-88-3.png" width="672" /></p>
+<p>As discussed in Section <a href="introduction-to-statistics.html#bigpicture">4.1</a> the value <span class="math inline">\(\bar{x}\)</span> is typically equated with the experimentally observed data.
+However, in the probabilistic world <span class="math inline">\(\bar{x}\)</span> is interpreted as just a ‘realization’ of the random vector <span class="math inline">\(\bar{X}\)</span>.
+Now observe that <span class="math inline">\(\hat{\theta}(\bar{x})\)</span>, the MLE for <span class="math inline">\(\theta\)</span>, is a function of <span class="math inline">\(\bar{x}\)</span>,
+and if we now think of <span class="math inline">\(\bar{x}\)</span> as a realization
+of <span class="math inline">\(\bar{X}\)</span>, then in fact we may consider the random variable <span class="math inline">\(\hat{\theta}(\bar{X})\)</span>. Now, what does this mean
+in our statistical framework? Well, if a particular value <span class="math inline">\(\bar{x}\)</span> is equated with the experimentally observed data, then we
+can think of the experiment as a probabilistic procedure that outputs a random value <span class="math inline">\(\bar{x}\)</span> every
+time it is performed, thus we think of the experiment as a sampling procedure of <span class="math inline">\(\bar{X}\)</span> under the ‘true’
+distribution of <span class="math inline">\(\bar{X}\)</span>. Thus, our estimation, in particular the MLE point estimate, is random, is really a random variable,
+so that we may study the probability that we provide a good estimate for the real distribution of <span class="math inline">\(\bar{X}\)</span>, or the
+probability that we fail to do so.
+In the particular case of the MLE point estimate we may, for example, study the difference of <span class="math inline">\(\hat{\theta}(\bar{X})\)</span> for
+and the true value of <span class="math inline">\(\theta\)</span>, say <span class="math inline">\(\theta_0\)</span>.</p>
+
+<div class="example">
+<span id="exm:normalMuMLEdistribution" class="example"><strong>Example 4.5  </strong></span>Recall the situation of Example @ref{exm:normalMuMLE}. Assume that the ‘true’ distribution of <span class="math inline">\(\bar{X}\)</span> is
+normal with mean <span class="math inline">\(\mu_0\)</span> and variance 1 and recall that
+<span class="math inline">\(\hat{\mu}(\bar{X})= \tilde{X}\)</span> so that (see @ref{normalDistribution}) <span class="math inline">\(\hat{\mu}(\bar{X})\)</span> is again normally distributed with mean <span class="math inline">\(\mu_0\)</span> and variance <span class="math inline">\(1/n\)</span>.
+</div>
+
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># Generate 1000 random samples of size 100 each</span></a>
+<a class="sourceLine" id="cb7-2" title="2">mu0 &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-3" title="3">datas &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10000</span><span class="op">*</span><span class="dv">100</span>, <span class="dt">mean =</span> mu0, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co"># Compute MLE for each sample of size 100</span></a>
+<a class="sourceLine" id="cb7-5" title="5">mles &lt;-<span class="st"> </span><span class="kw">colMeans</span>(datas)</a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co"># Visualize MLE density and compare with true value mu0</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co"># Estimated density</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="kw">plot</span>(<span class="kw">density</span>(mles), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">xlab =</span> <span class="kw">TeX</span>(<span class="st">&quot;$</span><span class="ch">\\</span><span class="st">hat{</span><span class="ch">\\</span><span class="st">mu}(</span><span class="ch">\\</span><span class="st">bar{x})$&quot;</span>), <span class="dt">ylab =</span> <span class="st">&quot;Density&quot;</span>, <span class="dt">main =</span> <span class="kw">TeX</span>(<span class="st">&quot;$</span><span class="ch">\\</span><span class="st">hat{</span><span class="ch">\\</span><span class="st">mu}(</span><span class="ch">\\</span><span class="st">bar{X})$ density&quot;</span>))</a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="co"># True density</span></a>
+<a class="sourceLine" id="cb7-10" title="10">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="fl">0.7</span>, <span class="fl">1.5</span>, <span class="dt">length.out =</span> <span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="kw">lines</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">dnorm</span>(x, <span class="dt">mean =</span> mu0, <span class="dt">sd =</span> <span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">100</span>)), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;MLE sample density&quot;</span>, <span class="st">&quot;MLE true density&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">mean</span>(mles), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="kw">abline</span>(<span class="dt">v =</span> mu0, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">summary</span>(mles)</a></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.6539  0.9322  0.9992  0.9995  1.0663  1.3720</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">sd</span>(mles)</a></code></pre></div>
+<pre><code>## [1] 0.09999539</code></pre>
+<p>Thus, for example, we may compute the probability, under the <strong>assumption</strong> that the true value of <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\mu_0\)</span>, that
+<span class="math inline">\(\left\lvert \hat{\mu}(\bar{X}) - \mu_0 \right\rvert&gt; a\)</span>, we have
+<span class="math display">\[
+\mathbb{P}(\left\lvert \hat{\mu}(\bar{X}) - \mu_0 \right\rvert&gt; a) = \int_{\mu_0-a}^{\mu_0+a} \sqrt{\frac{n}{2\pi}} 
+                   e^{-\frac{n(\hat{\mu} - \mu_0 )^2}{2}} d\hat{\mu} 
+\]</span></p>
 </div>
 </div>
 <div id="hypothesis-testing" class="section level2">
 <h2><span class="header-section-number">4.3</span> Hypothesis testing</h2>
 
 <div class="definition">
-<span id="def:unnamed-chunk-87" class="definition"><strong>Definition 4.3  </strong></span>A <strong>hypothesis</strong> is a statement about a population/model parameter.
+<span id="def:unnamed-chunk-90" class="definition"><strong>Definition 4.3  </strong></span>A <strong>hypothesis</strong> is a statement about a population/model parameter.
 </div>
 
 <p>The goal of a hypothesis test is to decide, based on a sample from the population, which of two complementary hypothesis is true.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-88" class="definition"><strong>Definition 4.4  </strong></span>The two complementary hypothesis in a hypothesis testing problem are called
+<span id="def:unnamed-chunk-91" class="definition"><strong>Definition 4.4  </strong></span>The two complementary hypothesis in a hypothesis testing problem are called
 the <strong>null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong> and the <strong>alternative hypothesis (<span class="math inline">\(H_1\)</span>)</strong>.
 </div>
 
 <p>\</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-89" class="definition"><strong>Definition 4.5  </strong></span>A <strong>hypothesis testing procedure</strong> as rule that sepecifies:</p>
+<p><span id="def:unnamed-chunk-92" class="definition"><strong>Definition 4.5  </strong></span>A <strong>hypothesis testing procedure</strong> as rule that sepecifies:</p>
 <ol style="list-style-type: decimal">
 <li>For which sample values the decision is made to accept <span class="math inline">\(H_0\)</span> as true.</li>
 <li>For which sample values <span class="math inline">\(H_0\)</span> is rejected (in ``acceptance’’ of <span class="math inline">\(H_1\)</span>).</li>
