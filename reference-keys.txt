@@ -65,9 +65,9 @@ exm:unnamed-chunk-86
 def:unnamed-chunk-87
 exm:normalMuMLE
 exm:normalMuMLEdistribution
-def:unnamed-chunk-90
 def:unnamed-chunk-91
 def:unnamed-chunk-92
+def:unnamed-chunk-93
 preface
 probability-spaces-and-random-variables
 probability-spaces
