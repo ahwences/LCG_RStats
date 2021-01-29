@@ -205,6 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#maximum-likelihood-estimator-mle-point-estimate"><i class="fa fa-check"></i><b>4.2.2</b> Maximum Likelihood Estimator MLE (Point Estimate)</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="4.4" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-ratio-tests-lrts"><i class="fa fa-check"></i><b>4.4</b> Likelihood ratio tests (LRTs)</a></li>
 </ul></li>
 </ul>
 
@@ -660,10 +661,9 @@ a random variable <span class="math inline">\(X\)</span> that is geometrically d
 \]</span>
 Let <span class="math inline">\(B\in\mathscr{F}\)</span> be another set. We would like to know what is the probability that <span class="math inline">\(B\)</span> occurs <strong>given</strong> that we already know that
 <span class="math inline">\(A\)</span> occurs. That is, we would like to know the <strong>updated</strong> probability of the event <span class="math inline">\(B\)</span> after we weigh in the extra information
-that we know that <span class="math inline">\(A\)</span> occurs. For example, if <span class="math inline">\(B\cap A=\emptyset\)</span> then knowing that <span class="math inline">\(A\)</span> occurs tells us that <span class="math inline">\(B\)</span> does not occur,
-so, under this assumption, <span class="math inline">\(\mathbb{P}(B\vert A) = 0\)</span>. In general we have the formula
+that we know that <span class="math inline">\(A\)</span> occurs. For example, if <span class="math inline">\(B\cap A=\emptyset\)</span> then knowing that <span class="math inline">\(A\)</span> occurs tells us that <span class="math inline">\(B\)</span> does not occur so in this case <span class="math inline">\(\mathbb{P}(B\vert A) = 0\)</span>. In general we have the formula
 <span class="math display">\[
-\mathbb{P}\left(B\vert A\right) = \frac{\mathbb{P}(B \vert A)}{\mathbb{P}(A)}
+\mathbb{P}\left(B\vert A\right) = \frac{\mathbb{P}(B \cap A)}{\mathbb{P}(A)}
 \]</span>
 which follows from the reasoning that knowing that <span class="math inline">\(A\)</span> occurs reduces our initial probability space <span class="math inline">\(\Omega\)</span> to the set <span class="math inline">\(A\)</span> which then
 becomes the new ‘total’ or ‘universe’ set, and in order to equip the space <span class="math inline">\(A\)</span> with a probability measure we simply
@@ -691,28 +691,28 @@ over the possible values for <span class="math inline">\(Y\)</span>. Indeed, let
 \]</span></p>
 <p>More generally we have</p>
 <p><span class="math display">\[
-\mathbb{P}\left(X \in B, Y\in A\right) =
+\mathbb{P}\left(X \in B, Y\in A\right) 
               = \sum_{n\colon a_n\in A} \mathbb{P}(X\in B \vert Y = a_n) \mathbb{P}(Y = a_n).
 \]</span></p>
 </div>
 <div id="continuous-case" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Continuous Case</h3>
 <p>Let <span class="math inline">\(Y\)</span> be a continuous random variable, in which case we always have that, for any <span class="math inline">\(a\in\mathbb{R}\)</span>, <span class="math inline">\(\mathbb{P}(Y=a)=0\)</span>. In this
-case we cannot define a conditional probability given that <span class="math inline">\(Y=a\)</span> as we did before (by simply normalizing with <span class="math inline">\(\mathbb{P}(Y=a)\)</span>, but
+case we cannot define a conditional probability given that <span class="math inline">\(Y=a\)</span> as we did before (by simply normalizing with <span class="math inline">\(\mathbb{P}(Y=a)\)</span>), but
 we can in fact define a conditional density function. So let <span class="math inline">\(X\)</span> be another random variable and consider the random vector
-<span class="math inline">\((X,Y)\)</span> with density function <span class="math inline">\(f_{X,Y}(x,y)\)</span>. For each fixed value of <span class="math inline">\(y\)</span> define the conditional density function <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span> as
+<span class="math inline">\((X,Y)\)</span> with (joint) density function <span class="math inline">\(f_{X,Y}(x,y)\)</span>. For each fixed value of <span class="math inline">\(y\)</span> define the conditional density function <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=y\)</span> as
 <span class="math display">\[
 f_{X\vert Y}(x\vert y) = \frac{f(x,y)}{\int_{-\infty}^\infty f(x,y) dx } = \frac{f(x,y)}{f_Y(y)},
 \]</span>
-thus, the conditional probability of <span class="math inline">\(X\in B\)</span> given <span class="math inline">\(Y=y\)</span> is given by the integral of the conditional density function:</p>
+and define the conditional probability of <span class="math inline">\(X\in B\)</span> given <span class="math inline">\(Y=y\)</span> through the integral of the conditional density function:</p>
 <p><span class="math display">\[
 \mathbb{P}(X\in B\vert Y=y) = \int_B f_{X\vert Y}(x\vert y) dx.
 \]</span></p>
-<p>Furthermore, observe that</p>
+<p>Observe that</p>
 <p><span class="math display">\[
 f_{X,Y}(x,y) = f_{X\vert Y}(x\vert y)f_Y(y),
 \]</span></p>
-<p>so that</p>
+<p>so that, for any <span class="math inline">\(B,A\in\Omega\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{P}(X\in B, Y\in A) &amp;= \int_A \int_B f_{X,Y}(x,y) dx dy \\
@@ -731,6 +731,16 @@ f_{X,Y}(x,y) = f_{X\vert Y}(x\vert y)f_Y(y),
 \]</span>
 </div>
 
+<p>Compare this with the general formula
+<span class="math display">\[
+\mathbb{P}\left(A \bigcap B\right) = \mathbb{P}(A\vert B) \mathbb{P}(B)
+\]</span>
+which is always true; observe that the definition of independence can be seen as the property that
+<span class="math display">\[
+\mathbb{P}(A\vert B) = \mathbb{P}(A),
+\]</span>
+which says that having information about the event <span class="math inline">\(B\)</span> does not provide us with any additional information about <span class="math inline">\(A\)</span>, and
+thus our ‘knowledge’ that <span class="math inline">\(A\)</span> occurs (or may occur) remains the same.</p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-33" class="definition"><strong>Definition 2.13  (Independence - Random Elements)  </strong></span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random elements (i.e. a random variables and/or random vectors)

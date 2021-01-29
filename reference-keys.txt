@@ -65,9 +65,19 @@ exm:unnamed-chunk-86
 def:unnamed-chunk-87
 exm:normalMuMLE
 exm:normalMuMLEdistribution
-def:unnamed-chunk-91
 def:unnamed-chunk-92
 def:unnamed-chunk-93
+def:unnamed-chunk-94
+exm:normMLEtest
+def:unnamed-chunk-95
+def:unnamed-chunk-96
+exm:twosidedNormal
+eq:normalTwoSidedRR
+def:unnamed-chunk-97
+exm:unnamed-chunk-98
+def:unnamed-chunk-99
+exm:unnamed-chunk-101
+exm:unnamed-chunk-102
 preface
 probability-spaces-and-random-variables
 probability-spaces
@@ -140,3 +150,4 @@ likelihood-function
 definition-9
 maximum-likelihood-estimator-mle-point-estimate
 hypothesis-testing
+likelihood-ratio-tests-lrts
