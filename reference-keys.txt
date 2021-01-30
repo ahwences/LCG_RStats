@@ -150,4 +150,5 @@ likelihood-function
 definition-9
 maximum-likelihood-estimator-mle-point-estimate
 hypothesis-testing
+definition-and-evaluation
 likelihood-ratio-tests-lrts

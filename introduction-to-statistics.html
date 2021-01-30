@@ -204,8 +204,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#definition-9"><i class="fa fa-check"></i><b>4.2.1</b> Definition</a></li>
 <li class="chapter" data-level="4.2.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#maximum-likelihood-estimator-mle-point-estimate"><i class="fa fa-check"></i><b>4.2.2</b> Maximum Likelihood Estimator MLE (Point Estimate)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.3</b> Hypothesis testing</a></li>
-<li class="chapter" data-level="4.4" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-ratio-tests-lrts"><i class="fa fa-check"></i><b>4.4</b> Likelihood ratio tests (LRTs)</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.3</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#definition-and-evaluation"><i class="fa fa-check"></i><b>4.3.1</b> Definition and Evaluation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-ratio-tests-lrts"><i class="fa fa-check"></i><b>4.3.2</b> Likelihood Ratio Tests (LRTs)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -301,7 +303,7 @@ the density function of <span class="math inline">\(\bar{x}\)</span> under the m
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-84" class="example"><strong>Example 4.1  (I.i.d Gamma)  </strong></span>Consider the family of probability models for a random vector <span class="math inline">\(\bar{X}\)</span>
+<p><span id="exm:unnamed-chunk-84" class="example"><strong>Example 4.1  (i.i.d Gamma)  </strong></span>Consider the family of probability models for a random vector <span class="math inline">\(\bar{X}\)</span>
 of size <span class="math inline">\(n\)</span> whose entries are all independent and identically distributed
 <span class="math inline">\(Gamma(\alpha,\beta)\)</span>. Then for any vector <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span>, and
 using the independence assumption for the first equality, we have
@@ -358,7 +360,7 @@ which cannot be seen as the product of two Gamma densities in <span class="math 
 typically has very desirable properties.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-87" class="definition"><strong>Definition 4.2  </strong></span>Let <span class="math inline">\(\{\mathcal{P}_\theta\}_{\theta\in\Theta}\)</span> be a family of probabilistic
+<span id="def:unnamed-chunk-87" class="definition"><strong>Definition 4.2  (Maximum Likelihood Estimator)  </strong></span>Let <span class="math inline">\(\{\mathcal{P}_\theta\}_{\theta\in\Theta}\)</span> be a family of probabilistic
 models. Let <span class="math inline">\(\bar{x}=(x_1,\dots,x_n)\)</span> be a sample (a set of values). The
 <strong>maximum likelihood</strong> estimator for <span class="math inline">\(\theta\)</span> based on the sample <span class="math inline">\(\bar{x}\)</span>
 is given by
@@ -387,7 +389,7 @@ However, in some other cases this may not be achievable so that one ends up usin
 
 
 <div class="example">
-<p><span id="exm:normalMuMLE" class="example"><strong>Example 4.4  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be i.i.d <span class="math inline">\(normal(\mu,1)\)</span>. Then,
+<p><span id="exm:normalMuMLE" class="example"><strong>Example 4.4  (Normal MLE for <span class="math inline">\(\mu\)</span>)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be i.i.d <span class="math inline">\(normal(\mu,1)\)</span>. Then,
 for any sample point <span class="math inline">\(\bar{x}\)</span>, the likelihood function based on <span class="math inline">\(\bar{x}\)</span> is given by</p>
 <p><span class="math display">\[
 L(\bar{x}\vert \mu) = \frac{1}{(2\pi)^{n/2}} 
@@ -408,14 +410,17 @@ which has solution
 Yay! We have found that the MLE estimator for the population mean <span class="math inline">\(\mu\)</span> is simply the sample mean, i.e. that
 <span class="math inline">\(\hat{\mu}=\tilde{X}\)</span>, which really aligns well with the intuitive approach of estimating the theoretical
 mean by the ‘experimantelly observed’ mean. In fact we have gained a lot more, we have developed a
-solid theoretical procedure which can be used to estimate any paremeter of any distribution and have found
+solid theoretical framework which can be used to estimate any paremeter of any distribution and have found
 that, at least in this case, it outputs very sensible results. As discussed further below in some cases we may have even
 gained the ability to study the error and/or variance of our estimation.
 </div>
 
-<p>For illustration purposes we firsth show the graph of <span class="math inline">\(L(\bar{x}\vert \mu)\)</span> for a single simulated value of
-<span class="math inline">\(\bar{x}\)</span> with <span class="math inline">\(Normal(\mu_0=1, \sigma=1)\)</span> distribution,
-we also show the MLE <span class="math inline">\(\hat{\mu}(\bar{x})\)</span> and compare it with the true value of <span class="math inline">\(\mu=\mu_0=1\)</span>.</p>
+<p><br />
+</p>
+<p>For illustration purposes we first show the graph of <span class="math inline">\(L(\bar{x}\vert \mu)\)</span> for a single simulated value of
+<span class="math inline">\(\bar{x}\)</span> with <span class="math inline">\(Normal(\mu=1, \sigma=1)\)</span> distribution
+<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
+along with the resulting value of the MLE <span class="math inline">\(\hat{\mu}(\bar{x})\)</span> and compare it with the true value of <span class="math inline">\(\mu=1\)</span>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co">## Create (vectorized) likelihood function</span></a>
 <a class="sourceLine" id="cb4-2" title="2">lnorm &lt;-<span class="st"> </span><span class="kw">Vectorize</span>( <span class="dt">FUN =</span> <span class="cf">function</span>(data, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>){</a>
 <a class="sourceLine" id="cb4-3" title="3">                            <span class="kw">return</span>(<span class="kw">prod</span>(<span class="kw">dnorm</span>(data, <span class="dt">mean =</span> mean, <span class="dt">sd =</span> sd)))</a>
@@ -435,8 +440,8 @@ we also show the MLE <span class="math inline">\(\hat{\mu}(\bar{x})\)</span> and
 <a class="sourceLine" id="cb4-17" title="17"><span class="kw">abline</span>(<span class="dt">v =</span> mle, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span> )</a>
 <a class="sourceLine" id="cb4-18" title="18"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Likelihood&quot;</span>, <span class="st">&quot;MLE&quot;</span>, <span class="st">&quot;Truth&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
-<p>We now compare the distribution estimated through the MLE (<span class="math inline">\(\hat{\mu}\)</span>), and compare it against the
-observed (empirical) distribution of the data, and the true density (<span class="math inline">\(\mu_0=1\)</span>).</p>
+<p>We now compare the distribution estimated through the MLE (<span class="math inline">\(\hat{\mu}\)</span>) against the
+observed (empirical) distribution of the data and the true density (<span class="math inline">\(\mu=1\)</span>).</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># Visualize estimated density VS normal densities under different mus</span></a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="kw">plot</span>(<span class="kw">density</span>(data), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.5</span>), <span class="dt">lwd =</span> <span class="dv">3</span>, <span class="dt">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;density&quot;</span>, </a>
 <a class="sourceLine" id="cb5-3" title="3">     <span class="dt">main =</span> <span class="st">&quot;Density Comparison&quot;</span>)</a>
@@ -469,8 +474,8 @@ and if we now think of <span class="math inline">\(\bar{x}\)</span> as a realiza
 of <span class="math inline">\(\bar{X}\)</span>, then in fact we may consider the random variable <span class="math inline">\(\hat{\theta}(\bar{X})\)</span>. Now, what does this mean
 in our statistical framework? Well, if a particular value <span class="math inline">\(\bar{x}\)</span> is equated with the experimentally observed data, then we
 can think of the experiment as a probabilistic procedure that outputs a random value of <span class="math inline">\(\bar{x}\)</span> every
-time it is performed, thus we think of the <strong>experiment as a sampling procedure of <span class="math inline">\(\bar{X}\)</span> under the true
-distribution of <span class="math inline">\(\bar{X}\)</span></strong>. Thus, the results of our estimation,
+time it is performed, thus we think of the <strong>experiment as a sampling procedure of <span class="math inline">\(\bar{X}\)</span> under its true distribution</strong>.
+Thus, the results of our estimation,
 in particular the value of the MLE point estimate, can also be seen as random
 (which makes sense
 since in reality if we repeated the experiment we wouldnt expect to obtain the same conclusions but not necessarily
@@ -481,19 +486,19 @@ vary if we repeated the experiment multiple times; and even more, we may study
 the probability
 that the MLE (or in general our statistical procedure) provides a good estimate for the real distribution of
 <span class="math inline">\(\bar{X}\)</span>, or the probability that it fails to do so.
-In the particular case of the MLE point estimate we may, for example, study the difference of <span class="math inline">\(\hat{\theta}(\bar{X})\)</span>
-and the true value of <span class="math inline">\(\theta\)</span>, say <span class="math inline">\(\theta_0\)</span>.</p>
+In the particular case of the MLE point estimate we may, for example, study the difference between <span class="math inline">\(\hat{\theta}(\bar{X})\)</span>
+and the true value of <span class="math inline">\(\theta\)</span>.</p>
 
 <div class="example">
-<span id="exm:normalMuMLEdistribution" class="example"><strong>Example 4.5  </strong></span>Recall the situation of Example <a href="introduction-to-statistics.html#exm:normalMuMLE">4.4</a>. Assume that the ‘true’ distribution of <span class="math inline">\(\bar{X}\)</span> is
-normal with mean <span class="math inline">\(\mu_0\)</span> and variance 1 and recall that
-<span class="math inline">\(\hat{\mu}(\bar{X})= \tilde{X}\)</span> so that (see Section <a href="common-distributions.html#normalDistribution">3.8</a>) <span class="math inline">\(\hat{\mu}(\bar{X})\)</span> is again normally distributed with mean <span class="math inline">\(\mu_0\)</span> and variance <span class="math inline">\(1/n\)</span>. The fact that the variance is <span class="math inline">\(1/n\)</span> is really cool since it means that as <span class="math inline">\(n\to\infty\)</span>,
+<span id="exm:normalMuMLEdistribution" class="example"><strong>Example 4.5  (Normal MLE <span class="math inline">\(\hat{\mu}\)</span> distribution)  </strong></span>Recall the situation of Example <a href="introduction-to-statistics.html#exm:normalMuMLE">4.4</a>. Assume that the ‘true’ distribution of <span class="math inline">\(\bar{X}\)</span> is
+normal with mean <span class="math inline">\(\mu\)</span> and variance 1 and recall that
+<span class="math inline">\(\hat{\mu}(\bar{X})= \tilde{X}\)</span> so that (see Section <a href="common-distributions.html#normalDistribution">3.8</a>) <span class="math inline">\(\hat{\mu}(\bar{X})\)</span> is again normally distributed with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(1/n\)</span>. The fact that the variance is <span class="math inline">\(1/n\)</span> is really cool since it means that as <span class="math inline">\(n\to\infty\)</span>,
 i.e. as we gather more data, the estimated value <span class="math inline">\(\hat{\mu}\)</span> converges to the true value <span class="math inline">\(\mu\)</span>.
 </div>
 
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># Generate 1000 random samples of size 100 each</span></a>
-<a class="sourceLine" id="cb7-2" title="2">mu0 &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-3" title="3">datas &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10000</span><span class="op">*</span><span class="dv">100</span>, <span class="dt">mean =</span> mu0, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2">mu &lt;-<span class="st"> </span><span class="dv">1</span> <span class="co"># set a true value of the parameter</span></a>
+<a class="sourceLine" id="cb7-3" title="3">datas &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10000</span><span class="op">*</span><span class="dv">100</span>, <span class="dt">mean =</span> mu, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="co"># Compute MLE for each sample of size 100</span></a>
 <a class="sourceLine" id="cb7-5" title="5">mles &lt;-<span class="st"> </span><span class="kw">colMeans</span>(datas)</a>
 <a class="sourceLine" id="cb7-6" title="6"><span class="co"># Visualize MLE density and compare with true value mu0</span></a>
@@ -501,27 +506,35 @@ i.e. as we gather more data, the estimated value <span class="math inline">\(\h
 <a class="sourceLine" id="cb7-8" title="8"><span class="kw">plot</span>(<span class="kw">density</span>(mles), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">xlab =</span> <span class="kw">TeX</span>(<span class="st">&quot;$</span><span class="ch">\\</span><span class="st">hat{</span><span class="ch">\\</span><span class="st">mu}(</span><span class="ch">\\</span><span class="st">bar{x})$&quot;</span>), <span class="dt">ylab =</span> <span class="st">&quot;Density&quot;</span>, <span class="dt">main =</span> <span class="kw">TeX</span>(<span class="st">&quot;MLE ($</span><span class="ch">\\</span><span class="st">hat{</span><span class="ch">\\</span><span class="st">mu}(</span><span class="ch">\\</span><span class="st">bar{X})$) density&quot;</span>))</a>
 <a class="sourceLine" id="cb7-9" title="9"><span class="co"># True density</span></a>
 <a class="sourceLine" id="cb7-10" title="10">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="fl">0.7</span>, <span class="fl">1.5</span>, <span class="dt">length.out =</span> <span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="kw">lines</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">dnorm</span>(x, <span class="dt">mean =</span> mu0, <span class="dt">sd =</span> <span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">100</span>)), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="kw">lines</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">dnorm</span>(x, <span class="dt">mean =</span> mu, <span class="dt">sd =</span> <span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">100</span>)), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
 <a class="sourceLine" id="cb7-12" title="12"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;MLE sample density&quot;</span>, <span class="st">&quot;MLE true density&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a>
 <a class="sourceLine" id="cb7-13" title="13"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">mean</span>(mles), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb7-14" title="14"><span class="kw">abline</span>(<span class="dt">v =</span> mu0, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">summary</span>(mles)</a></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.6030  0.9331  0.9990  0.9994  1.0671  1.4198</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">sd</span>(mles)</a></code></pre></div>
-<pre><code>## [1] 0.09998078</code></pre>
+<a class="sourceLine" id="cb7-14" title="14"><span class="kw">abline</span>(<span class="dt">v =</span> mu, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" />
+<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <p>Thus, for example, we may compute the probability that
-<span class="math inline">\(\left\lvert \hat{\mu}(\bar{X}) - \mu_0 \right\rvert&gt; a\)</span> <strong>given</strong> that the true value of <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\mu_0\)</span>
-(i.e. under the <strong>assumption</strong> that <span class="math inline">\(\mu=\mu_0\)</span>), we have
-<span class="math display">\[
-\mathbb{P}\left(\left\lvert \hat{\mu}(\bar{X}) - \mu_0 \right\rvert&gt; a \bigg\vert \mu = \mu_0\right) = \int_{\mu_0-a}^{\mu_0+a} \sqrt{\frac{n}{2\pi}} 
-                   e^{-\frac{n(x - \mu_0 )^2}{2}} dx 
+<span class="math inline">\(\left\lvert \hat{\mu}(\bar{X}) - \mu \right\rvert&gt; a\)</span> <strong>given</strong> that <span class="math inline">\(\bar{X}\overset{i.i.d}\sim normal(\mu,1)\)</span>
+(i.e. under the model <span class="math inline">\(\mathcal{P}_\mu\)</span>), we have</p>
+<p><span class="math display">\[\begin{align}
+\mathbb{P}_\mu\left(\left\lvert \hat{\mu}(\bar{X}) - \mu \right\rvert&gt; a\right) &amp;= 
+\int_{\mu-a}^{\mu+a} \sqrt{\frac{n}{2\pi}} 
+                   e^{-\frac{n(x - \mu )^2}{2}} dx \\
+&amp;= \int_{-a}^a \sqrt{\frac{n}{2\pi}} e^{-\frac{n x^2}{2}}dx;
+\end{align}\]</span>
+observe that in this case the distribution of the distance between the estimator <span class="math inline">\(\hat{\mu}(\bar{X})\)</span> and <span class="math inline">\(\mu\)</span>
+under <span class="math inline">\(\mathcal{P}_{\mu}\)</span> has distribution <span class="math inline">\(normal(0,1/n)\)</span> which does not depend on <span class="math inline">\(\mu\)</span> so that we can
+assure, irrespectively of the true value of <span class="math inline">\(\mu\)</span>, that the distance of our estimator <span class="math inline">\(\hat{\mu}(\bar{x})\)</span>
+and <span class="math inline">\(\mu\)</span> will always be less than <span class="math inline">\(a\)</span> with probability
+<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<p><span class="math display">\[
+\int_{-a}^a \sqrt{\frac{n}{2\pi}} e^{-\frac{n x^2}{2}}dx.
 \]</span></p>
 </div>
 </div>
 <div id="hypothesis-testing" class="section level2">
 <h2><span class="header-section-number">4.3</span> Hypothesis testing</h2>
+<div id="definition-and-evaluation" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Definition and Evaluation</h3>
 
 <div class="definition">
 <span id="def:unnamed-chunk-92" class="definition"><strong>Definition 4.3  </strong></span>A <strong>hypothesis</strong> is a statement about a population/model parameter.
@@ -536,43 +549,44 @@ the <strong>null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong> 
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-94" class="definition"><strong>Definition 4.5  </strong></span>A <strong>hypothesis testing procedure</strong> is a rule that sepecifies:</p>
+<p><span id="def:unnamed-chunk-94" class="definition"><strong>Definition 4.5  (Hypothesis Test)  </strong></span>A <strong>hypothesis testing procedure</strong> is a rule that sepecifies:</p>
 <ol style="list-style-type: decimal">
-<li>For which sample values the decision is made to accept <span class="math inline">\(H_0\)</span> as true.</li>
-<li>For which sample values <span class="math inline">\(H_0\)</span> is rejected (‘in acceptance of <span class="math inline">\(H_1\)</span>’).</li>
+<li>For which sample values <span class="math inline">\(\bar{x}\in\mathbb{R}^n\)</span> the decision is made to accept <span class="math inline">\(H_0\)</span> as true.</li>
+<li>For which sample values <span class="math inline">\(\bar{x}\in\mathbb{R}^n\)</span> the decision is made to reject <span class="math inline">\(H_0\)</span> (‘in acceptance of <span class="math inline">\(H_1\)</span>’).</li>
 </ol>
-The region of the sample space on which <span class="math inline">\(H_0\)</span> is rejected is called the <strong>rejection region</strong> <span class="math inline">\(R\)</span>, while the region in which <span class="math inline">\(H_0\)</span> is accepted is called the
+The region <span class="math inline">\(R\subset\mathbb{R}^n\)</span> of the sample space on which <span class="math inline">\(H_0\)</span> is rejected is called the <strong>rejection region</strong> <span class="math inline">\(R\)</span>, while the region in which <span class="math inline">\(H_0\)</span> is accepted is called the
 <strong>acceptance region</strong>.
 </div>
 
 <p><br />
 </p>
-<p>Typically a hypothesis test is specified in terms of a <strong>test statistic</strong> <span class="math inline">\(W(X_1,\dots,X_n)\)</span>, i.e. a function of the
-sample <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span>.</p>
+<p>Typically a hypothesis test is specified in terms of a <strong>test statistic</strong> <span class="math inline">\(W(X_1,\dots,X_n)\)</span>, i.e. a function
+<span class="math inline">\(W\colon \mathbb{R}^n\to\mathbb{R}\)</span> of the sample <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:normMLEtest" class="example"><strong>Example 4.6  </strong></span>Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an i.i.d sample of a <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution with unknown <span class="math inline">\(\mu\)</span> and known <span class="math inline">\(\sigma\)</span>.
+<p><span id="exm:normMLEtest" class="example"><strong>Example 4.6  (Normal <span class="math inline">\(\sigma\)</span> known)  </strong></span>Let <span class="math inline">\(X_1,\dots,X_n\)</span> be an i.i.d sample of a <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution with unknown <span class="math inline">\(\mu\)</span> and known <span class="math inline">\(\sigma\)</span>.
 Recall from Example <a href="introduction-to-statistics.html#exm:normalMuMLE">4.4</a> that the MLE for <span class="math inline">\(\mu\)</span> is
 <span class="math display">\[
 \hat{\mu}(\bar{X})=\tilde{X}.
 \]</span>
-Fix a value <span class="math inline">\(\mu_0\)</span>. We may construct a hypothesis test for testing <span class="math inline">\(\mu=\mu_0\)</span> versus <span class="math inline">\(\mu\neq \mu_0\)</span>. To do so
-it would be reasonable to consider a rejection region of the form</p>
+Fix a value <span class="math inline">\(\mu_0\)</span>. We may define a decision rule for testing <span class="math inline">\(H_0\colon\mu=\mu_0\)</span> versus <span class="math inline">\(H_1\colon\mu\neq \mu_0\)</span>
+using the statistic <span class="math inline">\(\hat{\mu}(\bar{X})\)</span>. To do so it would be reasonable to consider a rejection region of the form</p>
 <p><span class="math display">\[
 \begin{aligned}
 R&amp;=\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \hat{\mu}(\hat{x}) - \mu_0 \right\rvert &gt; c_n\}\\
 &amp;=\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \tilde{x} - \mu_0 \right\rvert &gt; c_n\}\subset \mathbb{R}^n.
 \end{aligned}
 \]</span></p>
-for some prespecified value of <span class="math inline">\(c_n\)</span>.
+for some prespecified value of <span class="math inline">\(c_n\)</span>
+<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>, <a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.
 </div>
 
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-95" class="definition"><strong>Definition 4.6  (Type I and II Errors)  </strong></span>A hypothesis test for <span class="math inline">\(H_0\colon \theta\in\Theta_0\)</span> VS <span class="math inline">\(H_1\colon \theta\not\in\Theta_0\)</span> can make two types of errors</p>
 <ul>
-<li><strong>Type I error</strong>: When <span class="math inline">\(H_0\colon\theta\in\Theta_0\)</span> is true but the test decides that <span class="math inline">\(H_0\)</span> is false (false negative).</li>
-<li><strong>Type II error</strong>: When <span class="math inline">\(H_1\colon\theta\not\in\Theta_0\)</span> is true but the test decides that <span class="math inline">\(H_0\)</span> is true (false positive).</li>
+<li><strong>Type I error</strong>: When <span class="math inline">\(H_0\colon\theta\in\Theta_0\)</span> is true but the test decides that <span class="math inline">\(H_0\)</span> is false (false positive).</li>
+<li><strong>Type II error</strong>: When <span class="math inline">\(H_1\colon\theta\not\in\Theta_0\)</span> is true but the test decides that <span class="math inline">\(H_0\)</span> is true (false negative).</li>
 </ul>
 <table>
 <thead>
@@ -606,15 +620,21 @@ for some prespecified value of <span class="math inline">\(c_n\)</span>.
 </table>
 </div>
 
-<p>Now let <span class="math inline">\(\theta\in\Theta_0\)</span> and assume that <span class="math inline">\(\theta\)</span> is the true value of the parameter
-so that the test will make a mistake (Type I error) if <span class="math inline">\(\bar{X}\in R\)</span> which occurs with probability <span class="math inline">\(\mathbb{P}_\theta(\bar{X}\in R)\)</span>.
-Alternatively, if <span class="math inline">\(\theta\in \Theta_0^c\)</span> and we assume that <span class="math inline">\(\theta\)</span> is the true value then
-the test will make a mistake (Type II error) if <span class="math inline">\(\bar{X}\in R^c\)</span> which occurs with probability <span class="math inline">\(1-\mathbb{P}_\theta(\bar{X}\in R)\)</span>.
-Thus
-the function <span class="math inline">\(\theta\mapsto \mathbb{P}_\theta(\bar{X}\in R)\)</span> contains all the information of the test with rejection region <span class="math inline">\(R\)</span>.</p>
+<p>Now let <span class="math inline">\(\theta\in\Theta_0\)</span> and assume <span class="math inline">\(\bar{X}\sim \mathcal{P}_\theta\)</span>
+(i.e. assume <span class="math inline">\(\theta\)</span> is the true value of the parameter) so that the test will make a mistake, a Type I error,
+if <span class="math inline">\(\bar{X}\in R\)</span> which occurs with probability
+<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<p><span class="math display">\[\mathbb{P}_\theta(\bar{X}\in R).\]</span>
+Alternatively, if <span class="math inline">\(\theta\in \Theta_0^c\)</span> and we assume <span class="math inline">\(\bar{X}\sim \mathcal{P}_\theta\)</span> then
+the test will make a mistake, a Type II error, if <span class="math inline">\(\bar{X}\in R^c\)</span> which occurs with probability
+<span class="math display">\[1-\mathbb{P}_\theta(\bar{X}\in R).\]</span>
+Observe then that the function
+<span class="math display">\[\theta\mapsto \mathbb{P}_\theta(\bar{X}\in R)\]</span>
+summarizes all the information of the test with rejection region <span class="math inline">\(R\)</span>, in particular summarizes the probabilities
+of making Type I and II errors, thus calling for the following definition.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-96" class="definition"><strong>Definition 4.7  </strong></span>The <strong>power function</strong> of a hypothesis test with rejection region <span class="math inline">\(R\)</span> is the function of <span class="math inline">\(\theta\)</span> defined by
+<span id="def:unnamed-chunk-96" class="definition"><strong>Definition 4.7  (Power Function)  </strong></span>The <strong>power function</strong> of a hypothesis test with rejection region <span class="math inline">\(R\subset \mathbb{R}^n\)</span> is the function of <span class="math inline">\(\theta\)</span> defined by
 <span class="math display">\[
 \beta(\theta):=\mathbb{P}_\theta(X\in\ R).
 \]</span>
@@ -625,7 +645,7 @@ the true value of <span class="math inline">\(\theta\)</span> is in <span class=
 Type II errors occur with zero probability whenever the true value of <span class="math inline">\(\theta\)</span> is in <span class="math inline">\(\Theta_0^c\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:twosidedNormal" class="example"><strong>Example 4.7  </strong></span>Recall the test <span class="math inline">\(\mu=\mu_0\)</span> VS <span class="math inline">\(\mu\neq\mu_0\)</span> of Example <a href="introduction-to-statistics.html#exm:normMLEtest">4.6</a> with rejection region
+<p><span id="exm:twosidedNormal" class="example"><strong>Example 4.7  </strong></span>Recall the test <span class="math inline">\(H_0\colon\mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> of Example <a href="introduction-to-statistics.html#exm:normMLEtest">4.6</a> with rejection region
 <span class="math display">\[
 R=\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \tilde{x} - \mu_0 \right\rvert &gt; c_n\}.
 \]</span>
@@ -649,23 +669,24 @@ The power function of this test is
                    e^{-\frac{n(x - \mu)^2}{2}} dx.
 \end{aligned}
 \]</span>
-Now assume we choose <span class="math inline">\(c_n=c\sigma\sqrt{1/n}\)</span> for some <span class="math inline">\(c&gt;0\)</span> so that, rearranging terms, the rejection region becomes</p>
+Now assume we choose <span class="math inline">\(c_n=c\sigma\sqrt{1/n}\)</span> for some <span class="math inline">\(c&gt;0\)</span> <a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> so that, rearranging terms, the rejection region becomes</p>
 <p><span class="math display" id="eq:normalTwoSidedRR">\[\begin{align}
 R
 &amp;=\left\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \frac{\tilde{x} - \mu_0}{\sigma/\sqrt{n}} \right\rvert &gt; c\right\}\tag{4.1}\\
 &amp;=\left\{\hat{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &lt; - c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} \right\}\cup 
   \left\{\hat{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &gt; c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right\}.
 \end{align}\]</span></p>
-Observe that when the true value of the parameter is <span class="math inline">\(\mu\)</span>, i.e. under the distribution <span class="math inline">\(\mathbb{P}_\mu\)</span>,
+Observe that when the true value of the parameter is <span class="math inline">\(\mu\)</span>,
+i.e. under the assumption <span class="math inline">\(\bar{X}\overset{i.i.d}{\sim}normal(\mu,\sigma)\)</span>,
 we have that the random variable
 <span class="math display">\[
 Z:=\frac{\tilde{x} - \mu}{\sigma/\sqrt{n}}
 \]</span>
-is <span class="math inline">\(normal(0,1)\)</span> distributed, so that the power function becomes
+(often called the <em>Z-statistic</em>) is <span class="math inline">\(normal(0,1)\)</span> distributed, so that the power function becomes
 <span class="math display">\[
 \begin{aligned}
-\mathbb{P}_\mu(\bar{X}\in R) &amp;=
-\mathbb{P}\left( Z \in \left[\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} -c, \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} +c\right]^c\right) \\
+\beta(\mu)&amp;=\mathbb{P}_\mu(\bar{X}\in R) \\
+&amp;=\mathbb{P}\left( Z \in \left[\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} -c, \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} +c\right]^c\right) \\
 &amp;=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} -c} e^{-\frac{x^2}{2}}dx +
  \frac{1}{\sqrt{2\pi}} \int_{\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} +c}^\infty e^{-\frac{x^2}{2}}dx .
 \end{aligned}
@@ -677,11 +698,11 @@ is <span class="math inline">\(normal(0,1)\)</span> distributed, so that the pow
 <p><span id="def:unnamed-chunk-97" class="definition"><strong>Definition 4.8  </strong></span><br />
 </p>
 <ul>
-<li><p>For <span class="math inline">\(0\leq\alpha\leq 1\)</span>, a test with power function <span class="math inline">\(\beta(\theta)\)</span> is a <strong>size test</strong> if
+<li><p>For <span class="math inline">\(0\leq\alpha\leq 1\)</span>, a test with power function <span class="math inline">\(\beta(\theta)\)</span> is a <strong>size <span class="math inline">\(\alpha\)</span> test</strong> if
 <span class="math display">\[
 \sup_{\theta\in\Theta_0} \beta(\theta)= \alpha.
 \]</span></p></li>
-<li>For <span class="math inline">\(0\leq\alpha\leq 1\)</span>, a test with power function <span class="math inline">\(\beta(\theta)\)</span> is a <strong>level test</strong> if
+<li>For <span class="math inline">\(0\leq\alpha\leq 1\)</span>, a test with power function <span class="math inline">\(\beta(\theta)\)</span> is a <strong>level <span class="math inline">\(\alpha\)</span> test</strong> if
 <span class="math display">\[
 \sup_{\theta\in\Theta_0} \beta(\theta)\leq \alpha.
 \]</span>
@@ -711,22 +732,27 @@ so that
 \]</span>
 Thus, choosing <span class="math inline">\(c\)</span> so that <span class="math inline">\(\mathbb{P}\left(Z &gt; c\right)=\alpha\)</span>,
 i.e. if we choose <span class="math inline">\(c\)</span> to be the <span class="math inline">\(\alpha\)</span>-quantile of the standard normal distribution <span class="math inline">\(z_{\alpha}\)</span>,
-then we would obtain a size <span class="math inline">\(\alpha\)</span> test.
+we obtain a size <span class="math inline">\(\alpha\)</span> test.
 </div>
 
 </div>
-<div id="likelihood-ratio-tests-lrts" class="section level2">
-<h2><span class="header-section-number">4.4</span> Likelihood ratio tests (LRTs)</h2>
+<div id="likelihood-ratio-tests-lrts" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Likelihood Ratio Tests (LRTs)</h3>
+<p>In this section we introduced a general theoretical framework for the construction of the rejection region <span class="math inline">\(R\)</span> which
+can be applied to any parameter <span class="math inline">\(\theta\)</span> of any model <span class="math inline">\(\mathcal{P}_\theta\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-99" class="definition"><strong>Definition 4.9  </strong></span>The <strong>likelihood ratio test (LRT)</strong> statistic for testing <span class="math inline">\(H_0\colon \theta\in\Theta_0\subset\Theta\)</span> versus
+<span id="def:unnamed-chunk-99" class="definition"><strong>Definition 4.9  </strong></span>The <strong>likelihood ratio test (LRT) statistic</strong> for testing <span class="math inline">\(H_0\colon \theta\in\Theta_0\subset\Theta\)</span> versus
 <span class="math inline">\(H_1\colon \theta \not\in \Theta_0\)</span> is defined as
 <span class="math display">\[
 \lambda(\bar{x})=\frac{\sup_{\theta\in\Theta_0} L(\theta\vert \bar{x})}{\sup_{\theta\in\Theta} L(\theta\vert\bar{x})}.
 \]</span>
 A <strong>likelihood ratio test based on <span class="math inline">\(\lambda(\bar{x})\)</span></strong> is any test that has a rejection region of the form
-<span class="math inline">\(\{\bar{x}\colon \lambda(\bar{x})\leq c\}\)</span>, where <span class="math inline">\(c\)</span> is any number <span class="math inline">\(0\leq c\leq 1\)</span> (observe that we
-always have <span class="math inline">\(0\leq \lambda(\bar{x})\leq 1\)</span>). Values of <span class="math inline">\(\lambda(\bar{x})\)</span> that are close to <span class="math inline">\(0\)</span>
+<span class="math display">\[
+R=\{\bar{x}\colon \lambda(\bar{x})\leq c\},
+\]</span>
+where <span class="math inline">\(c\)</span> is a presepecified value <span class="math inline">\(0\leq c\leq 1\)</span>. Observe that we
+always have <span class="math inline">\(0\leq \lambda(\bar{x})\leq 1\)</span>) and that values of <span class="math inline">\(\lambda(\bar{x})\)</span> that are close to <span class="math inline">\(0\)</span>
 support rejection of <span class="math inline">\(H_0\)</span> while values close to <span class="math inline">\(1\)</span> support acceptance of <span class="math inline">\(H_0\)</span>.
 </div>
 
@@ -737,6 +763,8 @@ a <strong>constrained</strong> maximization problem since we need to maximize ov
 the maximization in the denominator is a global maximization problem.
 </div>
 
+<p><br />
+</p>
 
 <div class="example">
 <p><span id="exm:unnamed-chunk-101" class="example"><strong>Example 4.9  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,1)\)</span> distribution. Consider testing
@@ -804,6 +832,7 @@ which has Student’s-t distribution with <span class="math inline">\(n-1\)</spa
 
 </div>
 </div>
+</div>
 
 
 
@@ -862,6 +891,71 @@ which has Student’s-t distribution with <span class="math inline">\(n-1\)</spa
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p> Here you can think of the call to <span class="math inline">\(rnorm\)</span> as ‘performing an experiment’ that outputs some data <span class="math inline">\(\bar{x}\)</span> under
+the true distribution of <span class="math inline">\(\bar{X}\sim normal(1,1)\)</span>. Of course, in contrast with the typical scenario in real life,
+in this case we do know the true distribution of the data since we are simulating it,
+this is useful if one wants to study how well does the statistical procedure works, for example by running
+the code multiple times (which you can think of as repeating the experiment multiple times) one can get a good estimate
+of the expected distance between <span class="math inline">\(\hat{\mu}(\bar{x})\)</span> and the true parameter
+that we used for the simulations, in this case <span class="math inline">\(\mu=1\)</span>.<a href="introduction-to-statistics.html#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p> Here the intuition of thinking an experiment as a ‘machine’ generating values of <span class="math inline">\(\bar{x}\)</span> under the
+true distribution of <span class="math inline">\(\bar{X}\)</span> is equated in the code with a call to <span class="math inline">\(rnorm\)</span>. You can think of
+the columns of the matrix <em>datas</em> as multiple repetitions of the experiment, each with a different output
+value of <span class="math inline">\(\bar{x}\)</span>.<a href="introduction-to-statistics.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>This can be used to construct what are called <strong>‘Confidence intervals’</strong> for <span class="math inline">\(\mu\)</span> which are of the form
+<span class="math display">\[
+\left[\hat{\mu}(\bar{X}) - a, \hat{\mu}(\bar{X}) + a\right];
+\]</span>
+observe that this interval captures the true parameter <span class="math inline">\(\mu\)</span> with probability
+<span class="math display">\[
+\int_{-a}^a \sqrt{\frac{n}{2\pi}} e^{-\frac{n x^2}{2}}dx.
+\]</span><a href="introduction-to-statistics.html#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p>Later on we will discuss good choices for <span class="math inline">\(c_n\)</span><a href="introduction-to-statistics.html#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>At this point this hypothesis test, or decision rule, is intuitively reasonable
+but somehow arbitrary. Further ahead we will introduce Likelihood Ratio Tests which provide a general theoretical
+framework for the construction of rejection regions / hypothesis tests / decision rules; turns out that the
+decision rule of this example can be obtained as a LRT.<a href="introduction-to-statistics.html#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p> Here we use the notation <span class="math inline">\(\mathbb{P}_\theta\)</span> for the distribution of <span class="math inline">\(\bar{X}\)</span> under the
+assumption <span class="math inline">\(\bar{X}\sim\mathcal{P}_\theta\)</span>; i.e. assuming that the true model is <span class="math inline">\(\mathcal{P}_\theta\)</span>.
+Here we keep the same letter <span class="math inline">\(\theta\)</span> since later on we will want to consider <span class="math inline">\(\theta\)</span> as a variable
+(much in the same sense in which we consider <span class="math inline">\(\theta\)</span> to be a variable in the definition of the likelihood function
+<span class="math inline">\(L(\bar{x}\vert \theta)\)</span>.<a href="introduction-to-statistics.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>Further below we will argument how to choose <span class="math inline">\(c\)</span><a href="introduction-to-statistics.html#fnref10" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
