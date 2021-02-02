@@ -200,13 +200,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#models"><i class="fa fa-check"></i><b>4.1.2</b> Models</a></li>
 <li class="chapter" data-level="4.1.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#probability"><i class="fa fa-check"></i><b>4.1.3</b> Probability</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-function"><i class="fa fa-check"></i><b>4.2</b> Likelihood Function</a><ul>
+<li class="chapter" data-level="4.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-function-and-point-estimation"><i class="fa fa-check"></i><b>4.2</b> Likelihood Function and Point Estimation</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#definition-9"><i class="fa fa-check"></i><b>4.2.1</b> Definition</a></li>
 <li class="chapter" data-level="4.2.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#maximum-likelihood-estimator-mle-point-estimate"><i class="fa fa-check"></i><b>4.2.2</b> Maximum Likelihood Estimator MLE (Point Estimate)</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#hypothesis-testing"><i class="fa fa-check"></i><b>4.3</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#definition-and-evaluation"><i class="fa fa-check"></i><b>4.3.1</b> Definition and Evaluation</a></li>
-<li class="chapter" data-level="4.3.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-ratio-tests-lrts"><i class="fa fa-check"></i><b>4.3.2</b> Likelihood Ratio Tests (LRTs)</a></li>
+<li class="chapter" data-level="4.3.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#definition-evaluation-and-power"><i class="fa fa-check"></i><b>4.3.1</b> Definition, Evaluation, and Power</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#p-values"><i class="fa fa-check"></i><b>4.3.2</b> p-Values</a></li>
+<li class="chapter" data-level="4.3.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-ratio-tests-lrts"><i class="fa fa-check"></i><b>4.3.3</b> Likelihood Ratio Tests (LRTs)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -268,8 +269,8 @@ the event
 </ul>
 </div>
 </div>
-<div id="likelihood-function" class="section level2">
-<h2><span class="header-section-number">4.2</span> Likelihood Function</h2>
+<div id="likelihood-function-and-point-estimation" class="section level2">
+<h2><span class="header-section-number">4.2</span> Likelihood Function and Point Estimation</h2>
 <div id="definition-9" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Definition</h3>
 
@@ -387,6 +388,17 @@ and then using the second derivative criterion, or some other criterion, to ensu
 However, in some other cases this may not be achievable so that one ends up using numerical maximization techniques.
 </div>
 
+<p><br />
+</p>
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> The above definition es entirely general, the space <span class="math inline">\(\Theta\)</span> of parameters is a general space although typically
+<span class="math inline">\(\Theta=\mathbb{R}^d\)</span> (<span class="math inline">\(d\)</span> is the number of parameters of the model). In this notes we will only review examples
+for models where <span class="math inline">\(d=1\)</span> but the general definitions and intuitions hold for <span class="math inline">\(d&gt;1\)</span>.
+</div>
+
+<p><br />
+</p>
 
 <div class="example">
 <p><span id="exm:normalMuMLE" class="example"><strong>Example 4.4  (Normal MLE for <span class="math inline">\(\mu\)</span>)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be i.i.d <span class="math inline">\(normal(\mu,1)\)</span>. Then,
@@ -407,14 +419,14 @@ which has solution
 <span class="math display">\[
 \hat{\mu}(\bar{x}) = \frac{1}{n} \sum_{k=1}^N x_k = \tilde{x}.
 \]</span>
-Yay! We have found that the MLE estimator for the population mean <span class="math inline">\(\mu\)</span> is simply the sample mean, i.e. that
-<span class="math inline">\(\hat{\mu}=\tilde{X}\)</span>, which really aligns well with the intuitive approach of estimating the theoretical
-mean by the ‘experimantelly observed’ mean. In fact we have gained a lot more, we have developed a
-solid theoretical framework which can be used to estimate any paremeter of any distribution and have found
-that, at least in this case, it outputs very sensible results. As discussed further below in some cases we may have even
-gained the ability to study the error and/or variance of our estimation.
 </div>
 
+<p>Yay! We have found that the MLE estimator for the population mean <span class="math inline">\(\mu\)</span> is simply the sample mean, i.e. that
+<span class="math inline">\(\hat{\mu}=\tilde{X}\)</span>, which really aligns well with the intuitive approach of estimating the theoretical
+mean by the ‘experimentally observed’ mean. In fact we have gained a lot more, we have developed a
+solid theoretical framework which can be used to estimate any paremeter of any distribution and have found
+that, at least in this case, it outputs very sensible results. As discussed further below in some cases we may have even
+gained the ability to study the error and/or variance of our estimation.</p>
 <p><br />
 </p>
 <p>For illustration purposes we first show the graph of <span class="math inline">\(L(\bar{x}\vert \mu)\)</span> for a single simulated value of
@@ -439,7 +451,7 @@ along with the resulting value of the MLE <span class="math inline">\(\hat{\mu}(
 <a class="sourceLine" id="cb4-16" title="16"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
 <a class="sourceLine" id="cb4-17" title="17"><span class="kw">abline</span>(<span class="dt">v =</span> mle, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span> )</a>
 <a class="sourceLine" id="cb4-18" title="18"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Likelihood&quot;</span>, <span class="st">&quot;MLE&quot;</span>, <span class="st">&quot;Truth&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>We now compare the distribution estimated through the MLE (<span class="math inline">\(\hat{\mu}\)</span>) against the
 observed (empirical) distribution of the data and the true density (<span class="math inline">\(\mu=1\)</span>).</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># Visualize estimated density VS normal densities under different mus</span></a>
@@ -455,7 +467,7 @@ observed (empirical) distribution of the data and the true density (<span class=
 <a class="sourceLine" id="cb5-11" title="11"><span class="kw">lines</span>(x, <span class="kw">dnorm</span>(x, <span class="dt">mean =</span> mle, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb5-12" title="12"><span class="kw">abline</span>(<span class="dt">v =</span> mle, <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a>
 <a class="sourceLine" id="cb5-13" title="13"><span class="kw">legend</span>(<span class="st">&quot;left&quot;</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;mle&quot;</span>, <span class="st">&quot;truth&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># Visualize estimated cdf VS normal cdfs under different mus</span></a>
 <a class="sourceLine" id="cb6-2" title="2">datacdf &lt;-<span class="st"> </span><span class="kw">ecdf</span>(data)</a>
 <a class="sourceLine" id="cb6-3" title="3">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="dt">length.out =</span> <span class="dv">100</span>)</a>
@@ -466,7 +478,7 @@ observed (empirical) distribution of the data and the true density (<span class=
 <a class="sourceLine" id="cb6-8" title="8"><span class="kw">lines</span>(x, <span class="kw">pnorm</span>(x, <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb6-9" title="9"><span class="kw">lines</span>(x, <span class="kw">pnorm</span>(x, <span class="dt">mean =</span> mle, <span class="dt">sd =</span> <span class="dv">1</span>), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb6-10" title="10"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">box.col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;mle&quot;</span>, <span class="st">&quot;truth&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-90-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-91-2.png" width="672" /></p>
 <p>As discussed in Section <a href="introduction-to-statistics.html#bigpicture">4.1</a> the value <span class="math inline">\(\bar{x}\)</span> is typically equated with the experimentally observed data.
 However, in the probabilistic world <span class="math inline">\(\bar{x}\)</span> is interpreted as just a ‘realization’ of the random vector <span class="math inline">\(\bar{X}\)</span>.
 Now observe that <span class="math inline">\(\hat{\theta}(\bar{x})\)</span>, the MLE for <span class="math inline">\(\theta\)</span>, is a function of <span class="math inline">\(\bar{x}\)</span>,
@@ -510,16 +522,16 @@ i.e. as we gather more data, the estimated value <span class="math inline">\(\h
 <a class="sourceLine" id="cb7-12" title="12"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;MLE sample density&quot;</span>, <span class="st">&quot;MLE true density&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a>
 <a class="sourceLine" id="cb7-13" title="13"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">mean</span>(mles), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb7-14" title="14"><span class="kw">abline</span>(<span class="dt">v =</span> mu, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" />
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" />
 <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <p>Thus, for example, we may compute the probability that
 <span class="math inline">\(\left\lvert \hat{\mu}(\bar{X}) - \mu \right\rvert&gt; a\)</span> <strong>given</strong> that <span class="math inline">\(\bar{X}\overset{i.i.d}\sim normal(\mu,1)\)</span>
 (i.e. under the model <span class="math inline">\(\mathcal{P}_\mu\)</span>), we have</p>
 <p><span class="math display">\[\begin{align}
 \mathbb{P}_\mu\left(\left\lvert \hat{\mu}(\bar{X}) - \mu \right\rvert&gt; a\right) &amp;= 
-\int_{\mu-a}^{\mu+a} \sqrt{\frac{n}{2\pi}} 
+1-\int_{\mu-a}^{\mu+a} \sqrt{\frac{n}{2\pi}} 
                    e^{-\frac{n(x - \mu )^2}{2}} dx \\
-&amp;= \int_{-a}^a \sqrt{\frac{n}{2\pi}} e^{-\frac{n x^2}{2}}dx;
+&amp;=1- \int_{-a}^a \sqrt{\frac{n}{2\pi}} e^{-\frac{n x^2}{2}}dx;
 \end{align}\]</span>
 observe that in this case the distribution of the distance between the estimator <span class="math inline">\(\hat{\mu}(\bar{X})\)</span> and <span class="math inline">\(\mu\)</span>
 under <span class="math inline">\(\mathcal{P}_{\mu}\)</span> has distribution <span class="math inline">\(normal(0,1/n)\)</span> which does not depend on <span class="math inline">\(\mu\)</span> so that we can
@@ -533,23 +545,23 @@ and <span class="math inline">\(\mu\)</span> will always be less than <span clas
 </div>
 <div id="hypothesis-testing" class="section level2">
 <h2><span class="header-section-number">4.3</span> Hypothesis testing</h2>
-<div id="definition-and-evaluation" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Definition and Evaluation</h3>
+<div id="definition-evaluation-and-power" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Definition, Evaluation, and Power</h3>
 
 <div class="definition">
-<span id="def:unnamed-chunk-92" class="definition"><strong>Definition 4.3  </strong></span>A <strong>hypothesis</strong> is a statement about a population/model parameter.
+<span id="def:unnamed-chunk-93" class="definition"><strong>Definition 4.3  </strong></span>A <strong>hypothesis</strong> is a statement about a population/model parameter.
 </div>
 
 <p>The goal of a hypothesis test is to decide, based on a sample from the population, which of two complementary hypothesis is true.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-93" class="definition"><strong>Definition 4.4  </strong></span>The two complementary hypothesis in a hypothesis testing problem are called
+<span id="def:unnamed-chunk-94" class="definition"><strong>Definition 4.4  </strong></span>The two complementary hypothesis in a hypothesis testing problem are called
 the <strong>null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong> and the <strong>alternative hypothesis (<span class="math inline">\(H_1\)</span>)</strong>.
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-94" class="definition"><strong>Definition 4.5  (Hypothesis Test)  </strong></span>A <strong>hypothesis testing procedure</strong> is a rule that sepecifies:</p>
+<p><span id="def:unnamed-chunk-95" class="definition"><strong>Definition 4.5  (Hypothesis Test)  </strong></span>A <strong>hypothesis testing procedure</strong> is a rule that sepecifies:</p>
 <ol style="list-style-type: decimal">
 <li>For which sample values <span class="math inline">\(\bar{x}\in\mathbb{R}^n\)</span> the decision is made to accept <span class="math inline">\(H_0\)</span> as true.</li>
 <li>For which sample values <span class="math inline">\(\bar{x}\in\mathbb{R}^n\)</span> the decision is made to reject <span class="math inline">\(H_0\)</span> (‘in acceptance of <span class="math inline">\(H_1\)</span>’).</li>
@@ -573,8 +585,8 @@ Fix a value <span class="math inline">\(\mu_0\)</span>. We may define a decision
 using the statistic <span class="math inline">\(\hat{\mu}(\bar{X})\)</span>. To do so it would be reasonable to consider a rejection region of the form</p>
 <p><span class="math display">\[
 \begin{aligned}
-R&amp;=\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \hat{\mu}(\hat{x}) - \mu_0 \right\rvert &gt; c_n\}\\
-&amp;=\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \tilde{x} - \mu_0 \right\rvert &gt; c_n\}\subset \mathbb{R}^n.
+R&amp;=\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \hat{\mu}(\bar{x}) - \mu_0 \right\rvert &gt; c_n\}\\
+&amp;=\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \tilde{x} - \mu_0 \right\rvert &gt; c_n\}\subset \mathbb{R}^n.
 \end{aligned}
 \]</span></p>
 for some prespecified value of <span class="math inline">\(c_n\)</span>
@@ -583,7 +595,7 @@ for some prespecified value of <span class="math inline">\(c_n\)</span>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-95" class="definition"><strong>Definition 4.6  (Type I and II Errors)  </strong></span>A hypothesis test for <span class="math inline">\(H_0\colon \theta\in\Theta_0\)</span> VS <span class="math inline">\(H_1\colon \theta\not\in\Theta_0\)</span> can make two types of errors</p>
+<p><span id="def:unnamed-chunk-96" class="definition"><strong>Definition 4.6  (Type I and II Errors)  </strong></span>A hypothesis test for <span class="math inline">\(H_0\colon \theta\in\Theta_0\)</span> VS <span class="math inline">\(H_1\colon \theta\not\in\Theta_0\)</span> can make two types of errors</p>
 <ul>
 <li><strong>Type I error</strong>: When <span class="math inline">\(H_0\colon\theta\in\Theta_0\)</span> is true but the test decides that <span class="math inline">\(H_0\)</span> is false (false positive).</li>
 <li><strong>Type II error</strong>: When <span class="math inline">\(H_1\colon\theta\not\in\Theta_0\)</span> is true but the test decides that <span class="math inline">\(H_0\)</span> is true (false negative).</li>
@@ -634,68 +646,110 @@ summarizes all the information of the test with rejection region <span class="ma
 of making Type I and II errors, thus calling for the following definition.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-96" class="definition"><strong>Definition 4.7  (Power Function)  </strong></span>The <strong>power function</strong> of a hypothesis test with rejection region <span class="math inline">\(R\subset \mathbb{R}^n\)</span> is the function of <span class="math inline">\(\theta\)</span> defined by
+<span id="def:unnamed-chunk-97" class="definition"><strong>Definition 4.7  (Power Function)  </strong></span>The <strong>power function</strong> of a hypothesis test with rejection region <span class="math inline">\(R\subset \mathbb{R}^n\)</span> is the function of <span class="math inline">\(\theta\)</span> defined by
 <span class="math display">\[
 \beta(\theta):=\mathbb{P}_\theta(X\in\ R).
 \]</span>
 </div>
 
-<p>The ideal power function is <span class="math inline">\(0\)</span> for all <span class="math inline">\(\theta\in\Theta_0\)</span>, which gives that Type I errors occur with zero probability if
-the true value of <span class="math inline">\(\theta\)</span> is in <span class="math inline">\(\Theta_0\)</span>, and <span class="math inline">\(1\)</span> for all <span class="math inline">\(\theta\in\Theta_0^c\)</span>, which similarly gives that
-Type II errors occur with zero probability whenever the true value of <span class="math inline">\(\theta\)</span> is in <span class="math inline">\(\Theta_0^c\)</span>.</p>
+<p>The ideal power function is <span class="math inline">\(0\)</span> for all <span class="math inline">\(\theta\in\Theta_0\)</span>, since this would mean that Type I
+errors occur with zero probability, and <span class="math inline">\(1\)</span> for all <span class="math inline">\(\theta\in\Theta_0^c\)</span>, since this would mean that
+Type II errors occur with zero probability.</p>
 
 <div class="example">
-<p><span id="exm:twosidedNormal" class="example"><strong>Example 4.7  </strong></span>Recall the test <span class="math inline">\(H_0\colon\mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> of Example <a href="introduction-to-statistics.html#exm:normMLEtest">4.6</a> with rejection region
+<p><span id="exm:TwoSidedZtest" class="example"><strong>Example 4.7  (Two-Sided Z-test)  </strong></span>Recall the test <span class="math inline">\(H_0\colon\mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> of Example <a href="introduction-to-statistics.html#exm:normMLEtest">4.6</a> with rejection region
 <span class="math display">\[
-R=\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \tilde{x} - \mu_0 \right\rvert &gt; c_n\}.
-\]</span>
+R=\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \tilde{x} - \mu_0 \right\rvert &gt; c_n\}.
+\]</span></p>
 Observe that the test will make a Type I error if <span class="math inline">\(\mu_0\)</span> is the true value of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\left\lvert \tilde{X} - \mu_0 \right\rvert &gt; c_n\)</span>,
 which occurs with probability (see Example <a href="introduction-to-statistics.html#exm:normalMuMLEdistribution">4.5</a>)
-<span class="math display">\[\mathbb{P}_{\mu_0}(\left\lvert \tilde{X} - \mu_0 \right\rvert &gt; c_n)= \int_{\mu_0-c_n}^{\mu_0+c_n} \sqrt{\frac{n}{2\pi}}
+<span class="math display">\[\beta(\mu_0) = \mathbb{P}_{\mu_0}(\left\lvert \tilde{X} - \mu_0 \right\rvert &gt; c_n)= 1- \int_{\mu_0-c_n}^{\mu_0+c_n} \sqrt{\frac{n}{2\pi}}
                    e^{-\frac{n(x - \mu_0 )^2}{2}} dx.\]</span>
-On the other hand, the test will make a Type II error if <span class="math inline">\(\mu_1\neq\mu_0\)</span> is the true value of <span class="math inline">\(\mu\)</span> and
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<p><br />
+</p>
+<p>On the other hand, the test will make a Type II error if <span class="math inline">\(\mu_1\neq\mu_0\)</span> is the true value of <span class="math inline">\(\mu\)</span> and
 <span class="math inline">\(\left\lvert \tilde{X} - \mu_0 \right\rvert \leq c_n\)</span>, which occurs with probability
 <span class="math display">\[
 \begin{aligned}
-\mathbb{P}_{\mu_1}(\left\lvert \tilde{X} - \mu_0 \right\rvert \leq c_n)&amp;= 1-\mathbb{P}_{\mu_1}(\left\lvert \tilde{X} - \mu_0 \right\rvert &gt; c_n)\\
-&amp;=1-\int_{\mu_0-c_n}^{\mu_0+c_n} \sqrt{\frac{n}{2\pi}}
+1-\beta(\mu_1) = \mathbb{P}_{\mu_1}(\left\lvert \tilde{X} - \mu_0 \right\rvert \leq c_n)&amp;= \mathbb{P}_{\mu_1}(\left\lvert \tilde{X} - \mu_0 \right\rvert &gt; c_n)\\
+&amp;=\int_{\mu_0-c_n}^{\mu_0+c_n} \sqrt{\frac{n}{2\pi}}
                    e^{-\frac{n(x - \mu_1 )^2}{2}} dx.
 \end{aligned}
-\]</span>
-The power function of this test is
+\]</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+
+<p>The power function of this test is
 <span class="math display">\[
 \begin{aligned}
-\beta(\mu) = \mathbb{P}_{\mu}(\left\lvert \tilde{X} - \mu_0 \right\rvert &gt; c_n)= \int_{\mu_0-c_n}^{\mu_0+c_n} \sqrt{\frac{n}{2\pi}}
+\beta(\mu) = \mathbb{P}_{\mu}(\left\lvert \tilde{X} - \mu_0 \right\rvert &gt; c_n)= 1 - \int_{\mu_0-c_n}^{\mu_0+c_n} \sqrt{\frac{n}{2\pi}}
                    e^{-\frac{n(x - \mu)^2}{2}} dx.
 \end{aligned}
 \]</span>
 Now assume we choose <span class="math inline">\(c_n=c\sigma\sqrt{1/n}\)</span> for some <span class="math inline">\(c&gt;0\)</span> <a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> so that, rearranging terms, the rejection region becomes</p>
 <p><span class="math display" id="eq:normalTwoSidedRR">\[\begin{align}
 R
-&amp;=\left\{\hat{x}\in\mathbb{R}^n\colon\left\lvert \frac{\tilde{x} - \mu_0}{\sigma/\sqrt{n}} \right\rvert &gt; c\right\}\tag{4.1}\\
-&amp;=\left\{\hat{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &lt; - c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} \right\}\cup 
-  \left\{\hat{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &gt; c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right\}.
+&amp;=\left\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \frac{\tilde{x} - \mu_0}{\sigma/\sqrt{n}} \right\rvert &gt; c\right\}\tag{4.1}\\
+&amp;=\left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &lt; - c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} \right\}\cup 
+  \left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &gt; c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right\}.
 \end{align}\]</span></p>
-Observe that when the true value of the parameter is <span class="math inline">\(\mu\)</span>,
-i.e. under the assumption <span class="math inline">\(\bar{X}\overset{i.i.d}{\sim}normal(\mu,\sigma)\)</span>,
+<p>Observe that when <span class="math inline">\(\bar{X}\overset{i.i.d}{\sim}normal(\mu,\sigma)\)</span>,
+i.e. under the assumption that the true value of the parameter is <span class="math inline">\(\mu\)</span>,
 we have that the random variable
 <span class="math display">\[
-Z:=\frac{\tilde{x} - \mu}{\sigma/\sqrt{n}}
+Z(\bar{x}):=\frac{\tilde{x} - \mu}{\sigma/\sqrt{n}}
 \]</span>
-(often called the <em>Z-statistic</em>) is <span class="math inline">\(normal(0,1)\)</span> distributed, so that the power function becomes
+(often called the <em>Z-statistic</em>) is <span class="math inline">\(normal(0,1)\)</span> distributed (observe that its distribution does not depend on <span class="math inline">\(\mu\)</span> nor <span class="math inline">\(\sigma\)</span>, nor <span class="math inline">\(n\)</span>), so that the power function becomes <a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
 <span class="math display">\[
 \begin{aligned}
 \beta(\mu)&amp;=\mathbb{P}_\mu(\bar{X}\in R) \\
-&amp;=\mathbb{P}\left( Z \in \left[\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} -c, \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} +c\right]^c\right) \\
+&amp;=\mathbb{P}\left( Z(\bar{X}) \in \left[\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} -c, \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} +c\right]^c\right) \\
+&amp;= \mathbb{P}\left(\left\lvert Z+ \frac{\mu - \mu_0}{\sigma/\sqrt{n}} \right\rvert &gt; c\right)\\
 &amp;=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} -c} e^{-\frac{x^2}{2}}dx +
  \frac{1}{\sqrt{2\pi}} \int_{\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} +c}^\infty e^{-\frac{x^2}{2}}dx .
 \end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(Z\)</span> is a standard normal random variable.</p>
+<p>```</p>
+
+<div class="example">
+<p><span id="exm:TwoSidedTtest" class="example"><strong>Example 4.8  (Two-sided T-test)  </strong></span>We now consider a hypothesis test of the form <span class="math inline">\(H_0\colon\mu = \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> for
+a sample <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution where both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are unkown
+(<span class="math inline">\(\sigma\)</span> is a nuissance parameter). Again it is reasonable
+to construct the rejection region <span class="math inline">\(R\)</span> as</p>
+<p><span class="math display" id="eq:ttestTwoSidedRR">\[\begin{align}
+R
+&amp;=\left\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \frac{\tilde{x} - \mu_0}{S(\bar{x})/\sqrt{n}} \right\rvert &gt; c\right\}\tag{4.2}\\
+&amp;=\left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{S(\bar{x})/\sqrt{n}} &lt; - c + \frac{\mu_0 - \mu}{S(\bar{x})/\sqrt{n}} \right\}\cup 
+  \left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{S(\bar{x})/\sqrt{n}} &gt; c + \frac{\mu_0 - \mu}{S(\bar{x})/\sqrt{n}}\right\}.
+\end{align}\]</span></p>
+for some <span class="math inline">\(c&gt;0\)</span>, where <span class="math inline">\(S^2\)</span> is the sample variance
+<span class="math display">\[
+S^2(\bar{x}) = \frac{1}{n} \sum_{i=1}^n (x_i - \tilde{x})^2
 \]</span>
+which is also the MLE estimator for <span class="math inline">\(\sigma\)</span>. Letting
+<span class="math display">\[
+T  :=\frac{\tilde{x} - \mu}{S(\bar{x})/\sqrt{n}}
+\]</span>
+(called the <span class="math inline">\(T\)</span>-statistic) we obtain that, under the model <span class="math inline">\(\bar{X}\overset{i.i.d}{\sim}normal(\mu,\sigma)\)</span>,
+<span class="math inline">\(T\)</span> has Students-t distribution with <span class="math inline">\(n-1\)</span> degrees of freedom (see Section <a href="common-distributions.html#normalDistribution">3.8</a> and also
+observe that its distribution no longer depends on <span class="math inline">\(\mu\)</span> nor on <span class="math inline">\(\sigma\)</span> but does depend on the sample size <span class="math inline">\(n\)</span>)
+and the corresponding power function <span class="math inline">\(\beta(\mu)\)</span> is given by <a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>
+<span class="math display">\[\begin{align}
+\beta(\mu)&amp;=\mathbb{P}_\mu(\bar{X}\in R) \\
+&amp;=\mathbb{P}\left( T(\bar{X}) \in \left[-c + \frac{\mu_0 - \mu}{S(\bar{X})/\sqrt{n}}, c + \frac{\mu_0 - \mu}{S(\bar{X})/\sqrt{n}}\right]^c\right)\\
+&amp;=\mathbb{P}\left(\left\lvert T(\bar{X}) + \frac{\mu - \mu_0}{S(\bar{X})/\sqrt{n}} \right\rvert &gt; c\right)
+\end{align}\]</span>
 </div>
 
+<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" />
+<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-97" class="definition"><strong>Definition 4.8  </strong></span><br />
+<p><span id="def:unnamed-chunk-102" class="definition"><strong>Definition 4.8  </strong></span><br />
 </p>
 <ul>
 <li><p>For <span class="math inline">\(0\leq\alpha\leq 1\)</span>, a test with power function <span class="math inline">\(\beta(\theta)\)</span> is a <strong>size <span class="math inline">\(\alpha\)</span> test</strong> if
@@ -708,21 +762,29 @@ Z:=\frac{\tilde{x} - \mu}{\sigma/\sqrt{n}}
 \]</span>
 </div></li>
 </ul>
+<p>Observe from the above definitions that a size (resp. level) <span class="math inline">\(\alpha\)</span> test makes a Type I error with probability
+exactly (resp. less than) <span class="math inline">\(\alpha\)</span>, so that knowing the size of a test informs us about its Type I error probabilities
+but tells us nothing about the Type II error probabilities.
+Typically experimenters set their hypothesis in such a way that not making a Type I error
+is more important than not making a Type II error (or that making a Type II error is preferred over making
+a Type I error), then experimenters choose an <span class="math inline">\(\alpha\in (0,1)\)</span> which is a ‘tolerable’ probability
+of making a Type I error, and finally (when possbile) choose an appripropiate sample size <span class="math inline">\(n\)</span> to also
+control the Type II error probability.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-98" class="example"><strong>Example 4.8  </strong></span>We now consider a hypothesis test of the form <span class="math inline">\(H_0\colon\mu\leq \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&gt;\mu_0\)</span> for
+<span id="exm:OneSidedZtestLevel" class="example"><strong>Example 4.9  (One-sided Z-test)  </strong></span>We now consider a hypothesis test of the form <span class="math inline">\(H_0\colon\mu\leq \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&gt;\mu_0\)</span> for
 a sample <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution (<span class="math inline">\(\sigma\)</span> known). Again it is reasonable
 to construct the rejection region <span class="math inline">\(R\)</span> as
 <span class="math display">\[
 \begin{aligned}
-R&amp;=\left\{\hat{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu_0}{\sigma/\sqrt{n}} &gt; c\right\}\\
- &amp;=\left\{\hat{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &gt; c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right\}
+R&amp;=\left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu_0}{\sigma/\sqrt{n}} &gt; c\right\}\\
+ &amp;=\left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{\sigma/\sqrt{n}} &gt; c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right\}
 \end{aligned}
 \]</span>
 for some <span class="math inline">\(c&gt;0\)</span>. Letting
 <span class="math display">\[
 Z :=\frac{\tilde{x} - \mu}{\sigma/\sqrt{n}}
-\]</span> as in Example <a href="introduction-to-statistics.html#exm:twosidedNormal">4.7</a> we obtain that the power function <span class="math inline">\(\beta(\mu)\)</span> is given by
+\]</span> as in Example <a href="introduction-to-statistics.html#exm:TwoSidedZtest">4.7</a> we obtain that the power function <span class="math inline">\(\beta(\mu)\)</span> is given by
 <span class="math display">\[
 \beta(\mu) = \mathbb{P}\left(Z &gt;  c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right),
 \]</span>
@@ -735,14 +797,151 @@ i.e. if we choose <span class="math inline">\(c\)</span> to be the <span class=
 we obtain a size <span class="math inline">\(\alpha\)</span> test.
 </div>
 
+<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p>Note how, for any non-trivial value of <span class="math inline">\(\alpha\)</span>, if <span class="math inline">\(\mu\leq \mu_0\)</span> the function <span class="math inline">\(\beta(\mu)\)</span> tends to <span class="math inline">\(0\)</span>
+while for <span class="math inline">\(\mu&gt;\mu_0\)</span> it tends to 1. What would
+you expect to be the shape of <span class="math inline">\(\beta(\mu)\)</span>
+if instead we wanted the prove the hypothesis <span class="math inline">\(H_0\colon\mu\geq \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&lt;\mu_0\)</span>, and
+for the hypothesis <span class="math inline">\(H_0\colon\mu = \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span>?</p>
+
+<div class="example">
+<span id="exm:TwoSidedTtestLevel" class="example"><strong>Example 4.10  (Two-sided T-test)  </strong></span>We now consider a hypothesis test of the form <span class="math inline">\(H_0\colon\mu = \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> for
+a sample <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution (<span class="math inline">\(\sigma\)</span> unknown). Again it is reasonable
+to construct the rejection region <span class="math inline">\(R\)</span> as
+<span class="math display">\[
+\begin{aligned}
+R&amp;=\left\{\bar{x}\in\mathbb{R}^n\colon \left\lvert \frac{\tilde{x} - \mu_0}{S(\bar{x})/\sqrt{n}} \right\rvert &gt; c\right\}\\
+ &amp;=\left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{S(\bar{x})/\sqrt{n}} &gt; c + \frac{\mu_0 - \mu}{S(\bar{x})/\sqrt{n}}\right\}
+    \cup \left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu}{S(\bar{x})/\sqrt{n}} &lt; -c + \frac{\mu_0 - \mu}{S(\bar{x})/\sqrt{n}}\right\}
+\end{aligned}
+\]</span>
+for some <span class="math inline">\(c&gt;0\)</span>. Letting
+<span class="math display">\[
+T :=\frac{\tilde{x} - \mu}{S(\bar{x})/\sqrt{n}}
+\]</span> as in Example <a href="introduction-to-statistics.html#exm:TwoSidedTtest">4.8</a> we obtain that the power function <span class="math inline">\(\beta(\mu)\)</span> is given by
+<span class="math display">\[
+\beta(\mu) = \mathbb{P}\left(T &gt;  c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right) + \mathbb{P}\left(T &lt;  -c + \frac{\mu_0 - \mu}{\sigma/\sqrt{n}}\right),
+\]</span>
+so that
+<span class="math display">\[
+\sup_{\mu\leq \mu_0} \beta(\mu) = \mathbb{P}\left(\left\lvert T \right\rvert &gt;  c\right).
+\]</span>
+Thus, choosing <span class="math inline">\(c\)</span> so that <span class="math inline">\(\mathbb{P}\left(T &gt; c\right)=\alpha\)</span>,
+i.e. if we choose <span class="math inline">\(c\)</span> to be the <span class="math inline">\(\alpha/2\)</span>-quantile of the <span class="math inline">\(n-1\)</span> degrees of freedom t-distribution then,
+by the symmetry of the t-distribution and considering both tails, we obtain a size <span class="math inline">\(\alpha\)</span> test.
+</div>
+
+<p><img src="_main_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p>Observe how increasing the sample size <span class="math inline">\(n\)</span> allows for the construction of level <span class="math inline">\(\alpha\)</span> tests with lower Type II error
+probabilities, see how the power function becomes close to 1 for values away from <span class="math inline">\(\mu_0\)</span> and that this is ‘faster’
+when <span class="math inline">\(n=5\)</span> than when <span class="math inline">\(n=2\)</span>; i.e. the power functions for tests with sample size <span class="math inline">\(n=5\)</span> ‘are better’ than those with
+sample size <span class="math inline">\(n=2\)</span>. For <span class="math inline">\(n=50\)</span> we have</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+</div>
+<div id="p-values" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> p-Values</h3>
+<p>After a hypothesis test is done, results must be reported in a statistically meaningful way. One method is to simply
+report the size <span class="math inline">\(\alpha\)</span> of the test. If <span class="math inline">\(\alpha\)</span> is small, the decision to reject <span class="math inline">\(H_0\)</span> is fairly convincing.
+A p-value <span class="math inline">\(p(\bar{X})\)</span> reports the results of a test in a more continuous scale, rather than just the dichotomous decision
+to ‘Accept <span class="math inline">\(H_0\)</span>’ or to ‘Reject <span class="math inline">\(H_0\)</span>’. An advantage of reporting a p-value is that each reader can choose the <span class="math inline">\(\alpha\)</span>
+that he considers appropriate (typical choices are 0.001, 0.01, and 0.05) and then compare the reported <span class="math inline">\(p(\bar{x})\)</span> with
+<span class="math inline">\(\alpha\)</span> to know whether this data support rejection of <span class="math inline">\(H_0\)</span>. The most common way to define a p-value is:</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-107" class="definition"><strong>Definition 4.9  </strong></span>A <strong>p-value</strong> <span class="math inline">\(p(\bar{X})\)</span> is a test statistic such that <span class="math inline">\(0\leq p(\bar{x})\leq 1\)</span> for every sample point <span class="math inline">\(\bar{x}\)</span>. <strong>Small</strong>
+values of <span class="math inline">\(p(\bar{x})\)</span> give evidence that <strong><span class="math inline">\(H_1\)</span> is true</strong> (rejection of <span class="math inline">\(H_0\)</span>). A p-value is <em>valid</em> if, for
+every <span class="math inline">\(\theta\in\Theta_0\)</span> and every <span class="math inline">\(0\leq \alpha\leq 1\)</span>
+<span class="math display">\[
+\mathbb{P}_\theta(p(\bar{X})\leq \alpha) \leq \alpha.
+\]</span>
+</div>
+
+<p>Note that, for every <span class="math inline">\(0\leq \alpha \leq 1\)</span>, a test with rejection region
+<span class="math display">\[
+R=\{\bar{x}\colon  p(\bar{x})\leq\alpha\}
+\]</span>
+is a level <span class="math inline">\(\alpha\)</span> test based on <span class="math inline">\(p(\bar{X})\)</span> so that, as mentioned before, each reader can choose his own <span class="math inline">\(\alpha\)</span>
+and determine whether or not the data support rejection of <span class="math inline">\(H_0\)</span>. The most common way to construct a p-value
+is as in the following theorem.</p>
+
+<div class="theorem">
+<span id="thm:pValueConstruction" class="theorem"><strong>Theorem 4.1  </strong></span>Let <span class="math inline">\(W(\bar{X})\)</span> be a test statistic (a function of <span class="math inline">\(\bar{X}\)</span>) such that <strong>large</strong> values of <span class="math inline">\(W\)</span> give evidence that <strong><span class="math inline">\(H_1\)</span> is true</strong>
+(rejection of <span class="math inline">\(H_0\)</span>). For each sample point <span class="math inline">\(\bar{x}\)</span>, define
+<span class="math display">\[
+p(\bar{x}) = \sup_{\theta\in\Theta_0} \mathbb{P}_\theta(W(\bar{X}) &gt; W(\bar{x}))
+\]</span>
+so that <strong>small</strong> values of <span class="math inline">\(p(\bar{x})\)</span> give evidence that <strong><span class="math inline">\(H_1\)</span> is true</strong>. Then <span class="math inline">\(p(\bar{X})\)</span> is a valid p-value.
+</div>
+
+<p><br />
+</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-108" class="example"><strong>Example 4.11  (One-sided Z-test p-value)  </strong></span>Recall the test of <span class="math inline">\(H_0\colon \mu\leq\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&gt;\mu_0\)</span> in Example <a href="introduction-to-statistics.html#exm:OneSidedZtestLevel">4.9</a>. Note that
+large values of
+<span class="math display">\[Z(\bar{x})=\frac{\tilde{x}-\mu_0}{\sigma/\sqrt{n}}\]</span>
+(the Z-statistic) support rejection of <span class="math inline">\(H_0\)</span>. Thus, by Theorem <a href="introduction-to-statistics.html#thm:pValueConstruction">4.1</a>,<br />
+the statistic
+<span class="math display">\[
+p(\bar{x}) = \sup_{\mu\leq\mu_0} \mathbb{P}_\mu( Z(\bar{X}) &gt; Z(\bar{x}))
+\]</span>
+is a valid p-value. We now show that
+<span class="math display">\[
+\sup_{\mu\leq\mu_0} \mathbb{P}_\mu( Z(\bar{X}) &gt; Z(\bar{x})) = \mathbb{P}_{\mu_0}(Z(\bar{X}) &gt; Z(\bar{x})).
+\]</span>
+Indeed, note that for every <span class="math inline">\(\mu\)</span>
+<span class="math display">\[\begin{align}
+\mathbb{P}_\mu( Z(\bar{X}) &gt; Z(\bar{x})) 
+&amp;= \mathbb{P}_\mu\left( \frac{\tilde{X}-\mu_0}{\sigma/\sqrt{n}} &gt; Z(\bar{x})\right)\\
+&amp;= \mathbb{P}_\mu\left(\frac{\tilde{X}-\mu}{\sigma/\sqrt{n}} &gt; Z(\bar{x}) + \frac{\mu-\mu_0}{\sigma/\sqrt{n}}\right)\\
+&amp;= \mathbb{P}_\mu\left(Z &gt; Z(\bar{x}) + \frac{\mu-\mu_0}{\sigma/\sqrt{n}}\right)
+\end{align}\]</span>
+where <span class="math inline">\(Z\)</span> is an standard normal variable so that, in particular, its distribution does not depend on <span class="math inline">\(\mu,\sigma\)</span> nor <span class="math inline">\(n\)</span>.</p>
+<p>It follows that
+<span class="math display">\[\begin{align}
+\sup_{\mu\leq\mu_0} \mathbb{P}_\mu( Z(\bar{X}) &gt; Z(\bar{x})) 
+&amp;= \sup_{\mu\leq\mu_0} \mathbb{P}_\mu\left(Z &gt; Z(\bar{x}) + \frac{\mu-\mu_0}{\sigma/\sqrt{n}}\right) \\
+&amp;= \mathbb{P}(Z &gt; Z(\bar{x})).
+\end{align}\]</span></p>
+Thus the p-value <span class="math inline">\(p(\bar{X})\)</span> is given by
+<span class="math display">\[
+p(\bar{X})=\mathbb{P}\left(Z\geq Z(\bar{X})\right).
+\]</span>
+where <span class="math inline">\(Z\)</span> is a standard normal random variable independent of <span class="math inline">\(\bar{X}\)</span>.
+</div>
+
+<p><br />
+</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-109" class="example"><strong>Example 4.12  (Two-sided T-test p-value)  </strong></span>Recall the test of <span class="math inline">\(H_0\colon \mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> in Example <a href="introduction-to-statistics.html#exm:TwoSidedTtestLevel">4.10</a>. Note that
+large values of
+<span class="math display">\[T(\bar{x})=\left\lvert \frac{\tilde{x}-\mu_0}{\sigma/\sqrt{n}} \right\rvert\]</span>
+(the T-statistic) support rejection of <span class="math inline">\(H_0\)</span>. Thus, by Theorem <a href="introduction-to-statistics.html#thm:pValueConstruction">4.1</a>,<br />
+the statistic
+<span class="math display">\[\begin{align}
+p(\bar{x}) &amp;= \sup_{\mu\in\{\mu_0\}} \mathbb{P}_\mu( \left\lvert T(\bar{X}) \right\rvert &gt; \left\lvert T(\bar{x}) \right\rvert)\\
+&amp;= \mathbb{P}( \left\lvert T \right\rvert &gt; \left\lvert T(\bar{x}) \right\rvert)
+\end{align}\]</span>
+is a valid p-value; here <span class="math inline">\(T\)</span> is students-t distributed with <span class="math inline">\(n-1\)</span> degrees of freedom.
+Of course, by the symmetry of <span class="math inline">\(T\)</span>, in this case we have
+<span class="math display">\[\begin{align}
+p(\bar{X})
+&amp;= \mathbb{P}( \left\lvert T \right\rvert &gt; \left\lvert T(\bar{X}) \right\rvert)\\
+&amp;= 2\mathbb{P}( T &gt; \left\lvert T(\bar{X}) \right\rvert).
+\end{align}\]</span>
+where <span class="math inline">\(T\)</span> is a Students-t with <span class="math inline">\(n-1\)</span> degrees of freedom random variable that is independent of <span class="math inline">\(\bar{X}\)</span>.
+</div>
+
 </div>
 <div id="likelihood-ratio-tests-lrts" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Likelihood Ratio Tests (LRTs)</h3>
-<p>In this section we introduced a general theoretical framework for the construction of the rejection region <span class="math inline">\(R\)</span> which
+<h3><span class="header-section-number">4.3.3</span> Likelihood Ratio Tests (LRTs)</h3>
+<p>In this section we introduce a general theoretical framework for the construction of the rejection region <span class="math inline">\(R\)</span> which
 can be applied to any parameter <span class="math inline">\(\theta\)</span> of any model <span class="math inline">\(\mathcal{P}_\theta\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-99" class="definition"><strong>Definition 4.9  </strong></span>The <strong>likelihood ratio test (LRT) statistic</strong> for testing <span class="math inline">\(H_0\colon \theta\in\Theta_0\subset\Theta\)</span> versus
+<span id="def:unnamed-chunk-110" class="definition"><strong>Definition 4.10  </strong></span>The <strong>likelihood ratio test (LRT) statistic</strong> for testing <span class="math inline">\(H_0\colon \theta\in\Theta_0\subset\Theta\)</span> versus
 <span class="math inline">\(H_1\colon \theta \not\in \Theta_0\)</span> is defined as
 <span class="math display">\[
 \lambda(\bar{x})=\frac{\sup_{\theta\in\Theta_0} L(\theta\vert \bar{x})}{\sup_{\theta\in\Theta} L(\theta\vert\bar{x})}.
@@ -752,14 +951,14 @@ A <strong>likelihood ratio test based on <span class="math inline">\(\lambda(\ba
 R=\{\bar{x}\colon \lambda(\bar{x})\leq c\},
 \]</span>
 where <span class="math inline">\(c\)</span> is a presepecified value <span class="math inline">\(0\leq c\leq 1\)</span>. Observe that we
-always have <span class="math inline">\(0\leq \lambda(\bar{x})\leq 1\)</span>) and that values of <span class="math inline">\(\lambda(\bar{x})\)</span> that are close to <span class="math inline">\(0\)</span>
+always have <span class="math inline">\(0\leq \lambda(\bar{x})\leq 1\)</span> and that values of <span class="math inline">\(\lambda(\bar{x})\)</span> that are close to <span class="math inline">\(0\)</span>
 support rejection of <span class="math inline">\(H_0\)</span> while values close to <span class="math inline">\(1\)</span> support acceptance of <span class="math inline">\(H_0\)</span>.
 </div>
 
 
 <div class="remark">
- <span class="remark"><em>Remark. </em></span> Again we encounter maximization problems in order to construct a LRTs. Observe that in the numerator we encounter
-a <strong>constrained</strong> maximization problem since we need to maximize over the set <span class="math inline">\(\Theta_0\subset\Theta\)</span>, while
+ <span class="remark"><em>Remark. </em></span> Again we encounter maximization problems in order to construct LRTs. Observe that in the numerator we encounter
+a <strong>constrained</strong> maximization problem since we need to maximize on the set <span class="math inline">\(\Theta_0\subset\Theta\)</span>, while
 the maximization in the denominator is a global maximization problem.
 </div>
 
@@ -767,35 +966,37 @@ the maximization in the denominator is a global maximization problem.
 </p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-101" class="example"><strong>Example 4.9  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,1)\)</span> distribution. Consider testing
-<span class="math inline">\(H_0\colon \theta=\theta_0\)</span> VS <span class="math inline">\(H_1\colon\theta\neq\theta_0\)</span> (<span class="math inline">\(\theta_0\)</span> is a number fixed by the experimenter
+<p><span id="exm:unnamed-chunk-112" class="example"><strong>Example 4.13  (Two-sided Z-test as LRT)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,1)\)</span> distribution. Consider testing
+<span class="math inline">\(H_0\colon \mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> (<span class="math inline">\(\mu_0\)</span> is a number fixed by the experimenter
 prior to the experiment). Then, recalling that the MLE for <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\hat{\mu}(\bar{X})=\tilde{X}\)</span>,
 <span class="math display">\[
-\lambda(\bar{x}) = \frac{(2\pi)^{-n/2}e^{-\sum_{i=1}^n \frac{(x_i-\theta_0)^2}{2}}}
+\lambda(\bar{x}) = \frac{(2\pi)^{-n/2}e^{-\sum_{i=1}^n \frac{(x_i-\mu_0)^2}{2}}}
                         {(2\pi)^{-n/2}e^{-\sum_{i=1}^n \frac{(x_i-\tilde{x})^2}{2}}},
 \]</span>
 and since
 <span class="math display">\[
-\sum_{i=1}^n (x_i-\theta_0)^2 = n(\tilde{x}-\theta_0)^2 +  \sum_{i=1}^n (x_i-\tilde{x})^2,
+\sum_{i=1}^n (x_i-\mu_0)^2 = n(\tilde{x}-\mu_0)^2 +  \sum_{i=1}^n (x_i-\tilde{x})^2,
 \]</span>
 the LRT statistic becomes
 <span class="math display">\[
-\lambda(\bar{x}) = e^{-\frac{n(\tilde{x}-\theta_0)^2}{2}}.
+\lambda(\bar{x}) = e^{-\frac{n(\tilde{x}-\mu_0)^2}{2}}.
 \]</span>
 A LRT rejects <span class="math inline">\(H_0\)</span> for small values of <span class="math inline">\(\lambda(\bar{x})\)</span>, so that it has a rejection region of the form</p>
 <p><span class="math display">\[
 \begin{aligned}
 R&amp;=\{\bar{x}\colon \lambda(\bar{x})\leq c\}\\
- &amp;=\left\{\bar{x}\colon \lambda(\bar{x})\leq \sqrt{-2\log(c)/n}\right\}
+ &amp;=\left\{\bar{x}\colon \left\lvert \tilde{x}-\mu_0 \right\rvert\geq \sqrt{-2\log(c)/n}\right\}
 \end{aligned}
 \]</span></p>
 for some <span class="math inline">\(c\in[0,1]\)</span>. Compare this with <a href="introduction-to-statistics.html#eq:normalTwoSidedRR">(4.1)</a> by observing that as <span class="math inline">\(c\)</span> varies along <span class="math inline">\([0,1]\)</span> the
 term <span class="math inline">\(-2\log(c)\)</span> varies along <span class="math inline">\((0,\infty)\)</span>.
 </div>
 
+<p><br />
+</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-102" class="example"><strong>Example 4.10  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution where both <span class="math inline">\(\mu\)</span> and
+<p><span id="exm:unnamed-chunk-113" class="example"><strong>Example 4.14  (Two-Sided T-test as LRT)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution where both <span class="math inline">\(\mu\)</span> and
 <span class="math inline">\(\sigma\)</span> are unkown and that we are interested in testing <span class="math inline">\(H_0\colon \mu\leq\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&gt;\mu_0\)</span> (so
 that <span class="math inline">\(\sigma\)</span> is a nuisance parameter).
 Then</p>
@@ -921,6 +1122,19 @@ which has Student’s-t distribution with <span class="math inline">\(n-1\)</spa
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footnotes">
 <hr />
 <ol start="4">
@@ -953,7 +1167,20 @@ assumption <span class="math inline">\(\bar{X}\sim\mathcal{P}_\theta\)</span>; i
 Here we keep the same letter <span class="math inline">\(\theta\)</span> since later on we will want to consider <span class="math inline">\(\theta\)</span> as a variable
 (much in the same sense in which we consider <span class="math inline">\(\theta\)</span> to be a variable in the definition of the likelihood function
 <span class="math inline">\(L(\bar{x}\vert \theta)\)</span>.<a href="introduction-to-statistics.html#fnref9" class="footnote-back">↩</a></p></li>
-<li id="fn10"><p>Further below we will argument how to choose <span class="math inline">\(c\)</span><a href="introduction-to-statistics.html#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>Further below we will argument how to choose <span class="math inline">\(c\)</span> based on how big we want the Type I error probabilit to be.<a href="introduction-to-statistics.html#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p>Here again we have
+a connection with Confidence Intervals, in this case with the interval <span class="math display">\[ \left[\frac{\mu_0 - \mu}{\sigma/\sqrt{n}} -c, \frac{\mu_0 - \mu}{\sigma/\sqrt{n}} +c\right]\]</span>.<a href="introduction-to-statistics.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn12"><p>Here again we have
+a connection with Confidence Intervals, in this case the interval <span class="math display">\[ \left[\frac{\mu_0 - \mu}{S(\bar{x})/\sqrt{n}} -c, \frac{\mu_0 - \mu}{S(\bar{x})/\sqrt{n}} +c\right]\]</span>.<a href="introduction-to-statistics.html#fnref12" class="footnote-back">↩</a></p></li>
+<li id="fn13"><p>The above graph is not entirely illustrative, to ease computations we have plotted the density of
+<span class="math display">\[
+T(\bar{X}) + \frac{\mu_1 - \mu_0}{\sigma/\sqrt{n}}
+\]</span>
+which, for large enough values of <span class="math inline">\(n\)</span> approximates very well the distribution of
+<span class="math display">\[
+T(\bar{X}) + \frac{\mu_1 - \mu_0}{S(\bar{X})/\sqrt{n}}
+\]</span>
+which is the one that truly interests us.<a href="introduction-to-statistics.html#fnref13" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
