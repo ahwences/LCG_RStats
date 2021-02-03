@@ -505,7 +505,9 @@ and the true value of <span class="math inline">\(\theta\)</span>.</p>
 <span id="exm:normalMuMLEdistribution" class="example"><strong>Example 4.5  (Normal MLE <span class="math inline">\(\hat{\mu}\)</span> distribution)  </strong></span>Recall the situation of Example <a href="introduction-to-statistics.html#exm:normalMuMLE">4.4</a>. Assume that the ‘true’ distribution of <span class="math inline">\(\bar{X}\)</span> is
 normal with mean <span class="math inline">\(\mu\)</span> and variance 1 and recall that
 <span class="math inline">\(\hat{\mu}(\bar{X})= \tilde{X}\)</span> so that (see Section <a href="common-distributions.html#normalDistribution">3.8</a>) <span class="math inline">\(\hat{\mu}(\bar{X})\)</span> is again normally distributed with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(1/n\)</span>. The fact that the variance is <span class="math inline">\(1/n\)</span> is really cool since it means that as <span class="math inline">\(n\to\infty\)</span>,
-i.e. as we gather more data, the estimated value <span class="math inline">\(\hat{\mu}\)</span> converges to the true value <span class="math inline">\(\mu\)</span>.
+i.e. as we gather more data, the estimated value <span class="math inline">\(\hat{\mu}\)</span> converges to the true value <span class="math inline">\(\mu\)</span> (this is in fact
+also ensured by the Law of Large Numbers, but knowing that the varince is <span class="math inline">\(1/n\)</span> gives us information about the speed of
+convergence).
 </div>
 
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># Generate 1000 random samples of size 100 each</span></a>
@@ -773,7 +775,7 @@ control the Type II error probability.</p>
 
 <div class="example">
 <span id="exm:OneSidedZtestLevel" class="example"><strong>Example 4.9  (One-sided Z-test)  </strong></span>We now consider a hypothesis test of the form <span class="math inline">\(H_0\colon\mu\leq \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&gt;\mu_0\)</span> for
-a sample <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution (<span class="math inline">\(\sigma\)</span> known). Again it is reasonable
+a sample <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution (<strong><span class="math inline">\(\sigma\)</span> known</strong>). Again it is reasonable
 to construct the rejection region <span class="math inline">\(R\)</span> as
 <span class="math display">\[
 \begin{aligned}
@@ -798,15 +800,15 @@ we obtain a size <span class="math inline">\(\alpha\)</span> test.
 </div>
 
 <p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
-<p>Note how, for any non-trivial value of <span class="math inline">\(\alpha\)</span>, if <span class="math inline">\(\mu\leq \mu_0\)</span> the function <span class="math inline">\(\beta(\mu)\)</span> tends to <span class="math inline">\(0\)</span>
-while for <span class="math inline">\(\mu&gt;\mu_0\)</span> it tends to 1. What would
+<p>Note how, for any non-trivial value of <span class="math inline">\(\alpha\)</span>, the function <span class="math inline">\(\beta(\mu)\)</span> tends to <span class="math inline">\(0\)</span> for <span class="math inline">\(\mu\leq\mu_0\)</span>
+and tends to 1 for <span class="math inline">\(\mu&gt;\mu_0\)</span>. What would
 you expect to be the shape of <span class="math inline">\(\beta(\mu)\)</span>
-if instead we wanted the prove the hypothesis <span class="math inline">\(H_0\colon\mu\geq \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&lt;\mu_0\)</span>, and
+if we were proving the hypothesis <span class="math inline">\(H_0\colon\mu\geq \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&lt;\mu_0\)</span> instead, and
 for the hypothesis <span class="math inline">\(H_0\colon\mu = \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span>?</p>
 
 <div class="example">
 <span id="exm:TwoSidedTtestLevel" class="example"><strong>Example 4.10  (Two-sided T-test)  </strong></span>We now consider a hypothesis test of the form <span class="math inline">\(H_0\colon\mu = \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> for
-a sample <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution (<span class="math inline">\(\sigma\)</span> unknown). Again it is reasonable
+a sample <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution (<strong><span class="math inline">\(\sigma\)</span> unknown</strong>). Again it is reasonable
 to construct the rejection region <span class="math inline">\(R\)</span> as
 <span class="math display">\[
 \begin{aligned}
