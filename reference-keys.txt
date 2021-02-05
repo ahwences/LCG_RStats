@@ -81,10 +81,10 @@ exm:TwoSidedTtestLevel
 def:unnamed-chunk-107
 thm:pValueConstruction
 exm:unnamed-chunk-108
-exm:unnamed-chunk-109
-def:unnamed-chunk-110
-exm:unnamed-chunk-112
-exm:unnamed-chunk-113
+exm:unnamed-chunk-110
+def:unnamed-chunk-112
+exm:unnamed-chunk-114
+exm:unnamed-chunk-115
 preface
 probability-spaces-and-random-variables
 probability-spaces

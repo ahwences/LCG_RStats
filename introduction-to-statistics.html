@@ -650,11 +650,21 @@ of making Type I and II errors, thus calling for the following definition.</p>
 <div class="definition">
 <span id="def:unnamed-chunk-97" class="definition"><strong>Definition 4.7  (Power Function)  </strong></span>The <strong>power function</strong> of a hypothesis test with rejection region <span class="math inline">\(R\subset \mathbb{R}^n\)</span> is the function of <span class="math inline">\(\theta\)</span> defined by
 <span class="math display">\[
-\beta(\theta):=\mathbb{P}_\theta(X\in\ R).
+\beta(\theta):=\mathbb{P}_\theta(X\in\ R),.
 \]</span>
+of course the definition of <span class="math inline">\(\beta\)</span> also depends on the rejection region <span class="math inline">\(R\)</span>, i.e. we have a different power function for each
+decision rule / rejection region <span class="math inline">\(R\)</span>, thus we could write <span class="math inline">\(\beta(\theta, R)\)</span> instead of simply <span class="math inline">\(\beta(\theta)\)</span>. However
+we usually skip writing the dependency on <span class="math inline">\(R\)</span> and only keep it in mind.
 </div>
 
-<p>The ideal power function is <span class="math inline">\(0\)</span> for all <span class="math inline">\(\theta\in\Theta_0\)</span>, since this would mean that Type I
+<p><br />
+</p>
+<p>Note that</p>
+<ul>
+<li>For <span class="math inline">\(\theta\in\Theta_0\)</span>, <span class="math inline">\(\mathbb{P}_\theta(\text{Type I error}) = \beta(\theta)\)</span></li>
+<li>For <span class="math inline">\(\theta\in\Theta_1\)</span>, <span class="math inline">\(\mathbb{P}_\theta(\text{Type II error}) = 1-\beta(\theta)\)</span>,</li>
+</ul>
+<p>thus, the ideal power function is <span class="math inline">\(0\)</span> for all <span class="math inline">\(\theta\in\Theta_0\)</span>, since this would mean that Type I
 errors occur with zero probability, and <span class="math inline">\(1\)</span> for all <span class="math inline">\(\theta\in\Theta_0^c\)</span>, since this would mean that
 Type II errors occur with zero probability.</p>
 
@@ -848,7 +858,7 @@ report the size <span class="math inline">\(\alpha\)</span> of the test. If <spa
 A p-value <span class="math inline">\(p(\bar{X})\)</span> reports the results of a test in a more continuous scale, rather than just the dichotomous decision
 to ‘Accept <span class="math inline">\(H_0\)</span>’ or to ‘Reject <span class="math inline">\(H_0\)</span>’. An advantage of reporting a p-value is that each reader can choose the <span class="math inline">\(\alpha\)</span>
 that he considers appropriate (typical choices are 0.001, 0.01, and 0.05) and then compare the reported <span class="math inline">\(p(\bar{x})\)</span> with
-<span class="math inline">\(\alpha\)</span> to know whether this data support rejection of <span class="math inline">\(H_0\)</span>. The most common way to define a p-value is:</p>
+<span class="math inline">\(\alpha\)</span> to know whether this data support rejection of <span class="math inline">\(H_0\)</span>.</p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-107" class="definition"><strong>Definition 4.9  </strong></span>A <strong>p-value</strong> <span class="math inline">\(p(\bar{X})\)</span> is a test statistic such that <span class="math inline">\(0\leq p(\bar{x})\leq 1\)</span> for every sample point <span class="math inline">\(\bar{x}\)</span>. <strong>Small</strong>
@@ -864,16 +874,24 @@ every <span class="math inline">\(\theta\in\Theta_0\)</span> and every <span cla
 R=\{\bar{x}\colon  p(\bar{x})\leq\alpha\}
 \]</span>
 is a level <span class="math inline">\(\alpha\)</span> test based on <span class="math inline">\(p(\bar{X})\)</span> so that, as mentioned before, each reader can choose his own <span class="math inline">\(\alpha\)</span>
-and determine whether or not the data support rejection of <span class="math inline">\(H_0\)</span>. The most common way to construct a p-value
-is as in the following theorem.</p>
+and determine whether or not the data support rejection of <span class="math inline">\(H_0\)</span>. Thus, in practice, the easiest way to interpret a p-value <span class="math inline">\(p(\bar{x})\)</span>
+is by saying that if we decide to reject the null hypothesis <span class="math inline">\(H_0\)</span> based on the value of <span class="math inline">\(p(\bar{x})\)</span> then we would incur
+in a Type I error with probability <strong>at most</strong> <span class="math inline">\(p(\bar{x})\)</span> (thus small values of <span class="math inline">\(p(\bar{x})\)</span> support rejection of <span class="math inline">\(H_0\)</span> while
+for large values of <span class="math inline">\(p(\bar{x})\)</span> rejection of <span class="math inline">\(H_0\)</span> becomes increasingly dubious),
+this is achieved if the experimenter decided to choose <span class="math inline">\(\alpha=p(\bar{x})\)</span>. Again note that the p-value tells us nothing about Type II error probabilities which have
+to be controlled through other means, usually by determining an appropriate sample size <span class="math inline">\(n\)</span>.</p>
+<p><br />
+</p>
+<p>The following theorem gives the typical
+way in which p-values are constructed.</p>
 
 <div class="theorem">
-<span id="thm:pValueConstruction" class="theorem"><strong>Theorem 4.1  </strong></span>Let <span class="math inline">\(W(\bar{X})\)</span> be a test statistic (a function of <span class="math inline">\(\bar{X}\)</span>) such that <strong>large</strong> values of <span class="math inline">\(W\)</span> give evidence that <strong><span class="math inline">\(H_1\)</span> is true</strong>
+<span id="thm:pValueConstruction" class="theorem"><strong>Theorem 4.1  </strong></span>Let <span class="math inline">\(W(\bar{X})\)</span> be a test statistic (a function of <span class="math inline">\(\bar{X}\)</span>) such that <strong>large values of <span class="math inline">\(W\)</span></strong> give evidence that <strong><span class="math inline">\(H_1\)</span> is true</strong>
 (rejection of <span class="math inline">\(H_0\)</span>). For each sample point <span class="math inline">\(\bar{x}\)</span>, define
 <span class="math display">\[
 p(\bar{x}) = \sup_{\theta\in\Theta_0} \mathbb{P}_\theta(W(\bar{X}) &gt; W(\bar{x}))
 \]</span>
-so that <strong>small</strong> values of <span class="math inline">\(p(\bar{x})\)</span> give evidence that <strong><span class="math inline">\(H_1\)</span> is true</strong>. Then <span class="math inline">\(p(\bar{X})\)</span> is a valid p-value.
+so that <strong>small values of <span class="math inline">\(p(\bar{x})\)</span></strong> give evidence that <strong><span class="math inline">\(H_1\)</span> is true</strong>. Then <span class="math inline">\(p(\bar{X})\)</span> is a valid p-value.
 </div>
 
 <p><br />
@@ -902,22 +920,24 @@ Indeed, note that for every <span class="math inline">\(\mu\)</span>
 where <span class="math inline">\(Z\)</span> is an standard normal variable so that, in particular, its distribution does not depend on <span class="math inline">\(\mu,\sigma\)</span> nor <span class="math inline">\(n\)</span>.</p>
 <p>It follows that
 <span class="math display">\[\begin{align}
-\sup_{\mu\leq\mu_0} \mathbb{P}_\mu( Z(\bar{X}) &gt; Z(\bar{x})) 
+p(\bar{x})&amp;=\sup_{\mu\leq\mu_0} \mathbb{P}_\mu( Z(\bar{X}) &gt; Z(\bar{x}))\\
 &amp;= \sup_{\mu\leq\mu_0} \mathbb{P}_\mu\left(Z &gt; Z(\bar{x}) + \frac{\mu-\mu_0}{\sigma/\sqrt{n}}\right) \\
 &amp;= \mathbb{P}(Z &gt; Z(\bar{x})).
 \end{align}\]</span></p>
 Thus the p-value <span class="math inline">\(p(\bar{X})\)</span> is given by
-<span class="math display">\[
-p(\bar{X})=\mathbb{P}\left(Z\geq Z(\bar{X})\right).
-\]</span>
+<span class="math display">\[\begin{align}
+p(\bar{X})&amp;=\mathbb{P}\left(Z\geq Z(\bar{X})\right)
+%&amp;= \P\(\frac{Z\sigma}{\sqrt{n}} + \mu_0 \geq \tilde{x}\)
+\end{align}\]</span>
 where <span class="math inline">\(Z\)</span> is a standard normal random variable independent of <span class="math inline">\(\bar{X}\)</span>.
 </div>
 
+<p><img src="_main_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 <p><br />
 </p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-109" class="example"><strong>Example 4.12  (Two-sided T-test p-value)  </strong></span>Recall the test of <span class="math inline">\(H_0\colon \mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> in Example <a href="introduction-to-statistics.html#exm:TwoSidedTtestLevel">4.10</a>. Note that
+<span id="exm:unnamed-chunk-110" class="example"><strong>Example 4.12  (Two-sided T-test p-value)  </strong></span>Recall the test of <span class="math inline">\(H_0\colon \mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> in Example <a href="introduction-to-statistics.html#exm:TwoSidedTtestLevel">4.10</a>. Note that
 large values of
 <span class="math display">\[T(\bar{x})=\left\lvert \frac{\tilde{x}-\mu_0}{\sigma/\sqrt{n}} \right\rvert\]</span>
 (the T-statistic) support rejection of <span class="math inline">\(H_0\)</span>. Thus, by Theorem <a href="introduction-to-statistics.html#thm:pValueConstruction">4.1</a>,<br />
@@ -936,6 +956,7 @@ p(\bar{X})
 where <span class="math inline">\(T\)</span> is a Students-t with <span class="math inline">\(n-1\)</span> degrees of freedom random variable that is independent of <span class="math inline">\(\bar{X}\)</span>.
 </div>
 
+<p><img src="_main_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 </div>
 <div id="likelihood-ratio-tests-lrts" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Likelihood Ratio Tests (LRTs)</h3>
@@ -943,7 +964,7 @@ where <span class="math inline">\(T\)</span> is a Students-t with <span class="m
 can be applied to any parameter <span class="math inline">\(\theta\)</span> of any model <span class="math inline">\(\mathcal{P}_\theta\)</span>.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-110" class="definition"><strong>Definition 4.10  </strong></span>The <strong>likelihood ratio test (LRT) statistic</strong> for testing <span class="math inline">\(H_0\colon \theta\in\Theta_0\subset\Theta\)</span> versus
+<span id="def:unnamed-chunk-112" class="definition"><strong>Definition 4.10  </strong></span>The <strong>likelihood ratio test (LRT) statistic</strong> for testing <span class="math inline">\(H_0\colon \theta\in\Theta_0\subset\Theta\)</span> versus
 <span class="math inline">\(H_1\colon \theta \not\in \Theta_0\)</span> is defined as
 <span class="math display">\[
 \lambda(\bar{x})=\frac{\sup_{\theta\in\Theta_0} L(\theta\vert \bar{x})}{\sup_{\theta\in\Theta} L(\theta\vert\bar{x})}.
@@ -968,7 +989,7 @@ the maximization in the denominator is a global maximization problem.
 </p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-112" class="example"><strong>Example 4.13  (Two-sided Z-test as LRT)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,1)\)</span> distribution. Consider testing
+<p><span id="exm:unnamed-chunk-114" class="example"><strong>Example 4.13  (Two-sided Z-test as LRT)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,1)\)</span> distribution. Consider testing
 <span class="math inline">\(H_0\colon \mu=\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span> (<span class="math inline">\(\mu_0\)</span> is a number fixed by the experimenter
 prior to the experiment). Then, recalling that the MLE for <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\hat{\mu}(\bar{X})=\tilde{X}\)</span>,
 <span class="math display">\[
@@ -998,7 +1019,7 @@ term <span class="math inline">\(-2\log(c)\)</span> varies along <span class="ma
 </p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-113" class="example"><strong>Example 4.14  (Two-Sided T-test as LRT)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution where both <span class="math inline">\(\mu\)</span> and
+<p><span id="exm:unnamed-chunk-115" class="example"><strong>Example 4.14  (Two-Sided T-test as LRT)  </strong></span>Let <span class="math inline">\(\bar{X}=(X_1,\dots,X_n)\)</span> be an i.i.d sample with <span class="math inline">\(normal(\mu,\sigma)\)</span> distribution where both <span class="math inline">\(\mu\)</span> and
 <span class="math inline">\(\sigma\)</span> are unkown and that we are interested in testing <span class="math inline">\(H_0\colon \mu\leq\mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&gt;\mu_0\)</span> (so
 that <span class="math inline">\(\sigma\)</span> is a nuisance parameter).
 Then</p>
