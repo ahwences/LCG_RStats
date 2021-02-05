@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="common-distributions.html"/>
-
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -210,6 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#likelihood-ratio-tests-lrts"><i class="fa fa-check"></i><b>4.3.3</b> Likelihood Ratio Tests (LRTs)</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -231,6 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">4</span> Introduction to Statistics</h1>
 <div id="bigpicture" class="section level2">
 <h2><span class="header-section-number">4.1</span> Big Picture</h2>
+<p>This section is based on <span class="citation">(KASS 2011)</span>.</p>
 <div id="data" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Data</h3>
 <ul>
@@ -273,6 +275,7 @@ the event
 <h2><span class="header-section-number">4.2</span> Likelihood Function and Point Estimation</h2>
 <div id="definition-9" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Definition</h3>
+<p><em>Based on <span class="citation">(Casella and Berger 2002, sec. 6.3.1)</span>.</em></p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-82" class="definition"><strong>Definition 4.1  </strong></span>
@@ -357,6 +360,7 @@ which cannot be seen as the product of two Gamma densities in <span class="math 
 </div>
 <div id="maximum-likelihood-estimator-mle-point-estimate" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Maximum Likelihood Estimator MLE (Point Estimate)</h3>
+<p><em>Based on <span class="citation">(Casella and Berger 2002, sec. 7.1 and 7.2.2)</span>.</em></p>
 <p>The likelihood functions can be used to obtain a <strong>point estimate</strong> that
 typically has very desirable properties.</p>
 
@@ -430,8 +434,7 @@ gained the ability to study the error and/or variance of our estimation.</p>
 <p><br />
 </p>
 <p>For illustration purposes we first show the graph of <span class="math inline">\(L(\bar{x}\vert \mu)\)</span> for a single simulated value of
-<span class="math inline">\(\bar{x}\)</span> with <span class="math inline">\(Normal(\mu=1, \sigma=1)\)</span> distribution
-<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
+<span class="math inline">\(\bar{x}\)</span> with <span class="math inline">\(Normal(\mu=1, \sigma=1)\)</span> distribution<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
 along with the resulting value of the MLE <span class="math inline">\(\hat{\mu}(\bar{x})\)</span> and compare it with the true value of <span class="math inline">\(\mu=1\)</span>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co">## Create (vectorized) likelihood function</span></a>
 <a class="sourceLine" id="cb4-2" title="2">lnorm &lt;-<span class="st"> </span><span class="kw">Vectorize</span>( <span class="dt">FUN =</span> <span class="cf">function</span>(data, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>){</a>
@@ -524,8 +527,7 @@ convergence).
 <a class="sourceLine" id="cb7-12" title="12"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;MLE sample density&quot;</span>, <span class="st">&quot;MLE true density&quot;</span>), <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a>
 <a class="sourceLine" id="cb7-13" title="13"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">mean</span>(mles), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb7-14" title="14"><span class="kw">abline</span>(<span class="dt">v =</span> mu, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" />
-<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" /><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <p>Thus, for example, we may compute the probability that
 <span class="math inline">\(\left\lvert \hat{\mu}(\bar{X}) - \mu \right\rvert&gt; a\)</span> <strong>given</strong> that <span class="math inline">\(\bar{X}\overset{i.i.d}\sim normal(\mu,1)\)</span>
 (i.e. under the model <span class="math inline">\(\mathcal{P}_\mu\)</span>), we have</p>
@@ -537,9 +539,8 @@ convergence).
 \end{align}\]</span>
 observe that in this case the distribution of the distance between the estimator <span class="math inline">\(\hat{\mu}(\bar{X})\)</span> and <span class="math inline">\(\mu\)</span>
 under <span class="math inline">\(\mathcal{P}_{\mu}\)</span> has distribution <span class="math inline">\(normal(0,1/n)\)</span> which does not depend on <span class="math inline">\(\mu\)</span> so that we can
-assure, irrespectively of the true value of <span class="math inline">\(\mu\)</span>, that the distance of our estimator <span class="math inline">\(\hat{\mu}(\bar{x})\)</span>
-and <span class="math inline">\(\mu\)</span> will always be less than <span class="math inline">\(a\)</span> with probability
-<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+assure, irrespectively of the value of <span class="math inline">\(\mu\)</span>, that the distance of our estimator <span class="math inline">\(\hat{\mu}(\bar{x})\)</span>
+and <span class="math inline">\(\mu\)</span> will always be less than <span class="math inline">\(a\)</span> with probability<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 <p><span class="math display">\[
 \int_{-a}^a \sqrt{\frac{n}{2\pi}} e^{-\frac{n x^2}{2}}dx.
 \]</span></p>
@@ -549,6 +550,7 @@ and <span class="math inline">\(\mu\)</span> will always be less than <span clas
 <h2><span class="header-section-number">4.3</span> Hypothesis testing</h2>
 <div id="definition-evaluation-and-power" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Definition, Evaluation, and Power</h3>
+<p><em>Based on <span class="citation">(Casella and Berger 2002, sec. 8.1)</span> for the definition of hypothesis, and <span class="citation">(Casella and Berger 2002, sec. 8.3.1)</span> for their evaluation and the power function.</em></p>
 
 <div class="definition">
 <span id="def:unnamed-chunk-93" class="definition"><strong>Definition 4.3  </strong></span>A <strong>hypothesis</strong> is a statement about a population/model parameter.
@@ -591,8 +593,7 @@ R&amp;=\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \hat{\mu}(\bar{x}) - \mu_0 \rig
 &amp;=\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \tilde{x} - \mu_0 \right\rvert &gt; c_n\}\subset \mathbb{R}^n.
 \end{aligned}
 \]</span></p>
-for some prespecified value of <span class="math inline">\(c_n\)</span>
-<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>, <a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.
+for some prespecified value of <span class="math inline">\(c_n\)</span>,<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
 </div>
 
 
@@ -636,8 +637,7 @@ for some prespecified value of <span class="math inline">\(c_n\)</span>
 
 <p>Now let <span class="math inline">\(\theta\in\Theta_0\)</span> and assume <span class="math inline">\(\bar{X}\sim \mathcal{P}_\theta\)</span>
 (i.e. assume <span class="math inline">\(\theta\)</span> is the true value of the parameter) so that the test will make a mistake, a Type I error,
-if <span class="math inline">\(\bar{X}\in R\)</span> which occurs with probability
-<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+if <span class="math inline">\(\bar{X}\in R\)</span> which occurs with probability<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
 <p><span class="math display">\[\mathbb{P}_\theta(\bar{X}\in R).\]</span>
 Alternatively, if <span class="math inline">\(\theta\in \Theta_0^c\)</span> and we assume <span class="math inline">\(\bar{X}\sim \mathcal{P}_\theta\)</span> then
 the test will make a mistake, a Type II error, if <span class="math inline">\(\bar{X}\in R^c\)</span> which occurs with probability
@@ -650,7 +650,7 @@ of making Type I and II errors, thus calling for the following definition.</p>
 <div class="definition">
 <span id="def:unnamed-chunk-97" class="definition"><strong>Definition 4.7  (Power Function)  </strong></span>The <strong>power function</strong> of a hypothesis test with rejection region <span class="math inline">\(R\subset \mathbb{R}^n\)</span> is the function of <span class="math inline">\(\theta\)</span> defined by
 <span class="math display">\[
-\beta(\theta):=\mathbb{P}_\theta(X\in\ R),.
+\beta(\theta):=\mathbb{P}_\theta(\bar{X}\in\ R),.
 \]</span>
 of course the definition of <span class="math inline">\(\beta\)</span> also depends on the rejection region <span class="math inline">\(R\)</span>, i.e. we have a different power function for each
 decision rule / rejection region <span class="math inline">\(R\)</span>, thus we could write <span class="math inline">\(\beta(\theta, R)\)</span> instead of simply <span class="math inline">\(\beta(\theta)\)</span>. However
@@ -700,7 +700,7 @@ which occurs with probability (see Example <a href="introduction-to-statistics.h
                    e^{-\frac{n(x - \mu)^2}{2}} dx.
 \end{aligned}
 \]</span>
-Now assume we choose <span class="math inline">\(c_n=c\sigma\sqrt{1/n}\)</span> for some <span class="math inline">\(c&gt;0\)</span> <a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> so that, rearranging terms, the rejection region becomes</p>
+Now assume we choose <span class="math inline">\(c_n=c\sigma\sqrt{1/n}\)</span> for some <span class="math inline">\(c&gt;0\)</span><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> so that, rearranging terms, the rejection region becomes</p>
 <p><span class="math display" id="eq:normalTwoSidedRR">\[\begin{align}
 R
 &amp;=\left\{\bar{x}\in\mathbb{R}^n\colon\left\lvert \frac{\tilde{x} - \mu_0}{\sigma/\sqrt{n}} \right\rvert &gt; c\right\}\tag{4.1}\\
@@ -713,7 +713,7 @@ we have that the random variable
 <span class="math display">\[
 Z(\bar{x}):=\frac{\tilde{x} - \mu}{\sigma/\sqrt{n}}
 \]</span>
-(often called the <em>Z-statistic</em>) is <span class="math inline">\(normal(0,1)\)</span> distributed (observe that its distribution does not depend on <span class="math inline">\(\mu\)</span> nor <span class="math inline">\(\sigma\)</span>, nor <span class="math inline">\(n\)</span>), so that the power function becomes <a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
+(often called the <em>Z-statistic</em>) is <span class="math inline">\(normal(0,1)\)</span> distributed (observe that its distribution does not depend on <span class="math inline">\(\mu\)</span> nor <span class="math inline">\(\sigma\)</span>, nor <span class="math inline">\(n\)</span>), so that the power function becomes<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
 <span class="math display">\[
 \begin{aligned}
 \beta(\mu)&amp;=\mathbb{P}_\mu(\bar{X}\in R) \\
@@ -748,7 +748,7 @@ T  :=\frac{\tilde{x} - \mu}{S(\bar{x})/\sqrt{n}}
 (called the <span class="math inline">\(T\)</span>-statistic) we obtain that, under the model <span class="math inline">\(\bar{X}\overset{i.i.d}{\sim}normal(\mu,\sigma)\)</span>,
 <span class="math inline">\(T\)</span> has Students-t distribution with <span class="math inline">\(n-1\)</span> degrees of freedom (see Section <a href="common-distributions.html#normalDistribution">3.8</a> and also
 observe that its distribution no longer depends on <span class="math inline">\(\mu\)</span> nor on <span class="math inline">\(\sigma\)</span> but does depend on the sample size <span class="math inline">\(n\)</span>)
-and the corresponding power function <span class="math inline">\(\beta(\mu)\)</span> is given by <a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>
+and the corresponding power function <span class="math inline">\(\beta(\mu)\)</span> is given by<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>
 <span class="math display">\[\begin{align}
 \beta(\mu)&amp;=\mathbb{P}_\mu(\bar{X}\in R) \\
 &amp;=\mathbb{P}\left( T(\bar{X}) \in \left[-c + \frac{\mu_0 - \mu}{S(\bar{X})/\sqrt{n}}, c + \frac{\mu_0 - \mu}{S(\bar{X})/\sqrt{n}}\right]^c\right)\\
@@ -757,8 +757,7 @@ and the corresponding power function <span class="math inline">\(\beta(\mu)\)</s
 </div>
 
 <p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" />
-<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" /><a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
 
 <div class="definition">
 <p><span id="def:unnamed-chunk-102" class="definition"><strong>Definition 4.8  </strong></span><br />
@@ -810,9 +809,32 @@ we obtain a size <span class="math inline">\(\alpha\)</span> test.
 </div>
 
 <p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
-<p>Note how, for any non-trivial value of <span class="math inline">\(\alpha\)</span>, the function <span class="math inline">\(\beta(\mu)\)</span> tends to <span class="math inline">\(0\)</span> for <span class="math inline">\(\mu\leq\mu_0\)</span>
-and tends to 1 for <span class="math inline">\(\mu&gt;\mu_0\)</span>. What would
-you expect to be the shape of <span class="math inline">\(\beta(\mu)\)</span>
+<p>Each line in the graph above corresponds to the power function of a test with rejection region
+<span class="math display">\[
+R_\alpha=\left\{\bar{x}\in\mathbb{R}^n\colon \frac{\tilde{x} - \mu_0}{\sigma/\sqrt{n}} &gt; c_\alpha\right\}
+\]</span>
+where <span class="math inline">\(c_\alpha\)</span> is chosen so that
+<span class="math display">\[
+\sup_{\mu\leq \mu_0} \beta(\mu) = \mathbb{P}\left(Z &gt;  c_\alpha\right) \leq \alpha;
+\]</span>
+i.e. for each value of <span class="math inline">\(\alpha\)</span> we find an appropriate constant <span class="math inline">\(c_\alpha\)</span> such that the resulting test with rejection
+<span class="math inline">\(R_\alpha\)</span> is a <span class="math inline">\(\alpha\)</span>-level test, so that the probability of making a Type I error is assured to be less than <span class="math inline">\(\alpha\)</span>
+irrespective of the value of <span class="math inline">\(\mu\)</span>.</p>
+<p><br />
+</p>
+<p>Note how, for any non-trivial value of <span class="math inline">\(\alpha\)</span>, the function <span class="math inline">\(\beta(\mu)\)</span> tends to <span class="math inline">\(0\)</span> for <span class="math inline">\(\mu\leq\mu_0\)</span>,
+so that <span class="math inline">\(\mathbb{P}_\mu(\text{Type I error})=\beta(\mu)\)</span> tends to zero as <span class="math inline">\(\mu\to-\infty\)</span>,
+and tends to 1 for <span class="math inline">\(\mu&gt;\mu_0\)</span>, so that <span class="math inline">\(\mathbb{P}_\mu(\text{Type II error})=1-\beta(\mu)\)</span> tends to zero as <span class="math inline">\(\mu\to\infty\)</span>. Note
+that this shape is consisten across different choices of <span class="math inline">\(\alpha\)</span>, but that for small <span class="math inline">\(\alpha\)</span> the maximum value
+of <span class="math inline">\(1-\beta(\mu)\)</span> in the range <span class="math inline">\((\mu_0,\infty]\)</span> is larger than the corresponding maximum value for large choices of <span class="math inline">\(\alpha\)</span>,
+this is saying that having a tight control over Type I error probabilities (i.e. small choices of <span class="math inline">\(\alpha\)</span>) comes
+with the cost of allowing for large Type II error probabilities <span class="math inline">\((1-\beta(\mu))\)</span>; and vice versa, large values of
+<span class="math inline">\(\alpha\)</span> allow for larger values of <span class="math inline">\(\beta(\mu)\)</span> on the range <span class="math inline">\((-\infty, \mu_0]\)</span> thus allowing for larger
+Type I error probabilities, but with the gain of allowing smaller values of <span class="math inline">\(1-\beta(\mu)\)</span>, i.e. smaller Type II error
+probabilities.</p>
+<p><br />
+</p>
+<p>What would you expect to be the shape of <span class="math inline">\(\beta(\mu)\)</span>
 if we were proving the hypothesis <span class="math inline">\(H_0\colon\mu\geq \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu&lt;\mu_0\)</span> instead, and
 for the hypothesis <span class="math inline">\(H_0\colon\mu = \mu_0\)</span> VS <span class="math inline">\(H_1\colon\mu\neq\mu_0\)</span>?</p>
 
@@ -838,12 +860,18 @@ so that
 <span class="math display">\[
 \sup_{\mu\leq \mu_0} \beta(\mu) = \mathbb{P}\left(\left\lvert T \right\rvert &gt;  c\right).
 \]</span>
-Thus, choosing <span class="math inline">\(c\)</span> so that <span class="math inline">\(\mathbb{P}\left(T &gt; c\right)=\alpha\)</span>,
+Thus, choosing <span class="math inline">\(c\)</span> so that <span class="math inline">\(\mathbb{P}\left(\left\lvert T \right\rvert &gt; c\right)=\alpha\)</span>,
 i.e. if we choose <span class="math inline">\(c\)</span> to be the <span class="math inline">\(\alpha/2\)</span>-quantile of the <span class="math inline">\(n-1\)</span> degrees of freedom t-distribution then,
 by the symmetry of the t-distribution and considering both tails, we obtain a size <span class="math inline">\(\alpha\)</span> test.
 </div>
 
 <p><img src="_main_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p>Observe how <span class="math inline">\(\beta(\mu)\)</span> has the correct shape, how when <span class="math inline">\(\mu=\mu_0\)</span> we have that <span class="math inline">\(\mathbb{P}_{\mu}(\text{Type I error})=\beta(\mu)\)</span>
+is close to 0, whereas for <span class="math inline">\(\mu\neq\mu_0\)</span> we have that <span class="math inline">\(\mathbb{P}_{\mu}(\text{Type II error})=1-\beta(\mu_0)\)</span> is close to 0, and
+in fact becomes increasingly closer to <span class="math inline">\(0\)</span> as <span class="math inline">\(\left\lvert \mu-\mu_0 \right\rvert\)</span> becomes larger.
+Again note how this behaviour is consistent along different choices of the level <span class="math inline">\(\alpha\)</span>,
+and of course when <span class="math inline">\(\alpha\)</span> is small we allow for smaller Type I error probabilities but larger Type II error probabilities,
+whereas for large <span class="math inline">\(\alpha\)</span> we allow for smaller Type II error probabilities but large Type I error probabilities.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
 <p>Observe how increasing the sample size <span class="math inline">\(n\)</span> allows for the construction of level <span class="math inline">\(\alpha\)</span> tests with lower Type II error
 probabilities, see how the power function becomes close to 1 for values away from <span class="math inline">\(\mu_0\)</span> and that this is ‘faster’
@@ -853,6 +881,7 @@ sample size <span class="math inline">\(n=2\)</span>. For <span class="math inli
 </div>
 <div id="p-values" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> p-Values</h3>
+<p><em>Based on <span class="citation">(Casella and Berger 2002, sec. 8.3.4)</span>, specifically Def. 8.3.26, Thm. 8.3.27, and Exms. 8.3.28 and 8.3.29.</em></p>
 <p>After a hypothesis test is done, results must be reported in a statistically meaningful way. One method is to simply
 report the size <span class="math inline">\(\alpha\)</span> of the test. If <span class="math inline">\(\alpha\)</span> is small, the decision to reject <span class="math inline">\(H_0\)</span> is fairly convincing.
 A p-value <span class="math inline">\(p(\bar{X})\)</span> reports the results of a test in a more continuous scale, rather than just the dichotomous decision
@@ -960,6 +989,7 @@ where <span class="math inline">\(T\)</span> is a Students-t with <span class="m
 </div>
 <div id="likelihood-ratio-tests-lrts" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Likelihood Ratio Tests (LRTs)</h3>
+<p><em>Based on <span class="citation">(Casella and Berger 2002 Sec. 8.2.1)</span>, specifically Def. 8.2.1, Exms. 8.2.2 and 8.2.6.</em></p>
 <p>In this section we introduce a general theoretical framework for the construction of the rejection region <span class="math inline">\(R\)</span> which
 can be applied to any parameter <span class="math inline">\(\theta\)</span> of any model <span class="math inline">\(\mathcal{P}_\theta\)</span>.</p>
 
@@ -1057,107 +1087,6 @@ which has Student’s-t distribution with <span class="math inline">\(n-1\)</spa
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="footnotes">
 <hr />
 <ol start="4">
@@ -1211,8 +1140,8 @@ which is the one that truly interests us.<a href="introduction-to-statistics.htm
           </div>
         </div>
       </div>
-<a href="common-distributions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="common-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
